@@ -10,6 +10,7 @@ gulp.task('copy', function () {
     // AdminLTE
     gulp.src("vendor/bower/admin-lte/dist/css/AdminLTE.min.css").pipe(gulp.dest("resources/assets/css/"));
     gulp.src("vendor/bower/admin-lte/dist/css/skins/skin-blue.min.css").pipe(gulp.dest("resources/assets/css/"));
+    gulp.src("vendor/bower/admin-lte/dist/css/skins/_all-skins.min.css").pipe(gulp.dest("resources/assets/css/"));
     gulp.src("vendor/bower/admin-lte/dist/js/adminlte.min.js").pipe(gulp.dest("resources/assets/js/"));
     gulp.src("vendor/bower/admin-lte/dist/img/*").pipe(gulp.dest("public/assets/admin/img/"));
     // FontAwesome
@@ -32,6 +33,8 @@ gulp.task('copy', function () {
     // pace
     gulp.src("vendor/bower/admin-lte/plugins/pace/pace.min.css").pipe(gulp.dest("resources/assets/css/"));
     gulp.src("vendor/bower/admin-lte/plugins/pace/pace.min.js").pipe(gulp.dest("resources/assets/js/"));
+    // fastclick
+    gulp.src("vendor/bower/fastclick/lib/fastclick.js").pipe(gulp.dest("resources/assets/js/"));
 });
 // 合并js
 elixir(function (mix) {
@@ -43,7 +46,8 @@ elixir(function (mix) {
         'jquery.slimscroll.min.js',
         'icheck.min.js',
         'select2.full.min.js',
-        'select2.min.js'
+        'select2.min.js',
+        'fastclick.js'
     ], 'public/assets/admin/js/app.js');
 });
 // 合并css
@@ -53,6 +57,7 @@ elixir(function (mix) {
         'pace.min.css',
         'select2.min.css',
         'AdminLTE.min.css',
+        '_all-skins.min.css',
         'skin-blue.min.css',
         'font-awesome.min.css',
         'ionicons.min.css',
