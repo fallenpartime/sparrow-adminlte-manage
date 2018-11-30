@@ -23,7 +23,11 @@
             "database/factories"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Admin\\": "admin/",
+            "Common\\": "common/",
+            "Frameworks\\": "frameworks/",
+            "Wechat\\": "wechat/"
         }
     },
     "autoload-dev": {
