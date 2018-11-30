@@ -36,7 +36,7 @@ gulp.task('copy', function () {
     // fastclick
     gulp.src("vendor/bower/fastclick/lib/fastclick.js").pipe(gulp.dest("resources/assets/js/"));
     // demo
-    gulp.src("vendor/bower/admin-lte/dist/js/demo.js").pipe(gulp.dest("public/assets/admin/js/"));
+    gulp.src("vendor/bower/admin-lte/dist/js/demo.js").pipe(gulp.dest("resources/assets/js/"));
 });
 // 合并js
 elixir(function (mix) {
