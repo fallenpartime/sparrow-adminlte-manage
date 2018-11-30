@@ -6,7 +6,7 @@
     "jiaolongtian <haiyan.xu.vip@gmail.com>"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/fallenpartime/sparrow-adminlte-manage",
   "ignore": [
     "**/.*",
     "node_modules",
