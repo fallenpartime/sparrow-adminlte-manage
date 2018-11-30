@@ -14,6 +14,7 @@ class BaseAction
     protected $request = null;
     protected $httpTool = null;
     protected $authService = null;
+    protected $logService = null;
 
     public function __construct(Request $request)
     {
