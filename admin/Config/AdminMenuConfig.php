@@ -8,7 +8,6 @@ namespace Admin\Config;
 
 class AdminMenuConfig
 {
-
     public static function menuList()
     {
         return [
