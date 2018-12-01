@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
+require __DIR__.'/admin/demo.php';
+require __DIR__.'/admin/basic.php';

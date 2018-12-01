@@ -15,7 +15,7 @@ gulp.task('copy', function () {
     gulp.src("vendor/bower/admin-lte/dist/img/*").pipe(gulp.dest("public/assets/admin/img/"));
     // FontAwesome
     gulp.src("vendor/bower/font-awesome/css/font-awesome.min.css").pipe(gulp.dest("resources/assets/css/"));
-    gulp.src("vendor/bower/admin-lte/fonts/*").pipe(gulp.dest("public/assets/admin/fonts/"));
+    gulp.src("vendor/bower/font-awesome/fonts/*").pipe(gulp.dest("public/assets/admin/fonts/"));
     // Ion-icons
     gulp.src("vendor/bower/Ionicons/css/ionicons.min.css").pipe(gulp.dest("resources/assets/css/"));
     gulp.src("vendor/bower/Ionicons/fonts/*").pipe(gulp.dest("public/assets/admin/fonts/"));

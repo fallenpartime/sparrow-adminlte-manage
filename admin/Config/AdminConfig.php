@@ -8,17 +8,12 @@ namespace Admin\Config;
 
 class AdminConfig
 {
+    const ADMIN_INFO = 'admin_info';
+    const ADMIN_TS_LIST = 'ts_list';
+
     public static function indexUrlList()
     {
         return [
-            'news'          => ['title'=>'教育快讯列表', 'url'=>route('news')],
-            'exams'         => ['title'=>'中高考政策列表', 'url'=>route('exams')],
-            'practices'     => ['title'=>'社会实践记录列表', 'url'=>route('practices')],
-            'techings'      => ['title'=>'教研活动列表', 'url'=>route('techings')],
-            'polls'         => ['title'=>'网络投票活动列表', 'url'=>route('polls')],
-            'admonitions'   => ['title'=>'师生互动消息列表', 'url'=>route('admonitions')],
-            'districts'     => ['title'=>'学区列表', 'url'=>route('districts')],
-            'schools'       => ['title'=>'学校列表', 'url'=>route('schools')],
             'owners'        => ['title'=>'管理员列表', 'url'=>route('owners')],
         ];
     }

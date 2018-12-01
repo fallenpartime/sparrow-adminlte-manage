@@ -30,6 +30,7 @@
         "psr-4": {
             "App\\": "app/",
             "Admin\\": "admin/",
+            "Site\\": "site/",
             "Common\\": "common/",
             "Frameworks\\": "frameworks/",
             "Wechat\\": "wechat/"
