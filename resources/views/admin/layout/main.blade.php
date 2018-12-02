@@ -25,7 +25,6 @@
 </head>
 <!-- ADD THE CLASS sidebar-collapse TO HIDE THE SIDEBAR PRIOR TO LOADING THE SITE -->
 <body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
-<!-- Site wrapper -->
 <div class="wrapper">
     @include('admin.layout.header')
     @include('admin.layout.sidebar')
@@ -36,7 +35,7 @@
                 <small>{{ $smallTitle }}</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="#">Tables</a></li>
                 <li class="active">Data tables</li>
             </ol>
@@ -47,7 +46,6 @@
         </section>
         <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
     <footer class="main-footer">
     </footer>
     <div class="control-sidebar-bg"></div>
