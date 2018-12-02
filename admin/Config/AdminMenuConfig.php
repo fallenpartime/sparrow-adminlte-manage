@@ -11,22 +11,6 @@ class AdminMenuConfig
     public static function menuList()
     {
         return [
-            'articleCenter'  =>  [
-                'newsManage'  =>  '',
-                'examManage'  =>  '',
-                'practiceManage'    =>  '',
-                'techingManage'     =>  '',
-            ],
-            'activityCenter'  =>  [
-                'pollManage'  =>  '',
-            ],
-            'interactCenter'  =>  [
-                'admonitionManage'  =>  '',
-            ],
-            'schoolCenter'  =>  [
-                'schoolDistrictManage'  =>  '',
-                'schoolManage'          =>  '',
-            ],
             'manageCenter'  =>  [
                 'ownerManage'       =>  '',
                 'groupManage'       =>  '',
@@ -40,47 +24,6 @@ class AdminMenuConfig
     public static function children()
     {
         return [
-            'articleCenter' =>  [
-                'newsManage'    =>  [
-                    'news'              =>  route('news'),
-                    'articleNewsInfo'   =>  route('articleNewsInfo'),
-                ],
-                'examManage'    =>  [
-                    'exams'             =>  route('exams'),
-                    'articleExamInfo'   =>  route('articleExamInfo'),
-                ],
-                'practiceManage'    =>  [
-                    'practices'             =>  route('practices'),
-                    'articlePracticeInfo'   =>  route('articlePracticeInfo'),
-                ],
-                'techingManage'     =>  [
-                    'techings'              =>  route('techings'),
-                    'articleTechingInfo'    =>  route('articleTechingInfo'),
-                ],
-            ],
-            'activityCenter'  =>  [
-                'pollManage'  =>  [
-                    'polls'                 =>  route('polls'),
-                    'activityPollInfo'      =>  route('activityPollInfo'),
-                    'activityPollQuestions'     =>  route('activityPollQuestions'),
-                    'activityPollQuestionInfo'  =>  route('activityPollQuestionInfo'),
-                ],
-            ],
-            'interactCenter'  =>  [
-                'admonitionManage'      =>  [
-                    'admonitions'       =>  route('admonitions'),
-                ],
-            ],
-            'schoolCenter'  =>  [
-                'schoolDistrictManage'  =>  [
-                    'districts'     =>  route('districts'),
-                    'districtInfo'  =>  route('districtInfo')
-                ],
-                'schoolManage'          =>  [
-                    'schools'     =>  route('schools'),
-                    'schoolInfo'  =>  route('schoolInfo')
-                ],
-            ],
             'manageCenter'  =>  [
                 'ownerManage'   =>  [
                     'owners'            =>  route('owners'),

@@ -35,6 +35,10 @@ gulp.task('copy', function () {
     gulp.src("vendor/bower/admin-lte/plugins/pace/pace.min.js").pipe(gulp.dest("resources/assets/js/"));
     // fastclick
     gulp.src("vendor/bower/fastclick/lib/fastclick.js").pipe(gulp.dest("resources/assets/js/"));
+    // data
+    gulp.src("vendor/bower/datatables.net-bs/css/dataTables.bootstrap.min.css").pipe(gulp.dest("public/assets/admin/css/"));
+    gulp.src("vendor/bower/datatables.net/js/jquery.dataTables.min.js").pipe(gulp.dest("resources/assets/js/"));
+    gulp.src("vendor/bower/datatables.net-bs/js/dataTables.bootstrap.min.js").pipe(gulp.dest("resources/assets/js/"));
     // demo
     gulp.src("vendor/bower/admin-lte/dist/js/demo.js").pipe(gulp.dest("resources/assets/js/"));
 });
@@ -50,7 +54,11 @@ elixir(function (mix) {
         'select2.full.min.js',
         'select2.min.js',
         'fastclick.js'
-    ], 'public/assets/admin/js/app.js');
+    ], 'public/assets/admin/js/app.js')
+    .scripts([
+        'jquery.dataTables.min.js',
+        'dataTables.bootstrap.min.js'
+    ], 'public/assets/admin/js/table.js');
 });
 // 合并css
 elixir(function (mix) {
