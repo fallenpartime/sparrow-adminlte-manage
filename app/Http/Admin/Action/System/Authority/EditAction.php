@@ -55,9 +55,9 @@ class EditAction extends BaseAction
         if (!empty($authorization)) {
             $parentId = $authorization->parent_id;
             $type = $authorization->type;
-            if($type == 2){
+            if ($type == 2) {
                 $firstId = $parentId;
-            }else if($type == 3){
+            } else if($type == 3) {
                 $parentAuth = AdminAction::find($parentId);
                 if (!empty($parentAuth) && $parentAuth->type == 2) {
                     $secondId = $parentId;
