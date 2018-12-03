@@ -9,6 +9,7 @@ namespace App\Http\Admin\Action\System\Authority;
 use Admin\Action\BaseAction;
 use Admin\Config\AdminMenuConfig;
 use Admin\Config\RouteConfig;
+use Admin\Config\ViewConfig;
 use Admin\Services\Authority\AuthorityService;
 use Common\Models\System\AdminAction;
 use Frameworks\Tool\Http\Config\HttpConfig;
@@ -46,7 +47,7 @@ class EditAction extends BaseAction
             'actionUrl'     => route(RouteConfig::ROUTE_AUTHORITY_EDIT),
             'redirectUrl'   => route(RouteConfig::ROUTE_AUTHORITY_LIST),
         ];
-        return $this->createView('admin.system.authority.detail', $result);
+        return $this->createView(ViewConfig::AUTHORITY_EDIT, $result);
     }
 
     private function getParentId($authorization)

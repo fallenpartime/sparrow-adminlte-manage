@@ -13,4 +13,5 @@ class ViewConfig
     // 权限
     const AUTHORITY_LIST = 'admin.system.authority.index';
     const AUTHORITY_CREATE = 'admin.system.authority.create';
+    const AUTHORITY_EDIT = 'admin.system.authority.edit';
 }
