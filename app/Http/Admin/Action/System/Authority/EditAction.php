@@ -11,11 +11,15 @@ use Admin\Config\AdminMenuConfig;
 use Admin\Config\RouteConfig;
 use Admin\Config\ViewConfig;
 use Admin\Services\Authority\AuthorityService;
+use Admin\Services\Authority\Processor\AdminActionProcessor;
 use Common\Models\System\AdminAction;
 use Frameworks\Tool\Http\Config\HttpConfig;
+use Frameworks\Traits\ApiActionTrait;
 
 class EditAction extends BaseAction
 {
+    use ApiActionTrait;
+
     protected $record = [];
 
     public function run()
@@ -41,8 +45,9 @@ class EditAction extends BaseAction
             'first_menu'    => $firstId,
             'second_menu'   => $secondId,
             'menu'  =>  [
-                AdminMenuConfig::MENU_MANAGE_CENTER => ['tag' => AdminMenuConfig::MENU_MANAGE_CENTER, 'title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_CENTER), 'url' => '', 'active' => 0],
-                AdminMenuConfig::MENU_MANAGE_AUTHORITY => ['tag' => AdminMenuConfig::MENU_MANAGE_AUTHORITY, 'title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_AUTHORITY), 'url' => '', 'active' => 0],
+                ['tag' => AdminMenuConfig::MENU_MANAGE_CENTER, 'title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_CENTER), 'url' => '', 'active' => 0],
+                ['tag' => AdminMenuConfig::MENU_MANAGE_AUTHORITY, 'title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_AUTHORITY), 'url' => '', 'active' => 0],
+                ['tag' => RouteConfig::ROUTE_AUTHORITY_EDIT, 'title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_AUTHORITY_EDIT), 'url' => '', 'active' => 1],
             ],
             'actionUrl'     => route(RouteConfig::ROUTE_AUTHORITY_EDIT),
             'redirectUrl'   => route(RouteConfig::ROUTE_AUTHORITY_LIST),
@@ -74,6 +79,66 @@ class EditAction extends BaseAction
 
     protected function process()
     {
+        $httpTool = $this->getHttpTool();
+        $id = $httpTool->getBothSafeParam('id', HttpConfig::PARAM_NUMBER_TYPE);
+        $first_id = $httpTool->getBothSafeParam('first_menu', HttpConfig::PARAM_NUMBER_TYPE);
+        $second_id = $httpTool->getBothSafeParam('second_menu', HttpConfig::PARAM_NUMBER_TYPE);
+        $second_id = !empty($first_id)? $second_id: 0;
+        $tsName = $httpTool->getBothSafeParam('ts_name');
+        $tsAction = trim($_REQUEST['ts_action']);
+        $type = $httpTool->getBothSafeParam('type', HttpConfig::PARAM_NUMBER_TYPE);
+        $record = $this->record;
+        if (!empty($id)) {
+            if (empty($record)) {
+                $this->errorJson(500, '修改权限不存在');
+            }
+        }
+        if (empty($tsName) || empty($tsAction) || empty($type)) {
+            $this->errorJson(500, '缺少权限主要信息');
+        }
+        if ($first_id) {
+            if ($second_id) {
+                if ($type != 3) {
+                    $this->errorJson(500, '请选择操作权限');
+                }
+            } else {
+                if ($type != 2) {
+                    $this->errorJson(500, '请选择二级权限');
+                }
+            }
+        } elseif ($type != 1) {
+            $this->errorJson(500, '请选择一级权限');
+        }
+        if($second_id){
+            $parent_id = $second_id;
+        }else{
+            $parent_id = $first_id? $first_id: 0;
+        }
+        $data = [
+            'parent_id' =>  $parent_id,
+            'type'      =>  $type,
+            'ts_action' =>  $tsAction,
+            'name'      =>  $tsName,
+        ];
+        list($res, $id) = $this->update($data);
+        if ($res) {
+            $this->successJson();
+        }
+        $this->errorJson(500, '提交失败');
+    }
 
+    protected function update($data)
+    {
+        $processor = new AdminActionProcessor();
+        $actionRecord = $processor->getSingleByAction($data['ts_action']);
+        if (!empty($actionRecord) && $actionRecord->id != $this->record->id) {
+            $this->errorJson(500, '权限标示已存在');
+        }
+        $nameRecord = $processor->getSingleByName($data['name']);
+        if (!empty($nameRecord) && $actionRecord->id != $this->record->id) {
+            $this->errorJson(500, '权限名已存在');
+        }
+        $this->getLogTool()->_init($this->getAuthService()->getAdminInfo())->adminLog(11, $this->record->id, '编辑权限');
+        return $processor->update($this->record->id, $data);
     }
 }

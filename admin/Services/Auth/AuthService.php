@@ -55,9 +55,11 @@ class AuthService
                 'userid' 	=> 1,
                 'username'	=> 'adminc',
                 'role_id'	=> 1,
+                'role_name'	=> '管理员',
                 'group_list'    => ['1'=>['no'=>1, 'is_leader'=>0]],
                 'is_manager'    => 1,
                 'is_super'  => 1,
+                'created_at'    =>  date('Y-m-d')
             );
         }
         $this->isMaster = $this->adminInfo['is_manager'];

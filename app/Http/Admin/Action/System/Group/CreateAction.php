@@ -4,7 +4,7 @@
  * Date: 2018/12/1
  * Time: 22:38
  */
-namespace App\Http\Admin\Action\System\Authority;
+namespace App\Http\Admin\Action\System\Group;
 
 use Admin\Action\BaseAction;
 

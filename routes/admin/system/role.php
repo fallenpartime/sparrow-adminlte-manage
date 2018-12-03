@@ -9,7 +9,7 @@ Route::middleware(['web', 'admin.action.auth'])->group(function () {
     Route::match(['get', 'post'], '/admin/system/role/create', [
         'uses' => '\App\Http\Admin\Controllers\System\RoleController@create'
     ])->name('admin.system.role.create');
-    Route::match(['get', 'post'], '/admin/system/role/{id}', [
+    Route::match(['get', 'post'], '/admin/system/role/edit', [
         'uses' => '\App\Http\Admin\Controllers\System\RoleController@edit'
     ])->name('admin.system.role.edit');
 });

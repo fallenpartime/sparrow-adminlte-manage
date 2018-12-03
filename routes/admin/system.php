@@ -15,3 +15,5 @@ require __DIR__.'/system/group.php';
 require __DIR__.'/system/role.php';
 // 管理员路由
 require __DIR__.'/system/owner.php';
+// 分组路由
+require __DIR__.'/system/log.php';

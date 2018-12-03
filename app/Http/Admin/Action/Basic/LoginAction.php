@@ -103,9 +103,11 @@ class LoginAction extends BaseAction
                     'userid' 	=> $userId,
                     'username'	=> $name,
                     'role_id'	=> $roleId,
+                    'role_name'	=> !empty($owner->role)? $owner->role->name: '',
                     'group_list'    => $groupList,
                     'is_manager'    => $isManger,
                     'is_super'  => $isSuper,
+                    'create_at' => $owner->created_at
                 );
                 $httpTool->setSession(AdminConfig::ADMIN_INFO, $admin_info);
                 $httpTool->setSession(AdminConfig::ADMIN_TS_LIST, $ts_list);

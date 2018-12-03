@@ -9,6 +9,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="/assets/admin/css/app.css">
     <script src="/assets/admin/js/app.js"></script>
+    @yield('other_resource')
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -26,18 +27,17 @@
 <!-- ADD THE CLASS sidebar-collapse TO HIDE THE SIDEBAR PRIOR TO LOADING THE SITE -->
 <body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
 <div class="wrapper">
-    @include('admin.layout.header')
-    @include('admin.layout.sidebar')
+    @include('admin.layouts.header', ['admin_info'=>$admin_info])
+    @include('admin.layouts.sidebar', ['admin_info'=>$admin_info, 'ts_list'=>$ts_list, 'menu'=>$menu])
     <div class="content-wrapper">
         <section class="content-header">
-            <h1>
-                {{ $headerTitle }}
-                <small>{{ $smallTitle }}</small>
-            </h1>
+            <h1><small></small></h1>
             <ol class="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Tables</a></li>
-                <li class="active">Data tables</li>
+                @if(!empty($menu))
+                    @foreach($menu as $headerMenuItem)
+                        @if($headerMenuItem['active'])<li class="active">{{ $headerMenuItem['title'] }}</li>@else<li><a href="@if($headerMenuItem['url']){{ $headerMenuItem['url'] }}@else#@endif">{{ $headerMenuItem['title'] }}</a></li>@endif
+                    @endforeach
+                @endif
             </ol>
         </section>
         <!-- Main content -->

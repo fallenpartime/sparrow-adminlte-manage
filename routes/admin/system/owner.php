@@ -9,7 +9,7 @@ Route::middleware(['web', 'admin.action.auth'])->group(function () {
     Route::match(['get', 'post'], '/admin/system/owner/create', [
         'uses' => '\App\Http\Admin\Controllers\System\OwnerController@create'
     ])->name('admin.system.owner.create');
-    Route::match(['get', 'post'], '/admin/system/owner/{id}', [
+    Route::match(['get', 'post'], '/admin/system/owner/edit', [
         'uses' => '\App\Http\Admin\Controllers\System\OwnerController@edit'
     ])->name('admin.system.owner.edit');
 });
