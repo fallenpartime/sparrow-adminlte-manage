@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 require __DIR__.'/admin/demo.php';
 require __DIR__.'/admin/basic.php';
+require __DIR__.'/admin/system.php';

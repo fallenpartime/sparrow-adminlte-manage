@@ -1,14 +1,14 @@
 <?php
 /**
- * 首页
- * Date: 2018/12/1
- * Time: 18:10
+ * 系统登录跳转首页
+ * Date: 2018/12/3
+ * Time: 10:26
  */
-namespace App\Http\Admin\Action\Basic;
+namespace App\Http\Admin\Action\System;
 
 use Admin\Action\BaseAction;
 
-class ReplyAction extends BaseAction
+class IndexAction extends BaseAction
 {
     public function run()
     {

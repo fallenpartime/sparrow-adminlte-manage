@@ -6,6 +6,7 @@
  */
 namespace Admin\Services\Authority\Integration;
 
+use Admin\Config\RouteConfig;
 use Common\Models\System\AdminAction;
 use Frameworks\Services\Basic\Processor\BaseWorkProcessor;
 
@@ -29,7 +30,7 @@ class RelateAuthoritiesIntegration extends BaseWorkProcessor
             $menuId = $menu->id;
             $menuType = $menu->type;
             if ($this->withUrl) {
-                $menu->edit_url = route('authorityInfo', ['id'=>$menuId]);
+                $menu->edit_url = route(RouteConfig::ROUTE_AUTHORITY_EDIT, ['id'=>$menuId]);
             }
             if ($menuType == 1) {
                 $mainMenuList[$menuId] = ['menu'=>$menu, 'length'=>0, 'list'=>[]];

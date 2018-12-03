@@ -7,6 +7,7 @@
 namespace Admin\Tool;
 
 use Admin\Services\Auth\AuthService;
+use Admin\Services\Log\LogService;
 
 class LogTool
 {
@@ -41,7 +42,7 @@ class LogTool
      */
     public function operateLog($operateType, $objectId, $memo = '')
     {
-
+        LogService::operateLog($this->request, $operateType, $objectId, $memo, $this->adminInfo);
     }
 
     /**
@@ -52,6 +53,6 @@ class LogTool
      */
     public function adminLog($operateType, $objectId, $memo = '')
     {
-
+        LogService::adminLog($this->request, $operateType, $objectId, $memo, $this->adminInfo);
     }
 }

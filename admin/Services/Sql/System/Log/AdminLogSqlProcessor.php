@@ -6,8 +6,8 @@
  */
 namespace Admin\Services\Sql\System\Log;
 
+use Frameworks\Services\Basic\Processor\BaseSqlDelegation;
 use Frameworks\Services\Basic\Processor\BaseSqlProcessor;
-use Admin\Services\Sql\BaseSqlDelegation;
 
 class AdminLogSqlProcessor extends BaseSqlProcessor implements BaseSqlDelegation
 {

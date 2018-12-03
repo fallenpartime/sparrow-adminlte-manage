@@ -11,10 +11,15 @@ class AdminConfig
     const ADMIN_INFO = 'admin_info';
     const ADMIN_TS_LIST = 'ts_list';
 
+    public static function getAnalogAdminLogin()
+    {
+        return env('ANALOG_ADMIN_LOGIN', 0);
+    }
+
     public static function indexUrlList()
     {
         return [
-            'owners'        => ['title'=>'管理员列表', 'url'=>route('owners')],
+            'owners'        => ['title'=>'管理员列表', 'url'=>route(RouteConfig::ROUTE_OWNER_LIST)],
         ];
     }
 
@@ -22,10 +27,10 @@ class AdminConfig
     {
         $indexUrls = self::indexUrlList();
         if (empty($indexTag)) {
-            $indexTag = 'index';
+            $indexTag = RouteConfig::ROUTE_INDEX;
         }
         if (!array_key_exists($indexTag, $indexUrls)) {
-            $indexTag = 'index';
+            $indexTag = RouteConfig::ROUTE_INDEX;
         }
         return $indexUrls[$indexTag][$columnName];
     }

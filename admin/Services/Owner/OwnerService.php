@@ -4,11 +4,11 @@
  * Date: 2018/10/23
  * Time: 14:43
  */
-namespace Admin\Services\Master;
+namespace Admin\Services\Owner;
 
 use Common\Models\System\AdminUser;
 
-class MasterService
+class OwnerService
 {
     /**
      * 管理员列表

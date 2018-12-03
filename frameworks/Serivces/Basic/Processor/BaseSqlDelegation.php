@@ -4,7 +4,7 @@
  * Date: 2018/10/7
  * Time: 20:06
  */
-namespace Admin\Services\Sql;
+namespace Frameworks\Services\Basic\Processor;
 
 interface BaseSqlDelegation
 {

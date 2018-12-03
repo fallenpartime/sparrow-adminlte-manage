@@ -7,6 +7,7 @@
 namespace Admin\Services\Auth;
 
 use Admin\Config\AdminConfig;
+use Admin\Config\RouteConfig;
 use Frameworks\Tool\CompareTool;
 use Frameworks\Tool\Http\SessionTool;
 use Illuminate\Http\Request;
@@ -48,6 +49,17 @@ class AuthService
     protected function initAdminInfo()
     {
         $this->adminInfo = $this->session->get(AdminConfig::ADMIN_INFO);
+        if (AdminConfig::getAnalogAdminLogin() && empty($this->adminInfo)) {
+            // TODO: 测试环境
+            $this->adminInfo = array(
+                'userid' 	=> 1,
+                'username'	=> 'adminc',
+                'role_id'	=> 1,
+                'group_list'    => ['1'=>['no'=>1, 'is_leader'=>0]],
+                'is_manager'    => 1,
+                'is_super'  => 1,
+            );
+        }
         $this->isMaster = $this->adminInfo['is_manager'];
         $this->isSuper = $this->adminInfo['is_super'];
     }
@@ -70,7 +82,7 @@ class AuthService
     public function validateLogin()
     {
         $loginStatus = false;
-        $redirectUrl = route('admin.login');
+        $redirectUrl = route(RouteConfig::ROUTE_LOGIN);
         if (!empty($this->adminInfo)) {
             $loginStatus = true;
         } else {
@@ -87,9 +99,13 @@ class AuthService
 
     public function validateCurrentAction()
     {
+        if (AdminConfig::getAnalogAdminLogin()) {
+            // TODO: 测试环境
+            return [true, ''];
+        }
         list($status, $redirectUrl, $adminInfo) = $this->validateLogin();
         if (empty($status)) {
-            return redirect($redirectUrl);
+            return [false, redirect($redirectUrl)];
         }
         if ($this->isMaster) {
             return [true, ''];
@@ -105,7 +121,7 @@ class AuthService
             ];
             exit(json_encode($result));
         }
-        $redirectUrl = route('admin.warn');
+        $redirectUrl = route(RouteConfig::ROUTE_WARN);
         return [false, redirect($redirectUrl)];
     }
 

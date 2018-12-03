@@ -5,7 +5,6 @@
 namespace App\Http\Admin\Controllers;
 
 use App\Http\Admin\Action\Demo\IndexAction;
-use Frameworks\Controller\Controller;
 use Illuminate\Http\Request;
 
 class DemoController extends Controller

@@ -4,9 +4,38 @@
  */
 namespace App\Http\Admin\Controllers\System;
 
-use Frameworks\Controller\Controller;
+use App\Http\Admin\Action\System\Owner\CreateAction;
+use App\Http\Admin\Action\System\Owner\EditAction;
+use App\Http\Admin\Action\System\Owner\IndexAction;
+use App\Http\Admin\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class OwnerController extends Controller
 {
-    //
+    /**
+     * 管理员列表
+     * @param Request $request
+     */
+    public function index(Request $request)
+    {
+        return (new IndexAction($request))->run();
+    }
+
+    /**
+     * 管理员创建
+     * @param Request $request
+     */
+    public function create(Request $request)
+    {
+        return (new CreateAction($request))->run();
+    }
+
+    /**
+     * 管理员编辑
+     * @param Request $request
+     */
+    public function edit(Request $request)
+    {
+        return (new EditAction($request))->run();
+    }
 }
