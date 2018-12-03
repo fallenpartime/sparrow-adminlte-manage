@@ -14,7 +14,7 @@ class OwnerService
      * 管理员列表
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public function masterList()
+    public function ownerList()
     {
         return AdminUser::whereHas('userInfo', function ($query) {
             $query->where(['is_admin' => 1, 'is_owner' => 1]);

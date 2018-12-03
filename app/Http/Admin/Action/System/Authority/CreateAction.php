@@ -36,6 +36,7 @@ class CreateAction extends BaseAction
             'menu'  =>  [
                 ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_CENTER), 'url' => '', 'active' => 0],
                 ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_AUTHORITY), 'url' => '', 'active' => 0],
+                ['title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_AUTHORITY_LIST), 'url' => route(RouteConfig::ROUTE_AUTHORITY_LIST), 'active' => 0],
                 ['title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_AUTHORITY_CREATE), 'url' => '', 'active' => 1],
             ],
             'actionUrl'     => route(RouteConfig::ROUTE_AUTHORITY_CREATE),

@@ -42,21 +42,21 @@
                                             <?php $operateModel = $operateItem['menu']; ?>
                                             <tr>
                                                 @if($countSecond == 0 && $operateSecond == 0)
-                                                    <td rowspan="{{ $secondLength }}"><a href="{{ $topModel->edit_url }}" target="_blank">{{ $topModel->name }}</a>({{ $topModel->ts_action }})</td>
+                                                    <td rowspan="{{ $secondLength }}"><a href="{{ $topModel->edit_url }}">{{ $topModel->name }}</a>({{ $topModel->ts_action }})</td>
                                                 @endif
                                                 @if($operateSecond == 0)
-                                                    <td rowspan="{{ $operateLength }}"><a href="{{ $secondModel->edit_url }}" target="_blank">{{ $secondModel->name }}</a>({{ $secondModel->ts_action }})</td>
+                                                    <td rowspan="{{ $operateLength }}"><a href="{{ $secondModel->edit_url }}">{{ $secondModel->name }}</a>({{ $secondModel->ts_action }})</td>
                                                 @endif
-                                                <td><a href="{{ $operateModel->edit_url }}" target="_blank">{{ $operateModel->name }}</a>({{ $operateModel->ts_action }})</td>
+                                                <td><a href="{{ $operateModel->edit_url }}">{{ $operateModel->name }}</a>({{ $operateModel->ts_action }})</td>
                                                 <?php $operateSecond++; ?>
                                             </tr>
                                         @endforeach
                                     @else
                                         <tr>
                                             @if($countSecond == 0 && $operateSecond == 0)
-                                                <td rowspan="{{ $secondLength }}"><a href="{{ $topModel->edit_url }}" target="_blank">{{ $topModel->name }}</a>({{ $topModel->ts_action }})</td>
+                                                <td rowspan="{{ $secondLength }}"><a href="{{ $topModel->edit_url }}">{{ $topModel->name }}</a>({{ $topModel->ts_action }})</td>
                                             @endif
-                                            <td rowspan="{{ $operateLength }}"><a href="{{ $secondModel->edit_url }}" target="_blank">{{ $secondModel->name }}</a>({{ $secondModel->ts_action }})</td>
+                                            <td rowspan="{{ $operateLength }}"><a href="{{ $secondModel->edit_url }}">{{ $secondModel->name }}</a>({{ $secondModel->ts_action }})</td>
                                             <td></td>
                                         </tr>
                                     @endif

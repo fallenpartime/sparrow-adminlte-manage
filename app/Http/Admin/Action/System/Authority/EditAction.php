@@ -45,9 +45,10 @@ class EditAction extends BaseAction
             'first_menu'    => $firstId,
             'second_menu'   => $secondId,
             'menu'  =>  [
-                ['tag' => AdminMenuConfig::MENU_MANAGE_CENTER, 'title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_CENTER), 'url' => '', 'active' => 0],
-                ['tag' => AdminMenuConfig::MENU_MANAGE_AUTHORITY, 'title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_AUTHORITY), 'url' => '', 'active' => 0],
-                ['tag' => RouteConfig::ROUTE_AUTHORITY_EDIT, 'title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_AUTHORITY_EDIT), 'url' => '', 'active' => 1],
+                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_CENTER), 'url' => '', 'active' => 0],
+                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_AUTHORITY), 'url' => '', 'active' => 0],
+                ['title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_AUTHORITY_LIST), 'url' => route(RouteConfig::ROUTE_AUTHORITY_LIST), 'active' => 0],
+                ['title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_AUTHORITY_EDIT), 'url' => '', 'active' => 1],
             ],
             'actionUrl'     => route(RouteConfig::ROUTE_AUTHORITY_EDIT),
             'redirectUrl'   => route(RouteConfig::ROUTE_AUTHORITY_LIST),

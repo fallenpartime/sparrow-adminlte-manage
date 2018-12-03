@@ -39,6 +39,10 @@ gulp.task('copy', function () {
     gulp.src("vendor/bower/datatables.net-bs/css/dataTables.bootstrap.min.css").pipe(gulp.dest("public/assets/admin/css/"));
     gulp.src("vendor/bower/datatables.net/js/jquery.dataTables.min.js").pipe(gulp.dest("resources/assets/js/"));
     gulp.src("vendor/bower/datatables.net-bs/js/dataTables.bootstrap.min.js").pipe(gulp.dest("resources/assets/js/"));
+    // bootstrap-daterangepicker
+    gulp.src("vendor/bower/bootstrap-daterangepicker/daterangepicker.css").pipe(gulp.dest("public/assets/admin/css/"));
+    gulp.src("vendor/bower/moment/min/moment.min.js").pipe(gulp.dest("public/assets/admin/js/"));
+    gulp.src("vendor/bower/bootstrap-daterangepicker/daterangepicker.js").pipe(gulp.dest("public/assets/admin/js/"));
     // demo
     gulp.src("vendor/bower/admin-lte/dist/js/demo.js").pipe(gulp.dest("resources/assets/js/"));
 });

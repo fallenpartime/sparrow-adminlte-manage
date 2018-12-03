@@ -1,5 +1,5 @@
 @extends('admin.layouts.main')
-@section('title', '权限列表-权限管理-编辑权限')
+@section('title', '编辑权限-权限管理-权限中心')
 @section('wrapper_content')
     <div class="box box-default">
         <div class="box-header with-border">
