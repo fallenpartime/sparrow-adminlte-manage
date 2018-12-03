@@ -45,6 +45,7 @@ trait RequestTrait
     {
         return $this->request->ip();
     }
+
 //    public static function getIp(){
 //        if(getenv('HTTP_CLIENT_IP') && strcasecmp(getenv('HTTP_CLIENT_IP'), 'unknown')){
 //            $PHP_IP = getenv('HTTP_CLIENT_IP');
