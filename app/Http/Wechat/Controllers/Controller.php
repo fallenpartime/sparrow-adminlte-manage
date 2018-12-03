@@ -6,6 +6,6 @@
  */
 namespace App\Http\Wechat\Controllers;
 
-use Frameworks\Controller as BaseController;
+use Frameworks\Controller\Controller as BaseController;
 
 class Controller extends BaseController {}

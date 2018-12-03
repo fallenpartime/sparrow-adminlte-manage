@@ -7,6 +7,7 @@
 namespace App\Http\Admin\Action\System\Group;
 
 use Admin\Action\BaseAction;
+use Admin\Config\AdminMenuConfig;
 use Admin\Config\RouteConfig;
 use Admin\Config\ViewConfig;
 use Admin\Services\Authority\AuthorityService;
@@ -29,9 +30,9 @@ class CreateAction extends BaseAction
         $result = [
             'relate_menu'   => $authorityService->relateMenu([1,2]),
             'menu'  =>  [
-                ['tag' => 'manage.center', 'url' => '', 'active' => 0],
-                ['tag' => 'manage.authority', 'url' => '', 'active' => 0],
-                ['tag' => 'system.authority.create', 'url' => '', 'active' => 1],
+                AdminMenuConfig::MENU_MANAGE_CENTER => ['tag' => AdminMenuConfig::MENU_MANAGE_CENTER, 'title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_CENTER), 'url' => '', 'active' => 0],
+                AdminMenuConfig::MENU_MANAGE_AUTHORITY => ['tag' => AdminMenuConfig::MENU_MANAGE_AUTHORITY, 'title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_AUTHORITY), 'url' => '', 'active' => 0],
+                RouteConfig::ROUTE_AUTHORITY_CREATE => ['tag' => RouteConfig::ROUTE_AUTHORITY_CREATE, 'title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_AUTHORITY_CREATE), 'url' => '', 'active' => 1],
             ],
             'actionUrl'     => route(RouteConfig::ROUTE_AUTHORITY_CREATE),
             'redirectUrl'   => route(RouteConfig::ROUTE_AUTHORITY_LIST),
