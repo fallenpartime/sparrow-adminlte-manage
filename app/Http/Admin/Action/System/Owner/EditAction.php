@@ -10,6 +10,7 @@ use Admin\Action\BaseAction;
 use Admin\Config\AdminMenuConfig;
 use Admin\Config\RouteConfig;
 use Admin\Config\ViewConfig;
+use Admin\Services\Authority\Integration\OwnerMenuIntegration;
 use Admin\Services\Authority\Processor\AdminUserInfoProcessor;
 use Admin\Services\Authority\Processor\AdminUserProcessor;
 use Common\Models\System\AdminUserInfo;
@@ -45,10 +46,12 @@ class EditAction extends BaseAction
         if (empty($this->owner)) {
             $this->redirect('管理员不存在', route(RouteConfig::ROUTE_OWNER_LIST));
         }
+        $integration = new OwnerMenuIntegration($this->owner);
         $result = [
             'record'            =>  $this->owner,
             'user'              =>  $this->user,
             'roles'             =>  AdminUserRole::all(),
+            'authorityList'     =>  $integration->process(),
             'menu'  =>  [
                 ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_CENTER), 'url' => '', 'active' => 0],
                 ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_AUTHORITY), 'url' => '', 'active' => 0],
@@ -81,7 +84,6 @@ class EditAction extends BaseAction
         $roleId = $httpTool->getBothSafeParam('role_id', HttpConfig::PARAM_NUMBER_TYPE);
         $isAdmin = $httpTool->getBothSafeParam('is_admin', HttpConfig::PARAM_NUMBER_TYPE);
         $username = trim($username);
-        $phone = trim($phone);
         $phone = trim($phone);
         $ownerData = [
             'role_id'   =>  !empty($roleId)? $roleId: 0,
@@ -136,5 +138,30 @@ class EditAction extends BaseAction
         $adminUserProcessor->update($this->user->id, $userData);
         (new AdminUserInfoProcessor())->update($this->owner->id, $ownerData);
         $this->successJson();
+    }
+
+    protected function process()
+    {
+        if (empty($this->owner)) {
+            $this->errorJson(500, '记录不存在');
+        }
+        $httpTool = $this->getHttpTool();
+        $username = $httpTool->getBothSafeParam('name');
+        $username = trim($username);
+        $phone = $httpTool->getBothSafeParam('phone');
+        $phone = trim($phone);
+        $roleId = $httpTool->getBothSafeParam('role_id', HttpConfig::PARAM_NUMBER_TYPE);
+        $isAdmin = $httpTool->getBothSafeParam('is_admin', HttpConfig::PARAM_NUMBER_TYPE);
+        if(empty($username)){
+            $this->errorJson(500, '用户名为空');
+        }
+        if(empty($phone)){
+            $this->errorJson(500, '电话不能为空');
+        }
+        if(empty($roleId) && !empty($isAdmin)){
+            $this->errorJson(500, '未配置角色前不允许登录');
+        }
+        list($userData, $ownerData) = $this->initOwnerData();
+        $this->update($userData, $ownerData);
     }
 }

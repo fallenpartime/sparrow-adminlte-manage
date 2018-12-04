@@ -10,6 +10,7 @@ use Admin\Action\BaseAction;
 use Admin\Config\AdminMenuConfig;
 use Admin\Config\RouteConfig;
 use Admin\Config\ViewConfig;
+use Admin\Services\Authority\AuthorityService;
 use Admin\Services\Authority\Processor\AdminUserInfoProcessor;
 use Admin\Services\Authority\Processor\AdminUserProcessor;
 use Common\Models\System\AdminUserRole;
@@ -31,8 +32,10 @@ class CreateAction extends BaseAction
 
     protected function showInfo()
     {
+        $service = new AuthorityService();
         $result = [
             'roles' =>  AdminUserRole::all(),
+            'authorityList' =>  $service->relateMenu(),
             'menu'  =>  [
                 ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_CENTER), 'url' => '', 'active' => 0],
                 ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_AUTHORITY), 'url' => '', 'active' => 0],
@@ -73,12 +76,10 @@ class CreateAction extends BaseAction
         $params = $httpTool->getParams();
         $username = $httpTool->getBothSafeParam('name');
         $phone = $httpTool->getBothSafeParam('phone');
-        $changePwd = $httpTool->getBothSafeParam('change_pwd', HttpConfig::PARAM_NUMBER_TYPE);
         $pwd = $httpTool->getBothSafeParam('pwd');
         $roleId = $httpTool->getBothSafeParam('role_id', HttpConfig::PARAM_NUMBER_TYPE);
         $isAdmin = $httpTool->getBothSafeParam('is_admin', HttpConfig::PARAM_NUMBER_TYPE);
         $username = trim($username);
-        $phone = trim($phone);
         $phone = trim($phone);
         $ownerData = [
             'role_id'   =>  !empty($roleId)? $roleId: 0,

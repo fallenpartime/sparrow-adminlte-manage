@@ -8,8 +8,8 @@ class OperateLog extends Model
 {
     protected $table = "operate_logs";
 
-//    public function user()
-//    {
-//        return $this->belongsTo(AdminUser::class, 'user_id');
-//    }
+    public function user()
+    {
+        return $this->belongsTo(AdminUser::class, 'user_id');
+    }
 }
