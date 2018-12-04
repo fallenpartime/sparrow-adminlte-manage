@@ -77,8 +77,11 @@ class BaseAction
         return $model;
     }
 
-    protected function redirect($message)
+    protected function redirect($message, $url = '')
     {
+        if (!empty($url)) {
+            exit("<script>alert('{$message}');location.href={$url};</script>");
+        }
         exit("<script>alert('{$message}');location.href=document.referrer;</script>");
     }
 

@@ -21,4 +21,8 @@ class ViewConfig
     const GROUP_LIST = 'admin.system.group.index';
     const GROUP_CREATE = 'admin.system.group.create';
     const GROUP_EDIT = 'admin.system.group.edit';
+    // 角色
+    const ROLE_LIST = 'admin.system.role.index';
+    const ROLE_CREATE = 'admin.system.role.create';
+    const ROLE_EDIT = 'admin.system.role.edit';
 }

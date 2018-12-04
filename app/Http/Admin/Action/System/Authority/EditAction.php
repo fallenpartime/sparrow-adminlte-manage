@@ -37,6 +37,9 @@ class EditAction extends BaseAction
 
     protected function showInfo()
     {
+        if (empty($this->record)) {
+            $this->redirect('权限不存在', route(RouteConfig::ROUTE_AUTHORITY_LIST));
+        }
         list($firstId, $secondId) = $this->getParentId($this->record);
         $authorityService = new AuthorityService();
         $result = [
@@ -80,6 +83,9 @@ class EditAction extends BaseAction
 
     protected function process()
     {
+        if (empty($this->record)) {
+            $this->errorJson(500, '记录不存在');
+        }
         $httpTool = $this->getHttpTool();
         $id = $httpTool->getBothSafeParam('id', HttpConfig::PARAM_NUMBER_TYPE);
         $first_id = $httpTool->getBothSafeParam('first_menu', HttpConfig::PARAM_NUMBER_TYPE);

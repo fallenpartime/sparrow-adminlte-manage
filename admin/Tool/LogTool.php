@@ -42,7 +42,7 @@ class LogTool
      */
     public function operateLog($operateType, $objectId, $memo = '')
     {
-        LogService::operateLog($this->request, $operateType, $objectId, $memo, $this->adminInfo);
+        LogService::operateLog($this->request, $operateType, $objectId, $memo, $this->getAdminInfo());
     }
 
     /**
@@ -53,6 +53,6 @@ class LogTool
      */
     public function adminLog($operateType, $objectId, $memo = '')
     {
-        LogService::adminLog($this->request, $operateType, $objectId, $memo, $this->adminInfo);
+        LogService::adminLog($this->request, $operateType, $objectId, $memo, $this->getAdminInfo());
     }
 }
