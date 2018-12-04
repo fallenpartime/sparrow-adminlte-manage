@@ -3,10 +3,7 @@
 @section('other_resource')
     <!-- DataTables -->
     <link rel="stylesheet" href="/assets/admin/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/admin/css/daterangepicker.css">
-    <script src="/assets/admin/js/moment.min.js"></script>
-    <script src="/assets/admin/js/daterangepicker.js"></script>
-    <script></script>
+    @include('admin.plugin.datepicker')
 @endsection
 @section('wrapper_content')
     <div class="row">
@@ -110,49 +107,7 @@
         <!-- /.col -->
     </div>
     <script type="text/javascript">
-        $('#from_time').daterangepicker({
-            "timePicker": true,
-            "timePickerSeconds": true,
-            "singleDatePicker": true,
-            "timePicker24Hour": true,
-            "linkedCalendars": false,
-            "autoUpdateInput": false,
-            "locale": {
-                format: 'YYYY-MM-DD HH:mm:ss',
-                applyLabel: "应用",
-                cancelLabel: "取消",
-                resetLabel: "重置",
-            }
-        }, function(start, end, label) {
-            console.log(this.startDate.format(this.locale.format));
-            console.log(this.endDate.format(this.locale.format));
-            if(!this.startDate){
-                this.element.val('');
-            }else{
-                this.element.val(this.startDate.format(this.locale.format));
-            }
-        });
-        $('#end_time').daterangepicker({
-            "timePicker": true,
-            "timePickerSeconds": true,
-            "singleDatePicker": true,
-            "timePicker24Hour": true,
-            "linkedCalendars": false,
-            "autoUpdateInput": false,
-            "locale": {
-                format: 'YYYY-MM-DD HH:mm:ss',
-                applyLabel: "应用",
-                cancelLabel: "取消",
-                resetLabel: "重置",
-            }
-        }, function(start, end, label) {
-            console.log(this.startDate.format(this.locale.format));
-            console.log(this.endDate.format(this.locale.format));
-            if(!this.startDate){
-                this.element.val('');
-            }else{
-                this.element.val(this.startDate.format(this.locale.format));
-            }
-        });
+        initDaterangepicker('from_time', 'YYYY-MM-DD HH:mm:ss');
+        initDaterangepicker('end_time', 'YYYY-MM-DD HH:mm:ss');
     </script>
 @endsection

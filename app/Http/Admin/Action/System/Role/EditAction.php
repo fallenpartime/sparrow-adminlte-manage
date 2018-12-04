@@ -105,7 +105,6 @@ class EditAction extends BaseAction
             $this->errorJson(500, '记录不存在');
         }
         $httpTool = $this->getHttpTool();
-        $id = $httpTool->getBothSafeParam('id', HttpConfig::PARAM_NUMBER_TYPE);
         $roleNo = $httpTool->getBothSafeParam('no', HttpConfig::PARAM_NUMBER_TYPE);
         $name = $httpTool->getBothSafeParam('name');
         $name = trim($name);
@@ -117,17 +116,14 @@ class EditAction extends BaseAction
         if (empty($name)) {
             $this->errorJson(500, '分组名为空');
         }
-        if (!empty($id) && empty($this->_role)) {
-            $this->errorJson(500, '记录不存在');
-        }
         $actions = $this->getActions();
-        if (empty($actions)) {
+        if ($roleNo > 1 && empty($actions)) {
             $this->errorJson(500, '权限不能为空');
         }
         if (empty($indexUrl)) {
             $this->errorJson(500, '入口地址为空');
         }
-        if ($roleNo != 1) {
+        if ($roleNo > 1) {
             if (!in_array($indexUrl, $actions)) {
                 $this->errorJson(500, '入口地址不属于权限范畴');
             }
@@ -139,7 +135,7 @@ class EditAction extends BaseAction
             'actions'   =>  !empty($actions)? json_encode($actions): null,
         ];
         list($res, $id) = $this->update($data);
-        $this->storeAccess($id);
+        $this->storeAccess($roleNo);
         $this->successJson();
     }
 

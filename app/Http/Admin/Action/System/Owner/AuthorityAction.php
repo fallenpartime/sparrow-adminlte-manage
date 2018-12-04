@@ -79,15 +79,6 @@ class AuthorityAction extends BaseAction
         return $menus;
     }
 
-    protected function getRoleActions()
-    {
-        $roleActions = [];
-        if (!empty($this->_role) && !empty($this->_role->actions)) {
-            $roleActions = json_decode($this->_role->actions, true);
-        }
-        return $roleActions;
-    }
-
     protected function process()
     {
         $authList = $this->request->get('auth_checked');

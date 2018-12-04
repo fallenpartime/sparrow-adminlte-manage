@@ -16,7 +16,7 @@
                         <table class="table table-bordered table-hover">
                             <thead>
                             <tr>
-                                <th width="19%">分组ID</th>
+                                <th width="19%">编号</th>
                                 <th width="19%">分组名</th>
                                 <th width="19%">分组Tip</th>
                                 <th width="19%">创建时间</th>
