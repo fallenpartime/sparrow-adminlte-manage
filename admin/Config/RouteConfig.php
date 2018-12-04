@@ -24,6 +24,7 @@ class RouteConfig
     const ROUTE_OWNER_LIST = 'admin.system.owner';
     const ROUTE_OWNER_CREATE = 'admin.system.owner.create';
     const ROUTE_OWNER_EDIT = 'admin.system.owner.edit';
+    const ROUTE_OWNER_AUTHORITY = 'admin.system.owner.authority';
     const ROUTE_ADMIN_LOG_LIST = 'admin.system.admin.log';
     const ROUTE_OPERATE_LOG_LIST = 'admin.system.operate.log';
 }

@@ -10,7 +10,6 @@ use Admin\Action\BaseAction;
 use Admin\Config\AdminMenuConfig;
 use Admin\Config\RouteConfig;
 use Admin\Config\ViewConfig;
-use Admin\Services\Authority\Integration\OwnerMenuIntegration;
 use Admin\Services\Authority\Processor\AdminUserInfoProcessor;
 use Admin\Services\Authority\Processor\AdminUserProcessor;
 use Common\Models\System\AdminUserInfo;
@@ -46,12 +45,10 @@ class EditAction extends BaseAction
         if (empty($this->owner)) {
             $this->redirect('管理员不存在', route(RouteConfig::ROUTE_OWNER_LIST));
         }
-        $integration = new OwnerMenuIntegration($this->owner);
         $result = [
             'record'            =>  $this->owner,
             'user'              =>  $this->user,
             'roles'             =>  AdminUserRole::all(),
-            'authorityList'     =>  $integration->process(),
             'menu'  =>  [
                 ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_CENTER), 'url' => '', 'active' => 0],
                 ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_AUTHORITY), 'url' => '', 'active' => 0],

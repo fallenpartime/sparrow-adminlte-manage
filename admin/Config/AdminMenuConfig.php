@@ -54,6 +54,7 @@ class AdminMenuConfig
             RouteConfig::ROUTE_OWNER_LIST       =>  '管理员列表',
             RouteConfig::ROUTE_OWNER_CREATE     =>  '创建管理员',
             RouteConfig::ROUTE_OWNER_EDIT       =>  '编辑管理员',
+            RouteConfig::ROUTE_OWNER_AUTHORITY      =>  '编辑管理员权限',
             RouteConfig::ROUTE_ADMIN_LOG_LIST       =>  '系统日志',
             RouteConfig::ROUTE_OPERATE_LOG_LIST     =>  '业务日志',
         ];

@@ -29,4 +29,5 @@ class ViewConfig
     const OWNER_LIST = 'admin.system.owner.index';
     const OWNER_CREATE = 'admin.system.owner.create';
     const OWNER_EDIT = 'admin.system.owner.edit';
+    const OWNER_AUTHORITY = 'admin.system.owner.authority';
 }
