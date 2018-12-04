@@ -176,7 +176,7 @@ class EditAction extends BaseAction
         }
     }
 
-    protected function validateRepeat(AdminUserRoleProcessor $processor, $data, $isUpdate = 0)
+    protected function validateRepeat(AdminUserRoleProcessor $processor, $data)
     {
         $record = $processor->getSingleByNo($data['role_no']);
         if (!empty($record)) {
@@ -197,7 +197,7 @@ class EditAction extends BaseAction
     {
         $this->getLogTool()->adminLog(31, $this->record->id, '编辑角色');
         $processor = new AdminUserRoleProcessor();
-        list($res, $errorId) = $this->validateRepeat($processor, $data, 1);
+        list($res, $errorId) = $this->validateRepeat($processor, $data);
         if ($res == false) {
             return [$res, 0];
         }

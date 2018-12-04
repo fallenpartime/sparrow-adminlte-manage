@@ -85,7 +85,7 @@ class EditAction extends BaseAction
         $this->errorJson(500, '提交失败');
     }
 
-    protected function validateRepeat(AdminUserGroupProcessor $processor, $data, $isUpdate = 0)
+    protected function validateRepeat(AdminUserGroupProcessor $processor, $data)
     {
         $record = $processor->getSingleByNo($data['group_no']);
         if (!empty($record)) {
@@ -112,7 +112,7 @@ class EditAction extends BaseAction
     {
         $this->getLogTool()->adminLog(21, $this->record->id, '编辑分组');
         $processor = new AdminUserGroupProcessor();
-        list($res, $errorId) = $this->validateRepeat($processor, $data, 1);
+        list($res, $errorId) = $this->validateRepeat($processor, $data);
         if ($res == false) {
             return [$res, 0];
         }

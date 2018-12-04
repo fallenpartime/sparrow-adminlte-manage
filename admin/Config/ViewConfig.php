@@ -25,4 +25,8 @@ class ViewConfig
     const ROLE_LIST = 'admin.system.role.index';
     const ROLE_CREATE = 'admin.system.role.create';
     const ROLE_EDIT = 'admin.system.role.edit';
+    // 管理员
+    const OWNER_LIST = 'admin.system.owner.index';
+    const OWNER_CREATE = 'admin.system.owner.create';
+    const OWNER_EDIT = 'admin.system.owner.edit';
 }

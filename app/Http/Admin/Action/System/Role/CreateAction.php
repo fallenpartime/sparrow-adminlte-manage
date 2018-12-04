@@ -141,7 +141,7 @@ class CreateAction extends BaseAction
         }
     }
 
-    protected function validateRepeat(AdminUserRoleProcessor $processor, $data, $isUpdate = 0)
+    protected function validateRepeat(AdminUserRoleProcessor $processor, $data)
     {
         $record = $processor->getSingleByNo($data['role_no']);
         if (!empty($record)) {
