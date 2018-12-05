@@ -56,6 +56,7 @@ class EditAction extends BaseAction
                 ['title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_OWNER_EDIT), 'url' => '', 'active' => 1],
             ],
             'actionUrl'         => route(RouteConfig::ROUTE_OWNER_EDIT),
+            'authorityUrl'      => route(RouteConfig::ROUTE_OWNER_AUTHORITY, ['id'=>$this->owner->id]),
             'redirectUrl'       => route(RouteConfig::ROUTE_OWNER_LIST),
         ];
         return $this->createView(ViewConfig::OWNER_EDIT, $result);

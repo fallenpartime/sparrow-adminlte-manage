@@ -60,6 +60,7 @@
                 </div>
             </div>
             <div class="box-footer">
+                <button class="btn btn-primary pull-left" onclick="javascript:location.href='{{ $authorityUrl }}'">编辑权限</button>
                 <button type="submit" class="btn btn-primary pull-right" onclick="groupSave();">提交</button>
             </div>
         </form>

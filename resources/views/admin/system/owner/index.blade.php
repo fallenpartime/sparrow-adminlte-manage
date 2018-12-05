@@ -62,8 +62,8 @@
                                             @if(!empty($value['indexTag']))入口地址：{{ $value['indexTag'] }}@endif<br>
                                         </td>
                                         <td style="text-align:left;word-break: break-all; word-wrap:break-word;">
-                                            创建时间:{{ $value['created_at'] }}<br>
-                                            电话:{{ $value['phone'] }}<br>
+                                            创建时间：{{ $value['created_at'] }}<br>
+                                            电话：{{ $value['phone'] }}<br>
                                             {!! $value['status_desc'] !!}
                                         </td>
                                         <td>

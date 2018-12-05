@@ -19,7 +19,8 @@ class AdminConfig
     public static function indexUrlList()
     {
         return [
-            RouteConfig::ROUTE_OWNER_LIST        => ['title'=>'管理员列表', 'url'=>route(RouteConfig::ROUTE_OWNER_LIST)],
+            RouteConfig::ROUTE_INDEX            => ['title'=>'首页', 'url'=>route(RouteConfig::ROUTE_INDEX)],
+            RouteConfig::ROUTE_OWNER_LIST       => ['title'=>'管理员列表', 'url'=>route(RouteConfig::ROUTE_OWNER_LIST)],
         ];
     }
 

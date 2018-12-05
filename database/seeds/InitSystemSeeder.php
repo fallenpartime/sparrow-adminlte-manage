@@ -25,7 +25,7 @@ class InitSystemSeeder extends Seeder
         list($status, $group) = $groupProcessor->insert(['group_no'=>1, 'name'=>'管理员', 'tip'=>'administrator']);
         // 角色信息
         $roleProcessor = new AdminUserRoleProcessor();
-        list($status, $role) = $roleProcessor->insert(['role_no'=>1, 'name'=>'管理员', 'index_action'=>'owners']);
+        list($status, $role) = $roleProcessor->insert(['role_no'=>1, 'name'=>'管理员', 'index_action'=>'admin.system.owner']);
         // 角色关联信息
         $accessProcessor = new AdminUserRoleAccessProcessor();
         list($status, $access) = $accessProcessor->insert(['group_no'=>$group->group_no, 'role_no'=>$role->role_no]);
