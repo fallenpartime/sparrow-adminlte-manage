@@ -6,35 +6,32 @@
  */
 namespace Admin\Services\Menu;
 
+use Admin\Config\AdminMenuConfig;
+
 class AdminMenuService
 {
-    public static function initMenuInfo($menus, $menuUrls, $isManager, $ts_list, $currentKey = '')
+    /**
+     * 生成模板小导航栏数组
+     * @param $params
+     * @return array
+     */
+    public static function initViewMenu($params)
     {
-        foreach ($menus as $key => $menu) {
-            $urlKey = !empty($currentKey)? "$currentKey.$key": $key;
-            if (is_array($menu)) {
-                if (!empty($menu)) {
-                    $menus[$key] = self::initMenuInfo($menu, $menuUrls, $isManager, $ts_list, $urlKey);
-                } else {
-                    continue;
-                }
-            } else if(empty($menu)) {
-                $currentUrls = array_get($menuUrls, $urlKey);
-                if (!empty($currentUrls)) {
-                    foreach ($currentUrls as $currentKayName => $currentUrl) {
-                        if (empty($menus[$key])) {
-                            if (!empty($currentUrl) && ($isManager == 1 || in_array($currentKayName, $ts_list))) {
-                                $menus[$key] = $currentUrl;
-                            }
-                        } else {
-                            break;
-                        }
-                    }
-                }
-            } else {
-                continue;
-            }
+        $menus = [];
+        if (empty($params)) {
+            return $menus;
         }
+        array_walk($params, function ($param) use (&$menus) {
+            $title = trim($param['title']);
+            $isUrl = intval($param['url']);
+            $active = intval($param['active']);
+            $url = '';
+            if ($isUrl) {
+                $url = route($title);
+            }
+            $title = AdminMenuConfig::getMenuName($title);
+            $menus[] = compact("title", "url", "active");
+        });
         return $menus;
     }
 }

@@ -12,6 +12,7 @@ use Admin\Config\AdminConfig;
 use Admin\Config\AdminMenuConfig;
 use Admin\Config\RouteConfig;
 use Admin\Config\ViewConfig;
+use Admin\Services\Menu\AdminMenuService;
 use Admin\Services\Owner\OwnerService;
 use Admin\Services\Sql\System\Log\OperateLogSqlProcessor;
 use Admin\Tool\CommonTool;
@@ -40,12 +41,18 @@ class IndexOperateAction extends BaseAction
             'urlParams'     => $urlParams,
             'typeList'      => $typeList,
             'owners'        => $owners,
-            'menu'  =>  [
-                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_CENTER), 'url' => '', 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_LOG), 'url' => '', 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_OPERATE_LOG_LIST), 'url' => '', 'active' => 1],
-            ],
+            'menu'  =>  $this->initViewMenu(),
         ];
         return $this->createView(ViewConfig::LOG_OPERATE_LIST, $result);
+    }
+
+    protected function initViewMenu()
+    {
+        $menuParams = [
+            ['title'=>AdminMenuConfig::MENU_MANAGE_CENTER, 'url'=>0, 'active'=>0],
+            ['title'=>AdminMenuConfig::MENU_MANAGE_LOG, 'url'=>0, 'active'=>0],
+            ['title'=>RouteConfig::ROUTE_OPERATE_LOG_LIST, 'url'=>0, 'active'=>1],
+        ];
+        return AdminMenuService::initViewMenu($menuParams);
     }
 }

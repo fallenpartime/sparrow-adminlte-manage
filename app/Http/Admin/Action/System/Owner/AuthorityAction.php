@@ -14,6 +14,7 @@ use Admin\Services\Authority\AuthorityService;
 use Admin\Services\Authority\Integration\OwnerAuthoritiesIntegration;
 use Admin\Services\Authority\Integration\OwnerCustomAuthorityIntegration;
 use Admin\Services\Authority\Integration\RelateAuthoritiesCheckedIntegration;
+use Admin\Services\Menu\AdminMenuService;
 use Admin\Services\Owner\Integration\OwnerAuthorityIntegration;
 use Common\Models\System\AdminUserInfo;
 use Frameworks\Tool\Http\Config\HttpConfig;
@@ -58,16 +59,22 @@ class AuthorityAction extends BaseAction
             'record'            =>  $this->_owner,
             'user'              =>  $this->_user,
             'authorities'       =>  $authorities,
-            'menu'  =>  [
-                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_CENTER), 'url' => '', 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_AUTHORITY), 'url' => '', 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_OWNER_LIST), 'url' => route(RouteConfig::ROUTE_OWNER_LIST), 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_OWNER_AUTHORITY), 'url' => '', 'active' => 1],
-            ],
+            'menu'  =>  $this->initViewMenu(),
             'actionUrl'         => route(RouteConfig::ROUTE_OWNER_AUTHORITY),
             'redirectUrl'       => route(RouteConfig::ROUTE_OWNER_LIST),
         ];
         return $this->createView(ViewConfig::OWNER_AUTHORITY, $result);
+    }
+
+    protected function initViewMenu()
+    {
+        $menuParams = [
+            ['title'=>AdminMenuConfig::MENU_MANAGE_CENTER, 'url'=>0, 'active'=>0],
+            ['title'=>AdminMenuConfig::MENU_MANAGE_OWNER, 'url'=>0, 'active'=>0],
+            ['title'=>RouteConfig::ROUTE_OWNER_LIST, 'url'=>1, 'active'=>0],
+            ['title'=>RouteConfig::ROUTE_OWNER_AUTHORITY, 'url'=>0, 'active'=>1],
+        ];
+        return AdminMenuService::initViewMenu($menuParams);
     }
 
     protected function parseUserMenu($menus)

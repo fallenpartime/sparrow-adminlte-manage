@@ -11,6 +11,7 @@ use Admin\Config\AdminConfig;
 use Admin\Config\AdminMenuConfig;
 use Admin\Config\RouteConfig;
 use Admin\Config\ViewConfig;
+use Admin\Services\Menu\AdminMenuService;
 use Common\Models\System\AdminUserRole;
 
 class IndexAction extends BaseAction
@@ -20,13 +21,19 @@ class IndexAction extends BaseAction
         $list = AdminUserRole::with('accesses')->get();
         $result = [
             'list'  =>  $this->processList($list),
-            'menu'  =>  [
-                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_CENTER), 'url' => '', 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_ROLE), 'url' => '', 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_ROLE_LIST), 'url' => '', 'active' => 1],
-            ],
+            'menu'  =>  $this->initViewMenu(),
         ];
         return $this->createView(ViewConfig::ROLE_LIST, $result);
+    }
+
+    protected function initViewMenu()
+    {
+        $menuParams = [
+            ['title'=>AdminMenuConfig::MENU_MANAGE_CENTER, 'url'=>0, 'active'=>0],
+            ['title'=>AdminMenuConfig::MENU_MANAGE_ROLE, 'url'=>0, 'active'=>0],
+            ['title'=>RouteConfig::ROUTE_ROLE_LIST, 'url'=>0, 'active'=>1],
+        ];
+        return AdminMenuService::initViewMenu($menuParams);
     }
 
     protected function processList($list)

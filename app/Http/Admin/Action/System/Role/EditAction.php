@@ -15,6 +15,7 @@ use Admin\Services\Authority\AuthorityService;
 use Admin\Services\Authority\Integration\RelateAuthoritiesCheckedIntegration;
 use Admin\Services\Authority\Processor\AdminUserRoleAccessProcessor;
 use Admin\Services\Authority\Processor\AdminUserRoleProcessor;
+use Admin\Services\Menu\AdminMenuService;
 use Common\Models\System\AdminUserGroup;
 use Common\Models\System\AdminUserRole;
 use Common\Models\System\AdminUserRoleAccess;
@@ -56,16 +57,22 @@ class EditAction extends BaseAction
             'authorities'       =>  $this->parseRoleMenu($roleMenus),
             'groupAuthorities'  =>  $groupMenus,
             'indexUrls'         => $indexUrls,
-            'menu'  =>  [
-                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_CENTER), 'url' => '', 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_ROLE), 'url' => '', 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_ROLE_LIST), 'url' => route(RouteConfig::ROUTE_ROLE_LIST), 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_ROLE_EDIT), 'url' => '', 'active' => 1],
-            ],
+            'menu'  => $this->initViewMenu(),
             'actionUrl'         => route(RouteConfig::ROUTE_ROLE_EDIT),
             'redirectUrl'       => route(RouteConfig::ROUTE_ROLE_LIST),
         ];
         return $this->createView(ViewConfig::ROLE_EDIT, $result);
+    }
+
+    protected function initViewMenu()
+    {
+        $menuParams = [
+            ['title'=>AdminMenuConfig::MENU_MANAGE_CENTER, 'url'=>0, 'active'=>0],
+            ['title'=>AdminMenuConfig::MENU_MANAGE_ROLE, 'url'=>0, 'active'=>0],
+            ['title'=>RouteConfig::ROUTE_ROLE_LIST, 'url'=>1, 'active'=>0],
+            ['title'=>RouteConfig::ROUTE_ROLE_EDIT, 'url'=>0, 'active'=>1],
+        ];
+        return AdminMenuService::initViewMenu($menuParams);
     }
 
     protected function getAccess()

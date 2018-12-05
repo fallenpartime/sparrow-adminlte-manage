@@ -11,6 +11,7 @@ use Admin\Config\AdminConfig;
 use Admin\Config\AdminMenuConfig;
 use Admin\Config\RouteConfig;
 use Admin\Config\ViewConfig;
+use Admin\Services\Menu\AdminMenuService;
 use Admin\Services\Sql\System\Owner\IndexSqlProcessor;
 use Common\Models\System\AdminUserInfo;
 use Frameworks\Traits\ApiActionTrait;
@@ -28,13 +29,19 @@ class IndexAction extends BaseAction
         $result = [
             'list'  =>  $this->processList($list),
             'urlParams'     =>  $urlParams,
-            'menu'  =>  [
-                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_CENTER), 'url' => '', 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_AUTHORITY), 'url' => '', 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_OWNER_LIST), 'url' => '', 'active' => 1],
-            ]
+            'menu'  =>  $this->initViewMenu()
         ];
         return $this->createView(ViewConfig::OWNER_LIST, $result);
+    }
+
+    protected function initViewMenu()
+    {
+        $menuParams = [
+            ['title'=>AdminMenuConfig::MENU_MANAGE_CENTER, 'url'=>0, 'active'=>0],
+            ['title'=>AdminMenuConfig::MENU_MANAGE_OWNER, 'url'=>0, 'active'=>0],
+            ['title'=>RouteConfig::ROUTE_OWNER_LIST, 'url'=>0, 'active'=>1],
+        ];
+        return AdminMenuService::initViewMenu($menuParams);
     }
 
     protected function processList($list)

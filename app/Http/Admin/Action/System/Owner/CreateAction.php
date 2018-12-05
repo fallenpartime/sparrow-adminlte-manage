@@ -12,6 +12,7 @@ use Admin\Config\RouteConfig;
 use Admin\Config\ViewConfig;
 use Admin\Services\Authority\Processor\AdminUserInfoProcessor;
 use Admin\Services\Authority\Processor\AdminUserProcessor;
+use Admin\Services\Menu\AdminMenuService;
 use Common\Models\System\AdminUserRole;
 use Frameworks\Tool\Http\Config\HttpConfig;
 use Frameworks\Traits\ApiActionTrait;
@@ -33,16 +34,22 @@ class CreateAction extends BaseAction
     {
         $result = [
             'roles' =>  AdminUserRole::all(),
-            'menu'  =>  [
-                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_CENTER), 'url' => '', 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_AUTHORITY), 'url' => '', 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_OWNER_LIST), 'url' => route(RouteConfig::ROUTE_OWNER_LIST), 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_OWNER_CREATE), 'url' => '', 'active' => 1],
-            ],
+            'menu'  =>  $this->initViewMenu(),
             'actionUrl'         => route(RouteConfig::ROUTE_OWNER_CREATE),
             'redirectUrl'       => route(RouteConfig::ROUTE_OWNER_LIST),
         ];
         return $this->createView(ViewConfig::OWNER_CREATE, $result);
+    }
+
+    protected function initViewMenu()
+    {
+        $menuParams = [
+            ['title'=>AdminMenuConfig::MENU_MANAGE_CENTER, 'url'=>0, 'active'=>0],
+            ['title'=>AdminMenuConfig::MENU_MANAGE_OWNER, 'url'=>0, 'active'=>0],
+            ['title'=>RouteConfig::ROUTE_OWNER_LIST, 'url'=>1, 'active'=>0],
+            ['title'=>RouteConfig::ROUTE_OWNER_CREATE, 'url'=>0, 'active'=>1],
+        ];
+        return AdminMenuService::initViewMenu($menuParams);
     }
 
     protected function validateRepeat(AdminUserProcessor $processor, $data)

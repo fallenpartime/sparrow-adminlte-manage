@@ -12,6 +12,7 @@ use Admin\Config\RouteConfig;
 use Admin\Config\ViewConfig;
 use Admin\Services\Authority\AuthorityService;
 use Admin\Services\Authority\Processor\AdminActionProcessor;
+use Admin\Services\Menu\AdminMenuService;
 use Frameworks\Tool\Http\Config\HttpConfig;
 use Frameworks\Traits\ApiActionTrait;
 
@@ -33,16 +34,22 @@ class CreateAction extends BaseAction
         $authorityService = new AuthorityService();
         $result = [
             'relate_menu'   => $authorityService->relateMenu([1,2]),
-            'menu'  =>  [
-                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_CENTER), 'url' => '', 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_AUTHORITY), 'url' => '', 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_AUTHORITY_LIST), 'url' => route(RouteConfig::ROUTE_AUTHORITY_LIST), 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_AUTHORITY_CREATE), 'url' => '', 'active' => 1],
-            ],
+            'menu'  =>  $this->initViewMenu(),
             'actionUrl'     => route(RouteConfig::ROUTE_AUTHORITY_CREATE),
             'redirectUrl'   => route(RouteConfig::ROUTE_AUTHORITY_LIST),
         ];
         return $this->createView(ViewConfig::AUTHORITY_CREATE, $result);
+    }
+
+    protected function initViewMenu()
+    {
+        $menuParams = [
+            ['title'=>AdminMenuConfig::MENU_MANAGE_CENTER, 'url'=>0, 'active'=>0],
+            ['title'=>AdminMenuConfig::MENU_MANAGE_AUTHORITY, 'url'=>0, 'active'=>0],
+            ['title'=>RouteConfig::ROUTE_AUTHORITY_LIST, 'url'=>1, 'active'=>0],
+            ['title'=>RouteConfig::ROUTE_AUTHORITY_CREATE, 'url'=>0, 'active'=>1],
+        ];
+        return AdminMenuService::initViewMenu($menuParams);
     }
 
     protected function process()

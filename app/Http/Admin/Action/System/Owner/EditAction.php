@@ -12,6 +12,7 @@ use Admin\Config\RouteConfig;
 use Admin\Config\ViewConfig;
 use Admin\Services\Authority\Processor\AdminUserInfoProcessor;
 use Admin\Services\Authority\Processor\AdminUserProcessor;
+use Admin\Services\Menu\AdminMenuService;
 use Common\Models\System\AdminUserInfo;
 use Common\Models\System\AdminUserRole;
 use Frameworks\Tool\Http\Config\HttpConfig;
@@ -49,17 +50,23 @@ class EditAction extends BaseAction
             'record'            =>  $this->owner,
             'user'              =>  $this->user,
             'roles'             =>  AdminUserRole::all(),
-            'menu'  =>  [
-                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_CENTER), 'url' => '', 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_AUTHORITY), 'url' => '', 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_OWNER_LIST), 'url' => route(RouteConfig::ROUTE_OWNER_LIST), 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_OWNER_EDIT), 'url' => '', 'active' => 1],
-            ],
+            'menu'  =>  $this->initViewMenu(),
             'actionUrl'         => route(RouteConfig::ROUTE_OWNER_EDIT),
             'authorityUrl'      => route(RouteConfig::ROUTE_OWNER_AUTHORITY, ['id'=>$this->owner->id]),
             'redirectUrl'       => route(RouteConfig::ROUTE_OWNER_LIST),
         ];
         return $this->createView(ViewConfig::OWNER_EDIT, $result);
+    }
+
+    protected function initViewMenu()
+    {
+        $menuParams = [
+            ['title'=>AdminMenuConfig::MENU_MANAGE_CENTER, 'url'=>0, 'active'=>0],
+            ['title'=>AdminMenuConfig::MENU_MANAGE_OWNER, 'url'=>0, 'active'=>0],
+            ['title'=>RouteConfig::ROUTE_OWNER_LIST, 'url'=>1, 'active'=>0],
+            ['title'=>RouteConfig::ROUTE_OWNER_EDIT, 'url'=>0, 'active'=>1],
+        ];
+        return AdminMenuService::initViewMenu($menuParams);
     }
 
     protected function changPassword($pwd, $data)

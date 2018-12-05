@@ -10,6 +10,7 @@ use Admin\Action\BaseAction;
 use Admin\Config\AdminMenuConfig;
 use Admin\Config\RouteConfig;
 use Admin\Config\ViewConfig;
+use Admin\Services\Menu\AdminMenuService;
 use Common\Models\System\AdminUserGroup;
 
 class IndexAction extends BaseAction
@@ -19,12 +20,18 @@ class IndexAction extends BaseAction
         $list = AdminUserGroup::all();
         $result = [
             'list'  =>  $list,
-            'menu'  =>  [
-                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_CENTER), 'url' => '', 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_GROUP), 'url' => '', 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_GROUP_LIST), 'url' => '', 'active' => 1],
-            ],
+            'menu'  =>  $this->initViewMenu(),
         ];
         return $this->createView(ViewConfig::GROUP_LIST, $result);
+    }
+
+    protected function initViewMenu()
+    {
+        $menuParams = [
+            ['title'=>AdminMenuConfig::MENU_MANAGE_CENTER, 'url'=>0, 'active'=>0],
+            ['title'=>AdminMenuConfig::MENU_MANAGE_GROUP, 'url'=>0, 'active'=>0],
+            ['title'=>RouteConfig::ROUTE_GROUP_LIST, 'url'=>0, 'active'=>1],
+        ];
+        return AdminMenuService::initViewMenu($menuParams);
     }
 }

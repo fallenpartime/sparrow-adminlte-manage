@@ -11,6 +11,7 @@ use Admin\Config\AdminMenuConfig;
 use Admin\Config\RouteConfig;
 use Admin\Config\ViewConfig;
 use Admin\Services\Authority\AuthorityService;
+use Admin\Services\Menu\AdminMenuService;
 
 class IndexAction extends BaseAction
 {
@@ -20,12 +21,18 @@ class IndexAction extends BaseAction
         $list = $service->relateMenu([1,2,3], 1);
         $result = [
             'list'  =>  $list,
-            'menu'  =>  [
-                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_CENTER), 'url' => '', 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_AUTHORITY), 'url' => '', 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_AUTHORITY_LIST), 'url' => '', 'active' => 1],
-            ],
+            'menu'  =>  $this->initViewMenu(),
         ];
         return $this->createView(ViewConfig::AUTHORITY_LIST, $result);
+    }
+
+    protected function initViewMenu()
+    {
+        $menuParams = [
+            ['title'=>AdminMenuConfig::MENU_MANAGE_CENTER, 'url'=>0, 'active'=>0],
+            ['title'=>AdminMenuConfig::MENU_MANAGE_AUTHORITY, 'url'=>0, 'active'=>0],
+            ['title'=>RouteConfig::ROUTE_AUTHORITY_LIST, 'url'=>0, 'active'=>1],
+        ];
+        return AdminMenuService::initViewMenu($menuParams);
     }
 }

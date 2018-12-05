@@ -11,6 +11,7 @@ use Admin\Config\AdminMenuConfig;
 use Admin\Config\RouteConfig;
 use Admin\Config\ViewConfig;
 use Admin\Services\Authority\Processor\AdminUserGroupProcessor;
+use Admin\Services\Menu\AdminMenuService;
 use Common\Models\System\AdminUserGroup;
 use Frameworks\Tool\Http\Config\HttpConfig;
 use Frameworks\Traits\ApiActionTrait;
@@ -41,16 +42,22 @@ class EditAction extends BaseAction
         }
         $result = [
             'record'        => $this->record,
-            'menu'  =>  [
-                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_CENTER), 'url' => '', 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(AdminMenuConfig::MENU_MANAGE_GROUP), 'url' => '', 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_GROUP_LIST), 'url' => route(RouteConfig::ROUTE_GROUP_LIST), 'active' => 0],
-                ['title' => AdminMenuConfig::getMenuName(RouteConfig::ROUTE_GROUP_EDIT), 'url' => '', 'active' => 1],
-            ],
+            'menu'  =>  $this->initViewMenu(),
             'actionUrl'     => route(RouteConfig::ROUTE_GROUP_EDIT),
             'redirectUrl'   => route(RouteConfig::ROUTE_GROUP_LIST),
         ];
         return $this->createView(ViewConfig::GROUP_EDIT, $result);
+    }
+
+    protected function initViewMenu()
+    {
+        $menuParams = [
+            ['title'=>AdminMenuConfig::MENU_MANAGE_CENTER, 'url'=>0, 'active'=>0],
+            ['title'=>AdminMenuConfig::MENU_MANAGE_GROUP, 'url'=>0, 'active'=>0],
+            ['title'=>RouteConfig::ROUTE_GROUP_LIST, 'url'=>1, 'active'=>0],
+            ['title'=>RouteConfig::ROUTE_GROUP_EDIT, 'url'=>0, 'active'=>1],
+        ];
+        return AdminMenuService::initViewMenu($menuParams);
     }
 
     protected function process()
