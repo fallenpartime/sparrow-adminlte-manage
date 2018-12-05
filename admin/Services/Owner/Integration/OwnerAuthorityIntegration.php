@@ -37,6 +37,7 @@ class OwnerAuthorityIntegration extends BaseWorkProcessor
 
     protected function update()
     {
+        LogService::adminLog($this->request, 3, $this->userAction->id, '编辑管理员权限');
         return (new AdminUserActionProcessor())->update($this->userAction->id, $this->data);
     }
 
