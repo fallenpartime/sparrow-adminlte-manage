@@ -21,6 +21,7 @@ class CreateCultivateCoursesTable extends Migration
             $table->string('level_no', 30)->default('')->comment('等级编号');
             $table->string('price_no', 30)->default('')->comment('定价编号');
             $table->decimal('price')->default(0)->comment('定价');
+            $table->decimal('pay_price')->default(0)->comment('实际需支付金额');
             $table->integer('num')->default(0)->comment('开班个数');
             $table->timestamp('start_at')->nullable()->comment('开班时间');
             $table->timestamp('over_at')->nullable()->comment('结束时间');

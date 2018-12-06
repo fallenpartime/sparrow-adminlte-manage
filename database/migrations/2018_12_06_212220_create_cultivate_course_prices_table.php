@@ -23,12 +23,15 @@ class CreateCultivateCoursePricesTable extends Migration
             $table->decimal('train')->default(0)->comment('培训费用');
             $table->decimal('identify')->default(0)->comment('鉴定费用');
             $table->decimal('discount')->default(0)->comment('折扣(实际支付的比例)');
-            $table->decimal('sum')->default(0)->comment('总计费用');
+            $table->decimal('money')->default(0)->comment('总计费用');
+            $table->decimal('real_money')->default(0)->comment('实际需支付金额');
             $table->timestamps();
             $table->softDeletes();
             $table->index('no');
             $table->index('course_no');
             $table->index('discount');
+            $table->index('money');
+            $table->index('real_money');
         });
     }
 
