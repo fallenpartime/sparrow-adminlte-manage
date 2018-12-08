@@ -180,6 +180,7 @@ return [
         Overtrue\LaravelWeChat\ServiceProvider::class,
         Vinkla\Hashids\HashidsServiceProvider::class,
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider::class
 
     ],
 
@@ -232,6 +233,7 @@ return [
         'EasyWeChat' => Overtrue\LaravelWeChat\Facade::class,
         'Hashids' => Vinkla\Hashids\Facades\Hashids::class,
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+        'Omnipay' => Ignited\LaravelOmnipay\Facades\OmnipayFacade::class
 
     ],
 
