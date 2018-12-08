@@ -33,6 +33,7 @@ class CreateTradeOrdersTable extends Migration
             $table->decimal('money_payed')->default(0)->comment('实际支付金额');
             $table->timestamp('pay_time')->nullable()->comment('支付时间');
             $table->timestamp('notify_time')->nullable()->comment('回调时间');
+            $table->tinyInteger('pay_status')->default(0)->comment('支付状态 0-待支付 1-已支付 2-待回调 3-支付失败');
             $table->timestamps();
             $table->softDeletes();
             $table->index('type');
