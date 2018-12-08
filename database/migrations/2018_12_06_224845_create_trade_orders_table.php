@@ -43,6 +43,8 @@ class CreateTradeOrdersTable extends Migration
             $table->index('order_no');
             $table->index('account_id');
             $table->index('out_trade_no');
+            $table->index('transaction_id');
+            $table->index('openid');
             $table->index('order_money');
             $table->index('real_money');
             $table->index('money_payed');
