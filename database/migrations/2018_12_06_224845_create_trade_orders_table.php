@@ -46,6 +46,7 @@ class CreateTradeOrdersTable extends Migration
             $table->index('order_money');
             $table->index('real_money');
             $table->index('money_payed');
+            $table->index('pay_status');
         });
     }
 
