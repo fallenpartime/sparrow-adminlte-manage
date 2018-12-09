@@ -29,8 +29,9 @@ class AdminMenuService
             if ($isUrl) {
                 $url = route($title);
             }
+            $action = $title;
             $title = AdminMenuConfig::getMenuName($title);
-            $menus[] = compact("title", "url", "active");
+            $menus[$action] = compact("title", "url", "active");
         });
         return $menus;
     }

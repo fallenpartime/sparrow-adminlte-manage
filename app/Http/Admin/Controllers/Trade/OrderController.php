@@ -4,11 +4,11 @@
  * Date: 2018/12/5
  * Time: 17:03
  */
-namespace App\Http\Admin\Controllers\Order;
+namespace App\Http\Admin\Controllers\Trade;
 
 use App\Http\Admin\Controllers\Controller;
 
-class TradeController extends Controller
+class OrderController extends Controller
 {
 
 }

@@ -5,7 +5,7 @@
  * Date: 2018/12/5
  * Time: 17:05
  */
-namespace App\Http\Admin\Action\Order\Trade;
+namespace App\Http\Admin\Action\Trade\Order;
 
 use Admin\Action\BaseAction;
 

@@ -13,7 +13,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('cultivate_users', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nick_name', 100)->default('')->comment('用户昵称');
             $table->string('openid', 100)->default('')->comment('openid');
@@ -40,6 +40,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cultivate_users');
+        Schema::dropIfExists('users');
     }
 }
