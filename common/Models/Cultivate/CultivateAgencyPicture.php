@@ -12,5 +12,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class CultivateAgencyPicture extends BaseModel
 {
     use SoftDeletes;
+
     protected $table = 'cultivate_agency_pictures';
 }
