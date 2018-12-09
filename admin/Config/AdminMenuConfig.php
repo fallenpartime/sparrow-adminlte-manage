@@ -16,6 +16,8 @@ class AdminMenuConfig
     const MENU_MANAGE_OWNER = 'manage.owner';
     const MENU_MANAGE_AUTHORITY = 'manage.authority';
     const MENU_MANAGE_LOG = 'manage.log';
+    const MENU_CULTIVATE_CENTER = 'manage.cultivate';
+    const MENU_CULTIVATE_AGENCY = 'manage.agency';
 
     public static function getMenuName($menuTag)
     {
@@ -57,6 +59,12 @@ class AdminMenuConfig
             RouteConfig::ROUTE_OWNER_AUTHORITY      =>  '编辑管理员权限',
             RouteConfig::ROUTE_ADMIN_LOG_LIST       =>  '系统日志',
             RouteConfig::ROUTE_OPERATE_LOG_LIST     =>  '业务日志',
+            self::MENU_CULTIVATE_CENTER            =>  '培训中心',
+            self::MENU_CULTIVATE_AGENCY            =>  '机构管理',
+            RouteConfig::ROUTE_AGENCY_LIST          =>  '机构列表',
+            RouteConfig::ROUTE_AGENCY_CREATE        =>  '创建机构',
+            RouteConfig::ROUTE_AGENCY_EDIT          =>  '编辑机构',
+            RouteConfig::ROUTE_AGENCY_REMOVE        =>  '作废机构',
         ];
     }
 }

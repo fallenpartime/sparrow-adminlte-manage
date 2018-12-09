@@ -27,4 +27,9 @@ class RouteConfig
     const ROUTE_OWNER_AUTHORITY = 'admin.system.owner.authority';
     const ROUTE_ADMIN_LOG_LIST = 'admin.system.admin.log';
     const ROUTE_OPERATE_LOG_LIST = 'admin.system.operate.log';
+    // 培训中心.机构
+    const ROUTE_AGENCY_LIST = 'admin.cultivate.agency';
+    const ROUTE_AGENCY_CREATE = 'admin.cultivate.agency.create';
+    const ROUTE_AGENCY_EDIT = 'admin.cultivate.agency.edit';
+    const ROUTE_AGENCY_REMOVE = 'admin.cultivate.agency.remove';
 }

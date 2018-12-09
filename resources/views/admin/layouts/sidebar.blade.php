@@ -4,6 +4,35 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">系统菜单</li>
+            @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\AdminMenuConfig::MENU_CULTIVATE_CENTER, $ts_list)))
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-wifi"></i> <span>培训中心</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\AdminMenuConfig::MENU_CULTIVATE_AGENCY, $ts_list)))
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-circle-o"></i> 机构管理
+                            <span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\RouteConfig::ROUTE_AGENCY_LIST, $ts_list)))
+                            <li><a href="{{ route(\Admin\Config\RouteConfig::ROUTE_AGENCY_LIST) }}"><i class="fa fa-circle-o"></i> 机构列表</a></li>
+                            @endif
+                            @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\RouteConfig::ROUTE_AGENCY_CREATE, $ts_list)))
+                            <li><a href="{{ route(\Admin\Config\RouteConfig::ROUTE_AGENCY_CREATE) }}"><i class="fa fa-circle-o"></i> 创建机构</a></li>
+                            @endif
+                        </ul>
+                    </li>
+                    @endif
+                </ul>
+            </li>
+            @endif
             @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\AdminMenuConfig::MENU_MANAGE_CENTER, $ts_list)))
             <li class="treeview">
                 <a href="#">
