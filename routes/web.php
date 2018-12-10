@@ -18,3 +18,7 @@ require __DIR__.'/admin/demo.php';
 require __DIR__.'/admin/basic.php';
 require __DIR__.'/admin/system.php';
 require __DIR__.'/admin/school.php';
+require __DIR__.'/admin/cultivate.php';
+require __DIR__.'/admin/spread.php';
+require __DIR__.'/admin/trade.php';
+require __DIR__.'/admin/user.php';
