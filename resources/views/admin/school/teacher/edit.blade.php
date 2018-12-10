@@ -1,12 +1,12 @@
 @extends('admin.layouts.main')
-@section('title', '创建教师-教师管理-培训中心')
+@section('title', '编辑教师-教师管理-培训中心')
 @section('other_resource')
     @include('admin.plugin.datepicker')
 @endsection
 @section('wrapper_content')
     <div class="box box-default">
         <div class="box-header with-border">
-            <h3 class="box-title">创建教师</h3>
+            <h3 class="box-title">编辑教师</h3>
         </div>
         <form id="actionForm" action="#" method="post" onsubmit="return false">
             <input type="hidden" name="id" value="{{ !empty($record)? $record->id: '' }}">
