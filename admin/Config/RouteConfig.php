@@ -32,4 +32,9 @@ class RouteConfig
     const ROUTE_AGENCY_CREATE = 'admin.cultivate.agency.create';
     const ROUTE_AGENCY_EDIT = 'admin.cultivate.agency.edit';
     const ROUTE_AGENCY_REMOVE = 'admin.cultivate.agency.remove';
+    // 培训中心.教师
+    const ROUTE_TEACHER_LIST = 'admin.cultivate.teacher';
+    const ROUTE_TEACHER_CREATE = 'admin.cultivate.teacher.create';
+    const ROUTE_TEACHER_EDIT = 'admin.cultivate.teacher.edit';
+    const ROUTE_TEACHER_REMOVE = 'admin.cultivate.teacher.remove';
 }

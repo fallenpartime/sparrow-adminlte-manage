@@ -17,9 +17,11 @@ class CreateCultivateTeachersTable extends Migration
             $table->increments('id');
             $table->string('no', 30)->default('')->comment('教师编号');
             $table->string('name', 30)->default('')->comment('姓名');
+            $table->string('phone', 20)->default('')->comment('电话');
             $table->string('description', 500)->default('')->comment('简介');
             $table->tinyInteger('sex')->default(0)->comment('性别 1-男 2-女');
-            $table->tinyInteger('age')->default(0)->comment('年龄');
+            $table->date('birthday')->nullable()->comment('出生日期');
+            $table->string('address', 100)->default('')->comment('联系地址');
             $table->tinyInteger('positional')->default(0)->comment('职称 1-讲师');
             $table->tinyInteger('diploma')->default(0)->comment('学历 1-中专 2-大专 3-本科 4-硕士 5-博士');
             $table->tinyInteger('degree')->default(0)->comment('学位 1-学士');
@@ -28,8 +30,9 @@ class CreateCultivateTeachersTable extends Migration
             $table->softDeletes();
             $table->index('no');
             $table->index('name');
+            $table->index('phone');
             $table->index('sex');
-            $table->index('age');
+            $table->index('birthday');
             $table->index('positional');
             $table->index('diploma');
             $table->index('degree');

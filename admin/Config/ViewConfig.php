@@ -30,4 +30,12 @@ class ViewConfig
     const OWNER_CREATE = 'admin.system.owner.create';
     const OWNER_EDIT = 'admin.system.owner.edit';
     const OWNER_AUTHORITY = 'admin.system.owner.authority';
+    // 机构
+    const AGENCY_LIST = 'admin.school.agency.index';
+    const AGENCY_CREATE = 'admin.school.agency.create';
+    const AGENCY_EDIT = 'admin.school.agency.edit';
+    // 教师
+    const TEACHER_LIST = 'admin.school.teacher.index';
+    const TEACHER_CREATE = 'admin.school.teacher.create';
+    const TEACHER_EDIT = 'admin.school.teacher.edit';
 }

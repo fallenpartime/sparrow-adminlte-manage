@@ -41,30 +41,18 @@ class InitSystemSeeder extends Seeder
     protected function initActionList()
     {
         $list = [
-            ['name'=>'权限中心', 'type'=>1, 'action'=>AdminMenuConfig::MENU_MANAGE_CENTER, 'list'=>[
-                ['name'=>'管理员管理', 'type'=>2, 'action'=>AdminMenuConfig::MENU_MANAGE_OWNER, 'list'=>[
-                    ['name'=>'管理员列表', 'type'=>3, 'action'=>RouteConfig::ROUTE_OWNER_LIST],
-                    ['name'=>'创建管理员', 'type'=>3, 'action'=>RouteConfig::ROUTE_OWNER_CREATE],
-                    ['name'=>'编辑管理员', 'type'=>3, 'action'=>RouteConfig::ROUTE_OWNER_EDIT]
+            ['name'=>'培训中心', 'type'=>1, 'action'=>AdminMenuConfig::MENU_CULTIVATE_CENTER, 'list'=>[
+                ['name'=>'机构管理', 'type'=>2, 'action'=>AdminMenuConfig::MENU_CULTIVATE_AGENCY, 'list'=>[
+                    ['name'=>'机构列表', 'type'=>3, 'action'=>RouteConfig::ROUTE_AGENCY_LIST],
+                    ['name'=>'创建机构', 'type'=>3, 'action'=>RouteConfig::ROUTE_AGENCY_CREATE],
+                    ['name'=>'编辑机构', 'type'=>3, 'action'=>RouteConfig::ROUTE_AGENCY_EDIT],
+                    ['name'=>'作废机构', 'type'=>3, 'action'=>RouteConfig::ROUTE_AGENCY_REMOVE]
                 ]],
-                ['name'=>'分组管理', 'type'=>2, 'action'=>AdminMenuConfig::MENU_MANAGE_GROUP, 'list'=>[
-                    ['name'=>'分组列表', 'type'=>3, 'action'=>RouteConfig::ROUTE_GROUP_LIST],
-                    ['name'=>'创建分组', 'type'=>3, 'action'=>RouteConfig::ROUTE_GROUP_CREATE],
-                    ['name'=>'编辑分组', 'type'=>3, 'action'=>RouteConfig::ROUTE_GROUP_EDIT]
-                ]],
-                ['name'=>'角色管理', 'type'=>2, 'action'=>AdminMenuConfig::MENU_MANAGE_ROLE, 'list'=>[
-                    ['name'=>'角色列表', 'type'=>3, 'action'=>RouteConfig::ROUTE_ROLE_LIST],
-                    ['name'=>'创建角色', 'type'=>3, 'action'=>RouteConfig::ROUTE_ROLE_CREATE],
-                    ['name'=>'编辑角色', 'type'=>3, 'action'=>RouteConfig::ROUTE_ROLE_EDIT]
-                ]],
-                ['name'=>'权限管理', 'type'=>2, 'action'=>AdminMenuConfig::MENU_MANAGE_AUTHORITY, 'list'=>[
-                    ['name'=>'权限列表', 'type'=>3, 'action'=>RouteConfig::ROUTE_AUTHORITY_LIST],
-                    ['name'=>'创建权限', 'type'=>3, 'action'=>RouteConfig::ROUTE_AUTHORITY_CREATE],
-                    ['name'=>'编辑权限', 'type'=>3, 'action'=>RouteConfig::ROUTE_AUTHORITY_EDIT]
-                ]],
-                ['name'=>'日志管理', 'type'=>2, 'action'=>AdminMenuConfig::MENU_MANAGE_LOG, 'list'=>[
-                    ['name'=>'业务日志', 'type'=>3, 'action'=>RouteConfig::ROUTE_OPERATE_LOG_LIST],
-                    ['name'=>'系统日志', 'type'=>3, 'action'=>RouteConfig::ROUTE_ADMIN_LOG_LIST],
+                ['name'=>'教师管理', 'type'=>2, 'action'=>AdminMenuConfig::MENU_CULTIVATE_TEACHER, 'list'=>[
+                    ['name'=>'教师列表', 'type'=>3, 'action'=>RouteConfig::ROUTE_TEACHER_LIST],
+                    ['name'=>'创建教师', 'type'=>3, 'action'=>RouteConfig::ROUTE_TEACHER_CREATE],
+                    ['name'=>'编辑教师', 'type'=>3, 'action'=>RouteConfig::ROUTE_TEACHER_EDIT],
+                    ['name'=>'作废教师', 'type'=>3, 'action'=>RouteConfig::ROUTE_TEACHER_REMOVE]
                 ]],
             ]],
         ];

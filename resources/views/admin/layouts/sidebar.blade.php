@@ -30,6 +30,23 @@
                         </ul>
                     </li>
                     @endif
+                    @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\AdminMenuConfig::MENU_CULTIVATE_TEACHER, $ts_list)))
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-circle-o"></i> 教师管理
+                            <span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\RouteConfig::ROUTE_TEACHER_LIST, $ts_list)))
+                            <li><a href="{{ route(\Admin\Config\RouteConfig::ROUTE_TEACHER_LIST) }}"><i class="fa fa-circle-o"></i> 教师列表</a></li>
+                            @endif
+                            @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\RouteConfig::ROUTE_TEACHER_CREATE, $ts_list)))
+                            <li><a href="{{ route(\Admin\Config\RouteConfig::ROUTE_TEACHER_CREATE) }}"><i class="fa fa-circle-o"></i> 创建教师</a></li>
+                            @endif
+                        </ul>
+                    </li>
+                    @endif
                 </ul>
             </li>
             @endif

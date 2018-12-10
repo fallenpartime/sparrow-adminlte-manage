@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/assets/admin/css/imgUploader.min.css">
 <script src="/assets/admin/js/imgUploader.min.js"></script>
 <script>
-    var uploadUrl = '{{ route('upload') }}';
+    var uploadUrl = '{{ route('admin.upload') }}';
     function initPictureList(handle, id, name, srcUrl, thumbUrl, withDelete) {
         $("#"+id).before('<div class="imguploader-doneitem" style="width: 100px;height: 100px">\n' +
             '      <a class="fancybox" href="'+srcUrl+'" rel="group">\n' +
