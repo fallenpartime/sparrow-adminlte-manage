@@ -1,23 +1,23 @@
 <?php
 /**
- * 开课控制器
- * Date: 2018/12/5
- * Time: 12:30
+ * 开班教师控制器
+ * Date: 2018/12/11
+ * Time: 23:57
  */
 namespace App\Http\Admin\Controllers\Cultivate;
 
-use App\Http\Admin\Action\Cultivate\Course\CreateAction;
-use App\Http\Admin\Action\Cultivate\Course\EditAction;
-use App\Http\Admin\Action\Cultivate\Course\IndexAction;
-use App\Http\Admin\Action\Cultivate\Course\RemoveAction;
+use App\Http\Admin\Action\Cultivate\Course\Teacher\CreateAction;
+use App\Http\Admin\Action\Cultivate\Course\Teacher\EditAction;
+use App\Http\Admin\Action\Cultivate\Course\Teacher\IndexAction;
+use App\Http\Admin\Action\Cultivate\Course\Teacher\RemoveAction;
 
 use App\Http\Admin\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CourseController extends Controller
+class CourseTeacherController extends Controller
 {
     /**
-     * 开课列表
+     * 开班教师列表
      * @param Request $request
      */
     public function index(Request $request)
@@ -26,7 +26,7 @@ class CourseController extends Controller
     }
 
     /**
-     * 创建开课
+     * 创建开班教师
      * @param Request $request
      */
     public function create(Request $request)
@@ -35,7 +35,7 @@ class CourseController extends Controller
     }
 
     /**
-     * 编辑开课
+     * 编辑开班教师
      * @param Request $request
      */
     public function edit(Request $request)
@@ -44,7 +44,7 @@ class CourseController extends Controller
     }
 
     /**
-     * 作废开课
+     * 作废开班教师
      * @param Request $request
      */
     public function remove(Request $request)

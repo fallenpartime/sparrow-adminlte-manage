@@ -1,15 +1,14 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Fallen
+ * 专业关联报价列表
  * Date: 2018/12/10
- * Time: 9:03
+ * Time: 9:02
  */
-
 namespace App\Http\Admin\Action\Cultivate\Price;
 
+use Admin\Action\BaseAction;
 
-class IndexAction
+class IndexAction extends BaseAction
 {
 
 }
