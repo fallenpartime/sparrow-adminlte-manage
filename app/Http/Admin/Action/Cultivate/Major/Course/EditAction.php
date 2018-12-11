@@ -1,10 +1,10 @@
 <?php
 /**
- * 编辑开班关联教师
- * Date: 2018/12/10
- * Time: 9:30
+ * 编辑专业课程
+ * Date: 2018/12/11
+ * Time: 23:25
  */
-namespace App\Http\Admin\Action\School\Teacher\relate;
+namespace App\Http\Admin\Action\Cultivate\Major\Course;
 
 use Admin\Action\BaseAction;
 use Frameworks\Traits\ApiActionTrait;

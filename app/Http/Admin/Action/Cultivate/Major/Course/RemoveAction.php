@@ -1,10 +1,10 @@
 <?php
 /**
- * 作废开班
- * Date: 2018/12/10
- * Time: 8:56
+ * 作废专业课程
+ * Date: 2018/12/11
+ * Time: 23:26
  */
-namespace App\Http\Admin\Action\Cultivate\Course;
+namespace App\Http\Admin\Action\Cultivate\Major\Course;
 
 use Admin\Action\BaseAction;
 use Frameworks\Traits\ApiActionTrait;
