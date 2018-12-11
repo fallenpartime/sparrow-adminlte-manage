@@ -54,6 +54,11 @@ class InitSystemSeeder extends Seeder
                     ['name'=>'编辑教师', 'type'=>3, 'action'=>RouteConfig::ROUTE_TEACHER_EDIT],
                     ['name'=>'作废教师', 'type'=>3, 'action'=>RouteConfig::ROUTE_TEACHER_REMOVE]
                 ]],
+                ['name'=>'培训等级管理', 'type'=>2, 'action'=>AdminMenuConfig::MENU_CULTIVATE_LEVEL, 'list'=>[
+                    ['name'=>'培训等级列表', 'type'=>3, 'action'=>RouteConfig::ROUTE_LEVEL_LIST],
+                    ['name'=>'创建培训等级', 'type'=>3, 'action'=>RouteConfig::ROUTE_LEVEL_CREATE],
+                    ['name'=>'编辑培训等级', 'type'=>3, 'action'=>RouteConfig::ROUTE_LEVEL_EDIT],
+                ]],
             ]],
         ];
         $actionProcessor = new AdminActionProcessor();

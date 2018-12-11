@@ -4,7 +4,7 @@
  * Date: 2018/12/5
  * Time: 12:37
  */
-namespace App\Http\Admin\Action\Cultivate\Level;
+namespace App\Http\Admin\Action\Cultivate\Major;
 
 use Admin\Action\BaseAction;
 

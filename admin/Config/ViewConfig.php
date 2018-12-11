@@ -38,4 +38,8 @@ class ViewConfig
     const TEACHER_LIST = 'admin.school.teacher.index';
     const TEACHER_CREATE = 'admin.school.teacher.create';
     const TEACHER_EDIT = 'admin.school.teacher.edit';
+    // 培训等级
+    const LEVEL_LIST = 'admin.cultivate.level.index';
+    const LEVEL_CREATE = 'admin.cultivate.level.create';
+    const LEVEL_EDIT = 'admin.cultivate.level.edit';
 }

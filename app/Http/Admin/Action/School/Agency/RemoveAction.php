@@ -8,7 +8,7 @@
 namespace App\Http\Admin\Action\School\Agency;
 
 use Admin\Action\BaseAction;
-use Admin\Services\School\Agency\Processor\AgencyProcessor;
+use Admin\Services\School\Agency\Processor\MajorLevelProcessor;
 use Common\Models\Cultivate\CultivateAgency;
 use Frameworks\Tool\Http\Config\HttpConfig;
 use Frameworks\Traits\ApiActionTrait;
@@ -35,7 +35,7 @@ class RemoveAction extends BaseAction
     protected function process()
     {
         $this->getLogTool()->operateLog(3, $this->record->id, '作废机构');
-        $res = (new AgencyProcessor())->destroy($this->record->id);
+        $res = (new MajorLevelProcessor())->destroy($this->record->id);
         if ($res) {
             $this->successJson();
         }

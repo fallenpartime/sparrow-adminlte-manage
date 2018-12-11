@@ -37,4 +37,8 @@ class RouteConfig
     const ROUTE_TEACHER_CREATE = 'admin.cultivate.teacher.create';
     const ROUTE_TEACHER_EDIT = 'admin.cultivate.teacher.edit';
     const ROUTE_TEACHER_REMOVE = 'admin.cultivate.teacher.remove';
+    // 培训中心.等级
+    const ROUTE_LEVEL_LIST = 'admin.cultivate.level';
+    const ROUTE_LEVEL_CREATE = 'admin.cultivate.level.create';
+    const ROUTE_LEVEL_EDIT = 'admin.cultivate.level.edit';
 }

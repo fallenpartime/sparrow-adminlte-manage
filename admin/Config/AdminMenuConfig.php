@@ -19,6 +19,7 @@ class AdminMenuConfig
     const MENU_CULTIVATE_CENTER = 'manage.cultivate';
     const MENU_CULTIVATE_AGENCY = 'manage.agency';
     const MENU_CULTIVATE_TEACHER = 'manage.teacher';
+    const MENU_CULTIVATE_LEVEL = 'manage.level';
 
     public static function getMenuName($menuTag)
     {
@@ -69,6 +70,10 @@ class AdminMenuConfig
             RouteConfig::ROUTE_TEACHER_LIST         =>  '教师列表',
             RouteConfig::ROUTE_TEACHER_CREATE       =>  '创建教师',
             RouteConfig::ROUTE_TEACHER_EDIT         =>  '编辑教师',
+            self::MENU_CULTIVATE_LEVEL             =>  '培训等级管理',
+            RouteConfig::ROUTE_LEVEL_LIST           =>  '培训等级列表',
+            RouteConfig::ROUTE_LEVEL_CREATE         =>  '创建培训等级',
+            RouteConfig::ROUTE_LEVEL_EDIT           =>  '编辑培训等级',
         ];
     }
 }
