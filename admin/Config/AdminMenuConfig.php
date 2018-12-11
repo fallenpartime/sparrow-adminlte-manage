@@ -18,7 +18,7 @@ class AdminMenuConfig
     const MENU_MANAGE_LOG = 'manage.log';
     const MENU_CULTIVATE_CENTER = 'manage.cultivate';
     const MENU_CULTIVATE_AGENCY = 'manage.agency';
-    const MENU_CULTIVATE_TEACHER = 'manage.agency';
+    const MENU_CULTIVATE_TEACHER = 'manage.teacher';
 
     public static function getMenuName($menuTag)
     {
