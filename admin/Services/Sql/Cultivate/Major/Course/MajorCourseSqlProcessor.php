@@ -26,6 +26,12 @@ class MajorCourseSqlProcessor extends BaseSqlProcessor implements BaseSqlDelegat
             $model = $model->where('type', $type);
             $urlParams['type'] = $type;
         }
+        // 等级
+        $levelNo = trim(array_get($params, 'level_no'));
+        if (!empty($levelNo)) {
+            $model = $model->where('level_no', $levelNo);
+            $urlParams['level_no'] = $levelNo;
+        }
         // 名称
         $name = trim(array_get($params, 'name'));
         if (!empty($name)) {

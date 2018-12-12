@@ -21,6 +21,16 @@
                             <input type="text" name="no" class="form-control" required>
                         </div>
                         <div class="form-group">
+                            <label>所属专业</label>
+                            <select name="major_no" class="form-control" style="width: 100%;">
+                                @if(!empty($majorList))
+                                    @foreach($majorList as $majorItem)
+                                        <option value="{{ $majorItem->no }}" @if($major_no === $majorItem->no)selected @endif>{{ $majorItem->name }}</option>
+                                    @endforeach
+                                @endif
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label>课程类型 *</label>
                             <select name="type" class="form-control" style="width: 100%;">
                                 @if(!empty($typeList))
@@ -31,11 +41,12 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>所属专业</label>
-                            <select name="major_no" class="form-control" style="width: 100%;">
-                                @if(!empty($majorList))
-                                    @foreach($majorList as $majorItem)
-                                        <option value="{{ $majorItem->no }}" @if($major_no === $majorItem->no)selected @endif>{{ $majorItem->name }}</option>
+                            <label>课程等级 *</label>
+                            <select name="level_no" class="form-control" style="width: 100%;">
+                                <option value="">请选择</option>
+                                @if(!empty($levelList))
+                                    @foreach($levelList as $levelItem)
+                                        <option value="{{ $levelItem->no }}">{{ $levelItem->name }}</option>
                                     @endforeach
                                 @endif
                             </select>

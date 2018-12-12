@@ -15,6 +15,7 @@ use Admin\Services\Cultivate\Major\Processor\MajorCourseProcessor;
 use Admin\Services\Menu\AdminMenuService;
 use Common\Models\Cultivate\CultivateMajor;
 use Common\Models\Cultivate\CultivateMajorCourse;
+use Common\Models\Cultivate\CultivateMajorLevel;
 use Frameworks\Tool\Http\Config\HttpConfig;
 use Frameworks\Traits\ApiActionTrait;
 
@@ -43,10 +44,12 @@ class EditAction extends BaseAction
             $this->redirect('课程不存在');
         }
         $majorList = CultivateMajor::select(['no', 'name'])->get();
+        $levelList = CultivateMajorLevel::select(['no', 'name'])->get();
         $result = [
             'menu'          =>  $this->initViewMenu(),
             'record'        =>  $this->record,
             'majorList'     => $majorList,
+            'levelList'     => $levelList,
             'typeList'      => MajorConfig::courseTypeMap(),
             'actionUrl'         => route(RouteConfig::ROUTE_MAJOR_COURSE_EDIT),
             'redirectUrl'       => route(RouteConfig::ROUTE_MAJOR_COURSE_LIST),
@@ -74,6 +77,7 @@ class EditAction extends BaseAction
         $no = $httpTool->getBothSafeParam('no');
         $name = $httpTool->getBothSafeParam('name');
         $type = $httpTool->getBothSafeParam('type');
+        $levelNo = $httpTool->getBothSafeParam('level_no');
         $majorNo = $httpTool->getBothSafeParam('major_no');
         $description = $httpTool->getBothSafeParam('description');
         $picPreview = $this->request->get('list_pic_preview');
@@ -87,8 +91,11 @@ class EditAction extends BaseAction
         if(empty($name)){
             $this->errorJson(500, '课程名称不能为空');
         }
+        if(empty($levelNo)){
+            $this->errorJson(500, '课程等级不能为空');
+        }
         if(empty($type)){
-            $this->errorJson(500, '课程不能为空');
+            $this->errorJson(500, '课程类型不能为空');
         }
         if(empty($majorNo)){
             $this->errorJson(500, '课程所属专业不能为空');
@@ -97,6 +104,7 @@ class EditAction extends BaseAction
             'no'        =>  $no,
             'name'      =>  $name,
             'type'      =>  $type,
+            'level_no'  =>  $levelNo,
             'major_no'  =>  $majorNo,
             'description'   =>  $description,
             'image'      =>  !empty($picPreview)?  $picPreview[0]: null,

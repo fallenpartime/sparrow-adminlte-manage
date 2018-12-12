@@ -35,6 +35,17 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-2">
+                                    <label>等级</label>
+                                    <select name="level_no" class="form-control" style="width: 100%;">
+                                        <option value="">全部</option>
+                                        @if(!empty($levelList))
+                                            @foreach($levelList as $levelItem)
+                                                <option value="{{ $levelItem->no }}" @if(array_get($urlParams, 'level_no') === $levelItem->no)selected="selected"@endif>{{ $levelItem->name }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-2">
                                     <label>专业</label>
                                     <select name="major_no" class="form-control" style="width: 100%;">
                                         <option value="">全部</option>
@@ -54,8 +65,9 @@
                         <table class="table table-bordered table-hover">
                             <thead>
                             <tr>
-                                <th width="15%">编号</th>
-                                <th width="15%">名称</th>
+                                <th width="10%">编号</th>
+                                <th width="10%">名称</th>
+                                <th width="10%">等级</th>
                                 <th width="15%">专业</th>
                                 <th width="20%">图片</th>
                                 <th width="20%">创建时间</th>
@@ -72,9 +84,15 @@
                                         {{ $value->name }}
                                     </td>
                                     <td>
+                                        @if(isset($value->level))
+                                            No:{{ $value->level->no }}<br>
+                                            {{ $value->level->name }}
+                                        @endif
+                                    </td>
+                                    <td>
                                         @if(isset($value->major))
                                             No:{{ $value->major->no }}<br>
-                                            名称:{{ $value->major->name }}
+                                            {{ $value->major->name }}
                                         @endif
                                     </td>
                                     <td>

@@ -28,4 +28,9 @@ class CultivateMajorCourse extends Model
     {
         return $this->belongsTo(CultivateMajor::class, 'major_no', 'no');
     }
+
+    public function level()
+    {
+        return $this->belongsTo(CultivateMajorLevel::class, 'level_no', 'no');
+    }
 }

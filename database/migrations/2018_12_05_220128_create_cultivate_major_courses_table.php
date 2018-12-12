@@ -16,6 +16,7 @@ class CreateCultivateMajorCoursesTable extends Migration
         Schema::create('cultivate_major_courses', function (Blueprint $table) {
             $table->increments('id');
             $table->string('no', 30)->nullable(false)->comment('课程编号');
+            $table->string('level_no', 30)->nullable(false)->comment('等级编号');
             $table->string('major_no', 30)->nullable(false)->comment('专业编号');
             $table->tinyInteger('type')->default(0)->comment('课程类型 1-理论 2-实践');
             $table->string('name', 100)->nullable(false)->comment('课程名称');
@@ -25,6 +26,7 @@ class CreateCultivateMajorCoursesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->index('no');
+            $table->index('level_no');
             $table->index('major_no');
             $table->index('type');
             $table->index('name');

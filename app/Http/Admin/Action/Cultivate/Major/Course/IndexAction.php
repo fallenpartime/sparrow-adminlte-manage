@@ -16,6 +16,7 @@ use Admin\Services\Sql\Cultivate\Major\Course\MajorCourseSqlProcessor;
 use Admin\Tool\CommonTool;
 use Common\Models\Cultivate\CultivateMajor;
 use Common\Models\Cultivate\CultivateMajorCourse;
+use Common\Models\Cultivate\CultivateMajorLevel;
 
 class IndexAction extends BaseAction
 {
@@ -29,11 +30,12 @@ class IndexAction extends BaseAction
         $list = [];
         $total = $model->count();
         if ($total > 0) {
-            $list = $this->pageModel($model, $page, $pageSize)->with('major')->select(['id', 'no', 'major_no', 'name', 'image', 'created_at'])->get();
+            $list = $this->pageModel($model, $page, $pageSize)->with(['major', 'level'])->select(['id', 'no', 'level_no', 'major_no', 'name', 'image', 'created_at'])->get();
             $list = $this->processList($list);
         }
         list($url, $pageList) = CommonTool::pagination($total, $pageSize, $page, $url);
         $majorList = CultivateMajor::select(['no', 'name'])->get();
+        $levelList = CultivateMajorLevel::select(['no', 'name'])->get();
         list($operateList, $operateUrl) = $this->allowOperate();
         $result = [
             'list'          => $list,
@@ -41,6 +43,7 @@ class IndexAction extends BaseAction
             'urlParams'     => $urlParams,
             'menu'  =>  $this->initViewMenu(),
             'majorList'     => $majorList,
+            'levelList'     => $levelList,
             'typeList'      => MajorConfig::courseTypeMap(),
             'operateList'   => $operateList,
             'operateUrl'    => $operateUrl,
@@ -63,9 +66,16 @@ class IndexAction extends BaseAction
     {
         foreach ($list as $key => $item) {
             $list[$key]->edit_url = route(RouteConfig::ROUTE_MAJOR_COURSE_EDIT, ['id'=>$item->id]);
+            $list[$key]->level_no = route(RouteConfig::ROUTE_MAJOR_COURSE_EDIT, ['id'=>$item->id]);
             $list = $this->listAllowOperate($list, $key);
         }
         return $list;
+    }
+
+    protected function initLevelDesc($list, $key)
+    {
+        $level = $list[$key]->level_no;
+         return $list;
     }
 
     protected function allowOperate()
