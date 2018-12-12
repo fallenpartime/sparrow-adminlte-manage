@@ -23,6 +23,7 @@ class CreateCultivateCoursesTable extends Migration
             $table->decimal('price')->default(0)->comment('定价');
             $table->decimal('pay_price')->default(0)->comment('实际需支付金额');
             $table->integer('num')->default(0)->comment('开班个数');
+            $table->tinyInteger('show_status')->default(0)->comment('是否显示 0-否 1-是');
             $table->timestamp('start_at')->nullable()->comment('开班时间');
             $table->timestamp('over_at')->nullable()->comment('结束时间');
             $table->timestamps();
@@ -34,6 +35,7 @@ class CreateCultivateCoursesTable extends Migration
             $table->index('price_no');
             $table->index('price');
             $table->index('num');
+            $table->index('show_status');
             $table->index('start_at');
             $table->index('over_at');
         });

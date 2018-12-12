@@ -42,4 +42,8 @@ class ViewConfig
     const LEVEL_LIST = 'admin.cultivate.level.index';
     const LEVEL_CREATE = 'admin.cultivate.level.create';
     const LEVEL_EDIT = 'admin.cultivate.level.edit';
+    // 培训专业
+    const MAJOR_LIST = 'admin.cultivate.major.index';
+    const MAJOR_CREATE = 'admin.cultivate.major.create';
+    const MAJOR_EDIT = 'admin.cultivate.major.edit';
 }

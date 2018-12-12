@@ -41,4 +41,9 @@ class RouteConfig
     const ROUTE_LEVEL_LIST = 'admin.cultivate.level';
     const ROUTE_LEVEL_CREATE = 'admin.cultivate.level.create';
     const ROUTE_LEVEL_EDIT = 'admin.cultivate.level.edit';
+    // 培训中心.专业
+    const ROUTE_MAJOR_LIST = 'admin.cultivate.major';
+    const ROUTE_MAJOR_CREATE = 'admin.cultivate.major.create';
+    const ROUTE_MAJOR_EDIT = 'admin.cultivate.major.edit';
+    const ROUTE_MAJOR_REMOVE = 'admin.cultivate.major.remove';
 }

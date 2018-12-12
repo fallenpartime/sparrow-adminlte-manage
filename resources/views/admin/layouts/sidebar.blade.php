@@ -64,6 +64,23 @@
                         </ul>
                     </li>
                     @endif
+                    @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\AdminMenuConfig::MENU_CULTIVATE_MAJOR, $ts_list)))
+                        <li class="treeview">
+                            <a href="#"><i class="fa fa-circle-o"></i> 培训专业管理
+                                <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\RouteConfig::ROUTE_MAJOR_LIST, $ts_list)))
+                                    <li><a href="{{ route(\Admin\Config\RouteConfig::ROUTE_MAJOR_LIST) }}"><i class="fa fa-circle-o"></i> 培训专业列表</a></li>
+                                @endif
+                                @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\RouteConfig::ROUTE_MAJOR_CREATE, $ts_list)))
+                                    <li><a href="{{ route(\Admin\Config\RouteConfig::ROUTE_MAJOR_CREATE) }}"><i class="fa fa-circle-o"></i> 创建培训专业</a></li>
+                                @endif
+                            </ul>
+                        </li>
+                    @endif
                 </ul>
             </li>
             @endif
