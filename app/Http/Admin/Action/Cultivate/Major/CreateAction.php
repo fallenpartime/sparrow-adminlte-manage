@@ -86,7 +86,7 @@ class CreateAction extends BaseAction
         if (empty($status)) {
             $this->errorJson(500, '专业创建失败');
         }
-        $this->getLogTool()->operateLog(20, $agency->id, '添加培训专业');
+        $this->getLogTool()->operateLog(30, $agency->id, '添加培训专业');
         $this->successJson();
     }
 
