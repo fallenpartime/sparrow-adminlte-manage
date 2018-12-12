@@ -89,6 +89,9 @@
                                         @if($value->operate_list['allow_operate_edit'])
                                             <a href="{{ $value->edit_url }}" style="display: block;">编辑</a>
                                         @endif
+                                        @if($value->operate_list['allow_operate_remove'])
+                                            <a href="javascript:;" style="display: block;" onclick="remove({{ $value->id }})">作废</a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
@@ -101,4 +104,24 @@
         </div>
         <!-- /.col -->
     </div>
+    @if($operateList['allow_remove'])
+        <script>
+            function remove(id) {
+                if (confirm('确定提交？')) {
+                    $.post(
+                        '{{ $operateUrl['remove_url'] }}',
+                        {id: id},
+                        function (result) {
+                            result = JSON.parse(result)
+                            if (result.code == 200) {
+                                location.href = '{{ $redirectUrl }}';
+                            } else {
+                                alert(result.msg)
+                            }
+                        }
+                    )
+                }
+            }
+        </script>
+    @endif
 @endsection

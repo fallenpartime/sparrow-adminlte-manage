@@ -60,6 +60,9 @@
                                         @if($value->operate_list['allow_operate_edit'])
                                             <a href="{{ $value->edit_url }}" style="display: block;">编辑</a>
                                         @endif
+                                        @if($value->operate_list['allow_operate_create_course'])
+                                            <a href="javascript:;" style="display: block;" onclick="createCourse('{{ $value->no }}')">创建课程</a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
@@ -72,4 +75,13 @@
         </div>
         <!-- /.col -->
     </div>
+    @if($operateList['allow_create_course'])
+        <script>
+            function createCourse(no) {
+                if (confirm('确定创建课程？')) {
+                    location.href='{{ $operateUrl['create_course_url'] }}?major_no='+no;
+                }
+            }
+        </script>
+    @endif
 @endsection

@@ -59,6 +59,18 @@ class InitSystemSeeder extends Seeder
                     ['name'=>'创建培训等级', 'type'=>3, 'action'=>RouteConfig::ROUTE_LEVEL_CREATE],
                     ['name'=>'编辑培训等级', 'type'=>3, 'action'=>RouteConfig::ROUTE_LEVEL_EDIT],
                 ]],
+                ['name'=>'培训专业管理', 'type'=>2, 'action'=>AdminMenuConfig::MENU_CULTIVATE_MAJOR, 'list'=>[
+                    ['name'=>'培训专业列表', 'type'=>3, 'action'=>RouteConfig::ROUTE_MAJOR_LIST],
+                    ['name'=>'创建培训专业', 'type'=>3, 'action'=>RouteConfig::ROUTE_MAJOR_CREATE],
+                    ['name'=>'编辑培训专业', 'type'=>3, 'action'=>RouteConfig::ROUTE_MAJOR_EDIT],
+                    ['name'=>'作废培训专业', 'type'=>3, 'action'=>RouteConfig::ROUTE_MAJOR_REMOVE],
+                ]],
+                ['name'=>'专业课程管理', 'type'=>2, 'action'=>AdminMenuConfig::MENU_CULTIVATE_MAJOR_COURSE, 'list'=>[
+                    ['name'=>'专业课程列表', 'type'=>3, 'action'=>RouteConfig::ROUTE_MAJOR_COURSE_LIST],
+                    ['name'=>'创建专业课程', 'type'=>3, 'action'=>RouteConfig::ROUTE_MAJOR_COURSE_CREATE],
+                    ['name'=>'编辑专业课程', 'type'=>3, 'action'=>RouteConfig::ROUTE_MAJOR_COURSE_EDIT],
+                    ['name'=>'作废专业课程', 'type'=>3, 'action'=>RouteConfig::ROUTE_MAJOR_COURSE_REMOVE],
+                ]],
             ]],
         ];
         $actionProcessor = new AdminActionProcessor();

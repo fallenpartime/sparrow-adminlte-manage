@@ -19,7 +19,7 @@ class CreateCultivateAgenciesTable extends Migration
             $table->tinyInteger('type')->default(0)->comment('机构类型 1-培训机构');
             $table->string('name', 100)->nullable(false)->comment('机构名称');
             $table->string('description', 1000)->nullable(false)->comment('机构简介');
-            $table->string('logo')->nullable(false)->default('')->comment('机构logo');
+            $table->string('logo')->nullable()->comment('机构logo');
             $table->string('address')->nullable(false)->default('')->comment('地址');
             $table->string('phone', 30)->nullable(false)->default('')->comment('联系电话');
             $table->timestamps();

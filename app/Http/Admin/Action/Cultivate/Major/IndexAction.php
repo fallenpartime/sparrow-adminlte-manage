@@ -68,14 +68,20 @@ class IndexAction extends BaseAction
     {
         $operateList = [
             'allow_remove' => 0,
+            'allow_create_course' => 0,
         ];
         $operateUrl = [
             'remove_url' => '',
+            'create_course_url' => '',
         ];
         $authService = $this->getAuthService();
         if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_MAJOR_REMOVE)) {
             $operateList['allow_remove'] = 1;
             $operateUrl['remove_url'] = route(RouteConfig::ROUTE_MAJOR_REMOVE);
+        }
+        if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_MAJOR_COURSE_CREATE)) {
+            $operateList['allow_create_course'] = 1;
+            $operateUrl['create_course_url'] = route(RouteConfig::ROUTE_MAJOR_COURSE_CREATE);
         }
         return [$operateList, $operateUrl];
     }
@@ -84,11 +90,15 @@ class IndexAction extends BaseAction
     {
         $operateList = [
             'allow_operate_edit' => 0,
+            'allow_operate_create_course' => 0,
             'allow_operate_remove' => 0,
         ];
         $authService = $this->getAuthService();
         if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_MAJOR_EDIT)) {
             $operateList['allow_operate_edit'] = 1;
+        }
+        if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_MAJOR_COURSE_CREATE)) {
+            $operateList['allow_operate_create_course'] = 1;
         }
         if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_MAJOR_REMOVE)) {
             $operateList['allow_operate_remove'] = 1;

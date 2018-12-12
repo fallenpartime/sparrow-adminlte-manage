@@ -5,9 +5,12 @@
 namespace Common\Models\Cultivate;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CultivateMajorCourse extends Model
 {
+    use SoftDeletes;
+
     protected $table = 'cultivate_major_courses';
     protected $appends = ['edit_url', 'operate_list'];
 

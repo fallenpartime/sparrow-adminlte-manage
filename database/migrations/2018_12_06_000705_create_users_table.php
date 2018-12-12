@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('openid', 100)->default('')->comment('openid');
             $table->string('unionid')->default('')->comment('unionid');
             $table->string('phone', 30)->default('')->comment('用户电话');
-            $table->string('face')->default('')->comment('用户头像');
+            $table->string('face')->nullable()->comment('用户头像');
             $table->tinyInteger('is_subscribe')->default(0)->comment('是否关注 0-否 1-是');
             $table->timestamp('subscribed_at')->nullable(true)->comment('关注时间');
             $table->timestamp('last_login_at')->nullable(true)->comment('最后登录时间');

@@ -17,7 +17,7 @@ class CreateCultivateMajorLevelsTable extends Migration
             $table->increments('id');
             $table->string('no', 30)->nullable(false)->comment('等级编号');
             $table->string('name', 100)->nullable(false)->comment('等级名称');
-            $table->string('image')->default('')->comment('等级图片');
+            $table->string('image')->nullable()->comment('等级图片');
             $table->timestamps();
             $table->softDeletes();
             $table->index('no');
