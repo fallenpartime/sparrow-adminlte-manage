@@ -58,7 +58,7 @@ class IndexAction extends BaseAction
     protected function processList($list)
     {
         foreach ($list as $key => $item) {
-            $list[$key]->edit_url = route(RouteConfig::ROUTE_LEVEL_EDIT, ['id'=>$item->id]);
+            $list[$key]->edit_url = route(RouteConfig::ROUTE_MAJOR_REMOVE, ['id'=>$item->id]);
             $list = $this->listAllowOperate($list, $key);
         }
         return $list;
