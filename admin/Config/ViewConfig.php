@@ -50,4 +50,16 @@ class ViewConfig
     const MAJOR_COURSE_LIST = 'admin.cultivate.major.course.index';
     const MAJOR_COURSE_CREATE = 'admin.cultivate.major.course.create';
     const MAJOR_COURSE_EDIT = 'admin.cultivate.major.course.edit';
+    // 培训专业.开班
+    const COURSE_LIST = 'admin.cultivate.course.index';
+    const COURSE_CREATE = 'admin.cultivate.course.create';
+    const COURSE_EDIT = 'admin.cultivate.course.edit';
+    // 培训专业.开班.教师
+    const COURSE_TEACHER_LIST = 'admin.cultivate.course.teacher.index';
+    const COURSE_TEACHER_CREATE = 'admin.cultivate.course.teacher.create';
+    const COURSE_TEACHER_EDIT = 'admin.cultivate.course.teacher.edit';
+    // 培训专业.开班.报价
+    const COURSE_PRICE_LIST = 'admin.cultivate.price.index';
+    const COURSE_PRICE_CREATE = 'admin.cultivate.price.create';
+    const COURSE_PRICE_EDIT = 'admin.cultivate.price.edit';
 }

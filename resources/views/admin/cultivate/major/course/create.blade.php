@@ -21,7 +21,7 @@
                             <input type="text" name="no" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>所属专业</label>
+                            <label>所属专业 *</label>
                             <select name="major_no" class="form-control" style="width: 100%;">
                                 @if(!empty($majorList))
                                     @foreach($majorList as $majorItem)

@@ -22,6 +22,9 @@ class AdminMenuConfig
     const MENU_CULTIVATE_LEVEL = 'manage.level';
     const MENU_CULTIVATE_MAJOR = 'manage.major';
     const MENU_CULTIVATE_MAJOR_COURSE = 'manage.major.course';
+    const MENU_CULTIVATE_COURSE = 'manage.course';
+    const MENU_CULTIVATE_COURSE_TEACHER = 'manage.course.teacher';
+    const MENU_CULTIVATE_COURSE_PRICE = 'manage.course.price';
 
     public static function getMenuName($menuTag)
     {
@@ -84,6 +87,18 @@ class AdminMenuConfig
             RouteConfig::ROUTE_MAJOR_COURSE_LIST    =>  '专业课程列表',
             RouteConfig::ROUTE_MAJOR_COURSE_CREATE  =>  '创建专业课程',
             RouteConfig::ROUTE_MAJOR_COURSE_EDIT    =>  '编辑专业课程',
+            self::MENU_CULTIVATE_COURSE             =>  '开班管理',
+            RouteConfig::ROUTE_COURSE_LIST          =>  '专业开班',
+            RouteConfig::ROUTE_COURSE_CREATE        =>  '创建开班',
+            RouteConfig::ROUTE_COURSE_REMOVE        =>  '编辑开班',
+            self::MENU_CULTIVATE_COURSE_TEACHER         =>  '开班教师管理',
+            RouteConfig::ROUTE_COURSE_TEACHER_LIST      =>  '开班教师列表',
+            RouteConfig::ROUTE_COURSE_TEACHER_CREATE    =>  '创建开班教师',
+            RouteConfig::ROUTE_COURSE_TEACHER_REMOVE    =>  '编辑开班教师',
+            self::MENU_CULTIVATE_COURSE_PRICE           =>  '开班报价管理',
+            RouteConfig::ROUTE_COURSE_PRICE_LIST        =>  '开班报价列表',
+            RouteConfig::ROUTE_COURSE_PRICE_CREATE      =>  '创建开班报价',
+            RouteConfig::ROUTE_COURSE_PRICE_EDIT        =>  '编辑开班报价',
         ];
     }
 }

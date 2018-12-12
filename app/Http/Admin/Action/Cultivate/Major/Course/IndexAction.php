@@ -66,16 +66,9 @@ class IndexAction extends BaseAction
     {
         foreach ($list as $key => $item) {
             $list[$key]->edit_url = route(RouteConfig::ROUTE_MAJOR_COURSE_EDIT, ['id'=>$item->id]);
-            $list[$key]->level_no = route(RouteConfig::ROUTE_MAJOR_COURSE_EDIT, ['id'=>$item->id]);
             $list = $this->listAllowOperate($list, $key);
         }
         return $list;
-    }
-
-    protected function initLevelDesc($list, $key)
-    {
-        $level = $list[$key]->level_no;
-         return $list;
     }
 
     protected function allowOperate()

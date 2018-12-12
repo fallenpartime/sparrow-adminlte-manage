@@ -51,4 +51,19 @@ class RouteConfig
     const ROUTE_MAJOR_COURSE_CREATE = 'admin.cultivate.major.course.create';
     const ROUTE_MAJOR_COURSE_EDIT = 'admin.cultivate.major.course.edit';
     const ROUTE_MAJOR_COURSE_REMOVE = 'admin.cultivate.major.course.remove';
+    // 培训中心.开班
+    const ROUTE_COURSE_LIST = 'admin.cultivate.course';
+    const ROUTE_COURSE_CREATE = 'admin.cultivate.course.create';
+    const ROUTE_COURSE_EDIT = 'admin.cultivate.course.edit';
+    const ROUTE_COURSE_REMOVE = 'admin.cultivate.course.remove';
+    // 培训中心.开班.教师
+    const ROUTE_COURSE_TEACHER_LIST = 'admin.cultivate.course.teacher';
+    const ROUTE_COURSE_TEACHER_CREATE = 'admin.cultivate.course.teacher.create';
+    const ROUTE_COURSE_TEACHER_EDIT = 'admin.cultivate.course.teacher.edit';
+    const ROUTE_COURSE_TEACHER_REMOVE = 'admin.cultivate.course.teacher.remove';
+    // 培训中心.开班.报价
+    const ROUTE_COURSE_PRICE_LIST = 'admin.cultivate.price';
+    const ROUTE_COURSE_PRICE_CREATE = 'admin.cultivate.price.create';
+    const ROUTE_COURSE_PRICE_EDIT = 'admin.cultivate.price.edit';
+    const ROUTE_COURSE_PRICE_REMOVE = 'admin.cultivate.price.remove';
 }

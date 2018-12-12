@@ -98,6 +98,57 @@
                             </ul>
                         </li>
                     @endif
+                    @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\AdminMenuConfig::MENU_CULTIVATE_COURSE, $ts_list)))
+                        <li class="treeview">
+                            <a href="#"><i class="fa fa-circle-o"></i> 开班管理
+                                <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\RouteConfig::ROUTE_COURSE_LIST, $ts_list)))
+                                    <li><a href="{{ route(\Admin\Config\RouteConfig::ROUTE_COURSE_LIST) }}"><i class="fa fa-circle-o"></i> 开班列表</a></li>
+                                @endif
+                                @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\RouteConfig::ROUTE_COURSE_CREATE, $ts_list)))
+                                    <li><a href="{{ route(\Admin\Config\RouteConfig::ROUTE_COURSE_CREATE) }}"><i class="fa fa-circle-o"></i> 创建开班</a></li>
+                                @endif
+                            </ul>
+                        </li>
+                    @endif
+                    @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\AdminMenuConfig::MENU_CULTIVATE_COURSE_TEACHER, $ts_list)))
+                        <li class="treeview">
+                            <a href="#"><i class="fa fa-circle-o"></i> 开班教师管理
+                                <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\RouteConfig::ROUTE_COURSE_TEACHER_LIST, $ts_list)))
+                                    <li><a href="{{ route(\Admin\Config\RouteConfig::ROUTE_COURSE_TEACHER_LIST) }}"><i class="fa fa-circle-o"></i> 开班教师列表</a></li>
+                                @endif
+                                @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\RouteConfig::ROUTE_COURSE_TEACHER_CREATE, $ts_list)))
+                                    <li><a href="{{ route(\Admin\Config\RouteConfig::ROUTE_COURSE_TEACHER_CREATE) }}"><i class="fa fa-circle-o"></i> 创建开班教师</a></li>
+                                @endif
+                            </ul>
+                        </li>
+                    @endif
+                    @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\AdminMenuConfig::MENU_CULTIVATE_COURSE_PRICE, $ts_list)))
+                        <li class="treeview">
+                            <a href="#"><i class="fa fa-circle-o"></i> 开班报价管理
+                                <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\RouteConfig::ROUTE_COURSE_PRICE_LIST, $ts_list)))
+                                    <li><a href="{{ route(\Admin\Config\RouteConfig::ROUTE_COURSE_PRICE_LIST) }}"><i class="fa fa-circle-o"></i> 开班报价列表</a></li>
+                                @endif
+                                @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\RouteConfig::ROUTE_COURSE_PRICE_CREATE, $ts_list)))
+                                    <li><a href="{{ route(\Admin\Config\RouteConfig::ROUTE_COURSE_PRICE_CREATE) }}"><i class="fa fa-circle-o"></i> 创建开班报价</a></li>
+                                @endif
+                            </ul>
+                        </li>
+                    @endif
                 </ul>
             </li>
             @endif
