@@ -63,8 +63,8 @@ class CreateAction extends BaseAction
         $no = $httpTool->getBothSafeParam('no');
         $name = $httpTool->getBothSafeParam('name');
         $type = $httpTool->getBothSafeParam('type');
-        $description = $httpTool->getBothSafeParam('description');
         $majorNo = $httpTool->getBothSafeParam('major_no');
+        $description = $httpTool->getBothSafeParam('description');
         $picPreview = $this->request->get('list_pic_preview');
         if(empty($no)){
             $this->errorJson(500, '课程编号不能为空');
