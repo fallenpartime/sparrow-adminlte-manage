@@ -89,4 +89,5 @@ class CreateAction extends BaseAction
         $this->getLogTool()->operateLog(20, $agency->id, '添加培训专业');
         $this->successJson();
     }
+
 }
