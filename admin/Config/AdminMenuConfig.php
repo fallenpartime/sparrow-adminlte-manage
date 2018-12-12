@@ -21,6 +21,7 @@ class AdminMenuConfig
     const MENU_CULTIVATE_TEACHER = 'manage.teacher';
     const MENU_CULTIVATE_LEVEL = 'manage.level';
     const MENU_CULTIVATE_MAJOR = 'manage.major';
+    const MENU_CULTIVATE_MAJOR_COURSE = 'manage.major.course';
 
     public static function getMenuName($menuTag)
     {
@@ -79,7 +80,10 @@ class AdminMenuConfig
             RouteConfig::ROUTE_MAJOR_LIST          =>  '培训专业列表',
             RouteConfig::ROUTE_MAJOR_CREATE         =>  '创建培训专业',
             RouteConfig::ROUTE_MAJOR_EDIT           =>  '编辑培训专业',
-            RouteConfig::ROUTE_MAJOR_REMOVE         =>  '作废培训专业',
+            self::MENU_CULTIVATE_MAJOR_COURSE       =>  '培训专业管理',
+            RouteConfig::ROUTE_MAJOR_COURSE_LIST    =>  '专业课程列表',
+            RouteConfig::ROUTE_MAJOR_COURSE_CREATE  =>  '创建专业课程',
+            RouteConfig::ROUTE_MAJOR_COURSE_EDIT    =>  '编辑专业课程',
         ];
     }
 }

@@ -70,6 +70,7 @@ class CreateAction extends BaseAction
             'no'        =>  $no,
             'name'      =>  $name,
             'description'   =>  $description,
+            'show_status'   =>  1,
             'image'      =>  !empty($picPreview)?  $picPreview[0]: null,
         ];
         $res = $this->save($data);

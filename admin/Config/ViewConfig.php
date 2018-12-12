@@ -46,4 +46,8 @@ class ViewConfig
     const MAJOR_LIST = 'admin.cultivate.major.index';
     const MAJOR_CREATE = 'admin.cultivate.major.create';
     const MAJOR_EDIT = 'admin.cultivate.major.edit';
+    // 培训专业.课程
+    const MAJOR_COURSE_LIST = 'admin.cultivate.major.course.index';
+    const MAJOR_COURSE_CREATE = 'admin.cultivate.major.course.create';
+    const MAJOR_COURSE_EDIT = 'admin.cultivate.major.course.edit';
 }

@@ -81,6 +81,23 @@
                             </ul>
                         </li>
                     @endif
+                    @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\AdminMenuConfig::MENU_CULTIVATE_MAJOR_COURSE, $ts_list)))
+                        <li class="treeview">
+                            <a href="#"><i class="fa fa-circle-o"></i> 专业课程管理
+                                <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\RouteConfig::ROUTE_MAJOR_COURSE_LIST, $ts_list)))
+                                    <li><a href="{{ route(\Admin\Config\RouteConfig::ROUTE_MAJOR_COURSE_LIST) }}"><i class="fa fa-circle-o"></i> 专业课程列表</a></li>
+                                @endif
+                                @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\RouteConfig::ROUTE_MAJOR_COURSE_CREATE, $ts_list)))
+                                    <li><a href="{{ route(\Admin\Config\RouteConfig::ROUTE_MAJOR_COURSE_CREATE) }}"><i class="fa fa-circle-o"></i> 创建专业课程</a></li>
+                                @endif
+                            </ul>
+                        </li>
+                    @endif
                 </ul>
             </li>
             @endif
