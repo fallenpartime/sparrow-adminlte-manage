@@ -43,4 +43,5 @@ class CultivateCourseTeacher extends Model
     {
         return $this->belongsTo(CultivateCourseTeacher::class, 'teacher_no', 'no');
     }
+
 }
