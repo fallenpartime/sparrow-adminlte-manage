@@ -14,8 +14,8 @@ class CreateTradeInfosTable extends Migration
     public function up()
     {
         Schema::create('trade_infos', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('order_id')->default(0)->comment('订单ID');
+            $table->bigIncrements('id');
+            $table->bigInteger('order_id')->default(0)->comment('订单ID');
             $table->tinyInteger('type')->default(0)->comment('交易类型 1-报名');
             $table->integer('apply_id')->default(0)->comment('申请ID');
             $table->integer('price_id')->default(0)->comment('报价ID');
