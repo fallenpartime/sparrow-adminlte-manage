@@ -26,26 +26,20 @@ class CourseTeacherSqlProcessor extends BaseSqlProcessor implements BaseSqlDeleg
         $levelNo = trim(array_get($params, 'level_no'));
         // 专业
         $majorNo = trim(array_get($params, 'major_no'));
-        if (!empty($year) || !empty($levelNo) || !empty($majorNo)) {
-            $search = [];
-            $search['year'] = $year;
-            $search['level_no'] = $levelNo;
-            $search['major_no'] = $majorNo;
-            $urlParams['year'] = $year;
-            $urlParams['level_no'] = $levelNo;
-            $urlParams['major_no'] = $majorNo;
-            $model = $model->whereHas('course', function ($query) use ($search) {
-                if (!empty($search['year'])) {
-                    $query->where('year', $search['year']);
-                }
-                if (!empty($search['level_no'])) {
-                    $query->where('level_no', $search['level_no']);
-                }
-                if (!empty($search['major_no'])) {
-                    $query->where('major_no', $search['major_no']);
-                }
-            });
-        }
+        $urlParams['year'] = $year;
+        $urlParams['level_no'] = $levelNo;
+        $urlParams['major_no'] = $majorNo;
+        $model = $model->whereHas('course', function ($query) use ($params) {
+            if (!empty($search['year'])) {
+                $query->where('year', $search['year']);
+            }
+            if (!empty($search['level_no'])) {
+                $query->where('level_no', $search['level_no']);
+            }
+            if (!empty($search['major_no'])) {
+                $query->where('major_no', $search['major_no']);
+            }
+        });
         // 教师
         $teacherNo = trim(array_get($params, 'teacher_no'));
         if (!empty($teacherNo)) {
