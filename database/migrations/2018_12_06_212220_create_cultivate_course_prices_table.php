@@ -26,6 +26,8 @@ class CreateCultivateCoursePricesTable extends Migration
             $table->decimal('discount')->default(0)->comment('折扣(实际支付的比例)');
             $table->decimal('money')->default(0)->comment('总计费用');
             $table->decimal('real_money')->default(0)->comment('实际需支付金额');
+            $table->tinyInteger('active_status')->default(0)->comment('是否激活 0-否 1-是');
+            $table->tinyInteger('used_status')->default(0)->comment('是否使用过 0-否 1-是');
             $table->timestamps();
             $table->softDeletes();
             $table->index('no');
@@ -34,6 +36,8 @@ class CreateCultivateCoursePricesTable extends Migration
             $table->index('discount');
             $table->index('money');
             $table->index('real_money');
+            $table->index('active_status');
+            $table->index('used_status');
         });
     }
 
