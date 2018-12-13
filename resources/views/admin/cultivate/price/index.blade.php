@@ -19,7 +19,7 @@
                                     <label>编号</label>
                                     <input type="text" name="no" class="form-control" style="width: 100%;" value="{{ array_get($urlParams, 'no') }}">
                                 </div>
-                                <div class="form-group col-md-1">
+                                <div class="form-group col-md-2">
                                     <label>类别</label>
                                     <select name="type" class="form-control" style="width: 100%;">
                                         <option value="">全部</option>
@@ -30,7 +30,7 @@
                                         @endif
                                     </select>
                                 </div>
-                                <div class="form-group col-md-1">
+                                <div class="form-group col-md-2">
                                     <label>激活状态</label>
                                     <select name="active_status" class="form-control" style="width: 100%;">
                                         <option value="">全部</option>
@@ -38,7 +38,7 @@
                                         <option value="1" @if(array_get($urlParams, 'active_status') === 1)selected="selected"@endif>未激活</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-1">
+                                <div class="form-group col-md-2">
                                     <label>使用状态</label>
                                     <select name="used_status" class="form-control" style="width: 100%;">
                                         <option value="">全部</option>
