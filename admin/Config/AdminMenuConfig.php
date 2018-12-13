@@ -94,11 +94,10 @@ class AdminMenuConfig
             self::MENU_CULTIVATE_COURSE_TEACHER         =>  '开班教师管理',
             RouteConfig::ROUTE_COURSE_TEACHER_LIST      =>  '开班教师列表',
             RouteConfig::ROUTE_COURSE_TEACHER_CREATE    =>  '创建开班教师',
-            RouteConfig::ROUTE_COURSE_TEACHER_REMOVE    =>  '编辑开班教师',
+            RouteConfig::ROUTE_COURSE_TEACHER_EDIT    =>  '编辑开班教师',
             self::MENU_CULTIVATE_COURSE_PRICE           =>  '开班报价管理',
             RouteConfig::ROUTE_COURSE_PRICE_LIST        =>  '开班报价列表',
             RouteConfig::ROUTE_COURSE_PRICE_CREATE      =>  '创建开班报价',
-            RouteConfig::ROUTE_COURSE_PRICE_EDIT        =>  '编辑开班报价',
         ];
     }
 }

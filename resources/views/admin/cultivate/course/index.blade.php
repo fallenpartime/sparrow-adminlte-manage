@@ -20,6 +20,10 @@
                                     <input type="text" name="no" class="form-control" style="width: 100%;" value="{{ array_get($urlParams, 'no') }}">
                                 </div>
                                 <div class="form-group col-md-2">
+                                    <label>名称</label>
+                                    <input type="text" name="name" class="form-control" style="width: 100%;" value="{{ array_get($urlParams, 'name') }}">
+                                </div>
+                                <div class="form-group col-md-2">
                                     <label>开班年份</label>
                                     <input type="text" name="year" class="form-control" style="width: 100%;" value="{{ array_get($urlParams, 'year') }}">
                                 </div>
@@ -55,11 +59,12 @@
                             <thead>
                             <tr>
                                 <th width="10%">编号</th>
-                                <th width="10%">年份</th>
+                                <th width="10%">名称</th>
+                                <th width="5%">年份</th>
                                 <th width="10%">等级</th>
-                                <th width="15%">专业</th>
+                                <th width="10%">专业</th>
                                 <th width="10%">开班期数</th>
-                                <th width="20%">当前报价</th>
+                                <th width="10%">当前报价</th>
                                 <th width="15%">创建时间</th>
                                 <th width="10%">操作</th>
                             </tr>
@@ -69,6 +74,9 @@
                                 <tr>
                                     <td>
                                         {{ $value->no }}
+                                    </td>
+                                    <td>
+                                        {{ $value->name }}
                                     </td>
                                     <td>
                                         {{ $value->year }}
@@ -101,6 +109,9 @@
                                         @if($value->operate_list['allow_operate_edit'])
                                             <a href="{{ $value->edit_url }}" style="display: block;">编辑</a>
                                         @endif
+                                        @if($value->operate_list['allow_operate_create_teacher'])
+                                            <a href="javascript:;" style="display: block;" onclick="createTeacher('{{ $value->no }}')">创建关联教师</a>
+                                        @endif
                                         @if($value->operate_list['allow_operate_remove'])
                                             <a href="javascript:;" style="display: block;" onclick="remove({{ $value->id }})">作废</a>
                                         @endif
@@ -119,7 +130,7 @@
     @if($operateList['allow_remove'])
         <script>
             function remove(id) {
-                if (confirm('确定提交？')) {
+                if (confirm('确定作废开班记录？')) {
                     $.post(
                         '{{ $operateUrl['remove_url'] }}',
                         {id: id},
@@ -132,6 +143,15 @@
                             }
                         }
                     )
+                }
+            }
+        </script>
+    @endif
+    @if($operateList['allow_create_teacher'])
+        <script>
+            function createTeacher(no) {
+                if (confirm('确定创建关联教师？')) {
+                    location.href='{{ $operateUrl['create_teacher_url'] }}?course_no='+no;
                 }
             }
         </script>

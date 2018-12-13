@@ -20,6 +20,12 @@ class CourseSqlProcessor extends BaseSqlProcessor implements BaseSqlDelegation
             $model = $model->where('no', $no);
             $urlParams['no'] = $no;
         }
+        // 名称
+        $name = trim(array_get($params, 'name'));
+        if (!empty($name)) {
+            $model = $model->where('name', $name);
+            $urlParams['name'] = $name;
+        }
         // 年份
         $year = intval(trim(array_get($params, 'year')));
         if (!empty($year)) {

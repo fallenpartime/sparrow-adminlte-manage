@@ -30,7 +30,7 @@ class IndexAction extends BaseAction
         $list = [];
         $total = $model->count();
         if ($total > 0) {
-            $list = $this->pageModel($model, $page, $pageSize)->with(['major', 'level', 'currentPrice'])->select(['id', 'no', 'year', 'level_no', 'major_no', 'num', 'created_at'])->get();
+            $list = $this->pageModel($model, $page, $pageSize)->with(['major', 'level', 'currentPrice'])->select(['id', 'no', 'name', 'year', 'level_no', 'major_no', 'num', 'created_at'])->get();
             $list = $this->processList($list);
         }
         list($url, $pageList) = CommonTool::pagination($total, $pageSize, $page, $url);
@@ -74,14 +74,20 @@ class IndexAction extends BaseAction
     {
         $operateList = [
             'allow_remove' => 0,
+            'allow_create_teacher' => 0,
         ];
         $operateUrl = [
             'remove_url' => '',
+            'create_teacher_url' => '',
         ];
         $authService = $this->getAuthService();
         if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_COURSE_REMOVE)) {
             $operateList['allow_remove'] = 1;
             $operateUrl['remove_url'] = route(RouteConfig::ROUTE_COURSE_REMOVE);
+        }
+        if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_COURSE_TEACHER_CREATE)) {
+            $operateList['allow_create_teacher'] = 1;
+            $operateUrl['create_teacher_url'] = route(RouteConfig::ROUTE_COURSE_TEACHER_CREATE);
         }
         return [$operateList, $operateUrl];
     }
@@ -90,11 +96,15 @@ class IndexAction extends BaseAction
     {
         $operateList = [
             'allow_operate_edit' => 0,
+            'allow_operate_create_teacher' => 0,
             'allow_operate_remove' => 0,
         ];
         $authService = $this->getAuthService();
         if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_COURSE_EDIT)) {
             $operateList['allow_operate_edit'] = 1;
+        }
+        if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_COURSE_TEACHER_CREATE)) {
+            $operateList['allow_operate_create_teacher'] = 1;
         }
         if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_COURSE_REMOVE)) {
             $operateList['allow_operate_remove'] = 1;

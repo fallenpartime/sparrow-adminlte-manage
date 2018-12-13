@@ -63,6 +63,9 @@
                                         @if($value->operate_list['allow_operate_create_course'])
                                             <a href="javascript:;" style="display: block;" onclick="createCourse('{{ $value->no }}')">创建课程</a>
                                         @endif
+                                        @if($value->operate_list['allow_operate_create_kcourse'])
+                                            <a href="javascript:;" style="display: block;" onclick="createKCourse('{{ $value->no }}')">创建开班</a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
@@ -80,6 +83,15 @@
             function createCourse(no) {
                 if (confirm('确定创建课程？')) {
                     location.href='{{ $operateUrl['create_course_url'] }}?major_no='+no;
+                }
+            }
+        </script>
+    @endif
+    @if($operateList['allow_create_kcourse'])
+        <script>
+            function createKCourse(no) {
+                if (confirm('确定创建开班？')) {
+                    location.href='{{ $operateUrl['create_kcourse_url'] }}?major_no='+no;
                 }
             }
         </script>

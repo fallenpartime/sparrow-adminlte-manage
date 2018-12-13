@@ -24,16 +24,6 @@ class CultivateCourseTeacher extends Model
         return array_get($this->attributes, 'operate_list', []);
     }
 
-    public function major()
-    {
-        return $this->belongsTo(CultivateMajor::class, 'major_no', 'no');
-    }
-
-    public function level()
-    {
-        return $this->belongsTo(CultivateMajorLevel::class, 'level_no', 'no');
-    }
-
     public function course()
     {
         return $this->belongsTo(CultivateCourse::class, 'course_no', 'no');
@@ -41,7 +31,7 @@ class CultivateCourseTeacher extends Model
 
     public function teacher()
     {
-        return $this->belongsTo(CultivateCourseTeacher::class, 'teacher_no', 'no');
+        return $this->belongsTo(CultivateTeacher::class, 'teacher_no', 'no');
     }
 
 }

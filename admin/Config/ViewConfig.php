@@ -61,5 +61,4 @@ class ViewConfig
     // 培训专业.开班.报价
     const COURSE_PRICE_LIST = 'admin.cultivate.price.index';
     const COURSE_PRICE_CREATE = 'admin.cultivate.price.create';
-    const COURSE_PRICE_EDIT = 'admin.cultivate.price.edit';
 }

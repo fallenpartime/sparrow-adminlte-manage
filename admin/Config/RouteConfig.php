@@ -64,6 +64,5 @@ class RouteConfig
     // 培训中心.开班.报价
     const ROUTE_COURSE_PRICE_LIST = 'admin.cultivate.price';
     const ROUTE_COURSE_PRICE_CREATE = 'admin.cultivate.price.create';
-    const ROUTE_COURSE_PRICE_EDIT = 'admin.cultivate.price.edit';
-    const ROUTE_COURSE_PRICE_REMOVE = 'admin.cultivate.price.remove';
+    const ROUTE_COURSE_PRICE_ACTIVE = 'admin.cultivate.price.active';
 }
