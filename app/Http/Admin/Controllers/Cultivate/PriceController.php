@@ -37,7 +37,7 @@ class PriceController extends Controller
      * 激活报价
      * @param Request $request
      */
-    public function remove(Request $request)
+    public function active(Request $request)
     {
         return (new ActiveAction($request))->run();
     }

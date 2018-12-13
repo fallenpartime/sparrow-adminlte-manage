@@ -17,7 +17,7 @@
                             <div class="box-tools">
                                 <div class="form-group col-md-1">
                                     <label>开班年份</label>
-                                    <input type="text" name="year" class="form-control" style="width: 100%;" value="{{ !empty($params['year'])? $params['year']: '' }}">
+                                    <input type="text" name="year" class="form-control" style="width: 100%;" value="{{ !empty($urlParams['year'])? $urlParams['year']: '' }}">
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label>开班编号</label>

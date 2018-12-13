@@ -17,7 +17,7 @@ class CreateCultivateCoursePricesTable extends Migration
     {
         Schema::create('cultivate_course_prices', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('type')->default(0)->comment('定价类型');
+            $table->integer('type')->default(0)->comment('定价类型');
             $table->string('no', 30)->default('')->comment('报价编号');
             $table->string('level_no', 30)->default('')->comment('等级编号');
             $table->string('course_no', 30)->default('')->comment('课程编号');

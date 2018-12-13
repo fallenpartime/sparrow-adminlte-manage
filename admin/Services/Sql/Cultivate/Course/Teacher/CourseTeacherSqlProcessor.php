@@ -30,15 +30,17 @@ class CourseTeacherSqlProcessor extends BaseSqlProcessor implements BaseSqlDeleg
         $urlParams['level_no'] = $levelNo;
         $urlParams['major_no'] = $majorNo;
         $model = $model->whereHas('course', function ($query) use ($params) {
-            if (!empty($search['year'])) {
-                $query->where('year', $search['year']);
+            if (!empty($params['year'])) {
+                $query->where('year', $params['year']);
             }
-            if (!empty($search['level_no'])) {
-                $query->where('level_no', $search['level_no']);
+            if (!empty($params['level_no'])) {
+                $query->where('level_no', $params['level_no']);
             }
-            if (!empty($search['major_no'])) {
-                $query->where('major_no', $search['major_no']);
-            }
+            $query->whereHas('major', function ($query) use ($params) {
+                if (!empty($params['major_no'])) {
+                    $query->where('no', $params['major_no']);
+                }
+            });
         });
         // 教师
         $teacherNo = trim(array_get($params, 'teacher_no'));

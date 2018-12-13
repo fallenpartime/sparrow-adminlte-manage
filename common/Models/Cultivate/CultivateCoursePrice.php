@@ -12,21 +12,16 @@ class CultivateCoursePrice extends Model
     use SoftDeletes;
 
     protected $table = 'cultivate_course_prices';
-    protected $appends = ['edit_url', 'operate_list'];
-
-    public function getEditUrlAttribute()
-    {
-        return array_get($this->attributes, 'edit_url', '');
-    }
+    protected $appends = ['operate_list', 'status_list'];
 
     public function getOperateListAttribute()
     {
         return array_get($this->attributes, 'operate_list', []);
     }
 
-    public function level()
+    public function getStatusListAttribute()
     {
-        return $this->belongsTo(CultivateMajorLevel::class, 'level_no', 'no');
+        return array_get($this->attributes, 'status_list', []);
     }
 
     public function course()

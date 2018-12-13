@@ -112,6 +112,9 @@
                                         @if($value->operate_list['allow_operate_create_teacher'])
                                             <a href="javascript:;" style="display: block;" onclick="createTeacher('{{ $value->no }}')">创建关联教师</a>
                                         @endif
+                                        @if($value->operate_list['allow_operate_create_price'])
+                                            <a href="javascript:;" style="display: block;" onclick="createPrice('{{ $value->no }}')">创建报价</a>
+                                        @endif
                                         @if($value->operate_list['allow_operate_remove'])
                                             <a href="javascript:;" style="display: block;" onclick="remove({{ $value->id }})">作废</a>
                                         @endif
@@ -152,6 +155,15 @@
             function createTeacher(no) {
                 if (confirm('确定创建关联教师？')) {
                     location.href='{{ $operateUrl['create_teacher_url'] }}?course_no='+no;
+                }
+            }
+        </script>
+    @endif
+    @if($operateList['allow_create_price'])
+        <script>
+            function createPrice(no) {
+                if (confirm('确定创建报价？')) {
+                    location.href='{{ $operateUrl['create_price_url'] }}?course_no='+no;
                 }
             }
         </script>

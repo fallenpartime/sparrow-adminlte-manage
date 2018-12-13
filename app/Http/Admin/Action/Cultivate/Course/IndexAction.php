@@ -75,10 +75,12 @@ class IndexAction extends BaseAction
         $operateList = [
             'allow_remove' => 0,
             'allow_create_teacher' => 0,
+            'allow_create_price' => 0,
         ];
         $operateUrl = [
             'remove_url' => '',
             'create_teacher_url' => '',
+            'create_price_url' => '',
         ];
         $authService = $this->getAuthService();
         if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_COURSE_REMOVE)) {
@@ -89,6 +91,10 @@ class IndexAction extends BaseAction
             $operateList['allow_create_teacher'] = 1;
             $operateUrl['create_teacher_url'] = route(RouteConfig::ROUTE_COURSE_TEACHER_CREATE);
         }
+        if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_COURSE_PRICE_CREATE)) {
+            $operateList['allow_create_price'] = 1;
+            $operateUrl['create_price_url'] = route(RouteConfig::ROUTE_COURSE_PRICE_CREATE);
+        }
         return [$operateList, $operateUrl];
     }
 
@@ -97,6 +103,7 @@ class IndexAction extends BaseAction
         $operateList = [
             'allow_operate_edit' => 0,
             'allow_operate_create_teacher' => 0,
+            'allow_operate_create_price' => 0,
             'allow_operate_remove' => 0,
         ];
         $authService = $this->getAuthService();
@@ -105,6 +112,9 @@ class IndexAction extends BaseAction
         }
         if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_COURSE_TEACHER_CREATE)) {
             $operateList['allow_operate_create_teacher'] = 1;
+        }
+        if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_COURSE_PRICE_CREATE)) {
+            $operateList['allow_operate_create_price'] = 1;
         }
         if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_COURSE_REMOVE)) {
             $operateList['allow_operate_remove'] = 1;

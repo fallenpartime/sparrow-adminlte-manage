@@ -9,7 +9,7 @@ Route::middleware(['web', 'admin.action.auth'])->group(function () {
     Route::match(['get', 'post'], '/admin/cultivate/price/create', [
         'uses' => '\App\Http\Admin\Controllers\Cultivate\PriceController@create'
     ])->name('admin.cultivate.price.create');
-    Route::match(['get', 'post'], '/admin/cultivate/price/edit', [
-        'uses' => '\App\Http\Admin\Controllers\Cultivate\PriceController@edit'
-    ])->name('admin.cultivate.price.edit');
+    Route::match(['get', 'post'], '/admin/cultivate/price/active', [
+        'uses' => '\App\Http\Admin\Controllers\Cultivate\PriceController@active'
+    ])->name('admin.cultivate.price.active');
 });

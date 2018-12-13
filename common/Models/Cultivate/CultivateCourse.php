@@ -34,6 +34,11 @@ class CultivateCourse extends Model
         return $this->hasMany(CultivateCoursePrice::class, 'course_no', 'no');
     }
 
+    public function teachers()
+    {
+        return $this->hasMany(CultivateCourseTeacher::class, 'course_no', 'no');
+    }
+
     public function getEditUrlAttribute()
     {
         return array_get($this->attributes, 'edit_url', '');
