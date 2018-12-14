@@ -88,7 +88,7 @@ class AdminMenuConfig
             RouteConfig::ROUTE_MAJOR_COURSE_CREATE  =>  '创建专业课程',
             RouteConfig::ROUTE_MAJOR_COURSE_EDIT    =>  '编辑专业课程',
             self::MENU_CULTIVATE_COURSE             =>  '开班管理',
-            RouteConfig::ROUTE_COURSE_LIST          =>  '专业开班',
+            RouteConfig::ROUTE_COURSE_LIST          =>  '专业开班列表',
             RouteConfig::ROUTE_COURSE_CREATE        =>  '创建开班',
             RouteConfig::ROUTE_COURSE_REMOVE        =>  '编辑开班',
             self::MENU_CULTIVATE_COURSE_TEACHER         =>  '开班教师管理',

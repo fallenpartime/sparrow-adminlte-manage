@@ -32,8 +32,8 @@ class DelColumnToCultivateCourseTeachers extends Migration
     {
         Schema::table('cultivate_course_teachers', function (Blueprint $table) {
             $table->integer('year')->after('course_no')->default(0)->comment('年份');
-            $table->string('major_no', 30)->after('major_no')->default('')->comment('专业编号');
-            $table->string('level_no', 30)->after('level_no')->default('')->comment('等级编号');
+            $table->string('major_no', 30)->after('year')->default('')->comment('专业编号');
+            $table->string('level_no', 30)->after('major_no')->default('')->comment('等级编号');
             $table->index('year');
             $table->index('major_no');
             $table->index('level_no');

@@ -71,6 +71,23 @@ class InitSystemSeeder extends Seeder
                     ['name'=>'编辑专业课程', 'type'=>3, 'action'=>RouteConfig::ROUTE_MAJOR_COURSE_EDIT],
                     ['name'=>'作废专业课程', 'type'=>3, 'action'=>RouteConfig::ROUTE_MAJOR_COURSE_REMOVE],
                 ]],
+                ['name'=>'开班管理', 'type'=>2, 'action'=>AdminMenuConfig::MENU_CULTIVATE_COURSE, 'list'=>[
+                    ['name'=>'专业开班列表', 'type'=>3, 'action'=>RouteConfig::ROUTE_COURSE_LIST],
+                    ['name'=>'创建开班', 'type'=>3, 'action'=>RouteConfig::ROUTE_COURSE_CREATE],
+                    ['name'=>'编辑开班', 'type'=>3, 'action'=>RouteConfig::ROUTE_COURSE_EDIT],
+                    ['name'=>'作废开班', 'type'=>3, 'action'=>RouteConfig::ROUTE_COURSE_REMOVE],
+                ]],
+                ['name'=>'开班教师管理', 'type'=>2, 'action'=>AdminMenuConfig::MENU_CULTIVATE_COURSE_TEACHER, 'list'=>[
+                    ['name'=>'开班教师列表', 'type'=>3, 'action'=>RouteConfig::ROUTE_COURSE_TEACHER_LIST],
+                    ['name'=>'创建开班教师', 'type'=>3, 'action'=>RouteConfig::ROUTE_COURSE_TEACHER_CREATE],
+                    ['name'=>'编辑开班教师', 'type'=>3, 'action'=>RouteConfig::ROUTE_COURSE_TEACHER_EDIT],
+                    ['name'=>'作废开班教师', 'type'=>3, 'action'=>RouteConfig::ROUTE_COURSE_TEACHER_REMOVE],
+                ]],
+                ['name'=>'开班报价管理', 'type'=>2, 'action'=>AdminMenuConfig::MENU_CULTIVATE_COURSE_PRICE, 'list'=>[
+                    ['name'=>'开班报价列表', 'type'=>3, 'action'=>RouteConfig::ROUTE_COURSE_PRICE_LIST],
+                    ['name'=>'创建开班报价', 'type'=>3, 'action'=>RouteConfig::ROUTE_COURSE_PRICE_CREATE],
+                    ['name'=>'激活开班报价', 'type'=>3, 'action'=>RouteConfig::ROUTE_COURSE_PRICE_ACTIVE],
+                ]],
             ]],
         ];
         $actionProcessor = new AdminActionProcessor();
