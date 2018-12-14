@@ -25,6 +25,8 @@ class AdminMenuConfig
     const MENU_CULTIVATE_COURSE = 'manage.course';
     const MENU_CULTIVATE_COURSE_TEACHER = 'manage.course.teacher';
     const MENU_CULTIVATE_COURSE_PRICE = 'manage.course.price';
+    const MENU_SPREAD = 'manage.spread';
+    const MENU_SPREAD_ARTICLE = 'manage.spread.article';
 
     public static function getMenuName($menuTag)
     {
@@ -98,6 +100,10 @@ class AdminMenuConfig
             self::MENU_CULTIVATE_COURSE_PRICE           =>  '开班报价管理',
             RouteConfig::ROUTE_COURSE_PRICE_LIST        =>  '开班报价列表',
             RouteConfig::ROUTE_COURSE_PRICE_CREATE      =>  '创建开班报价',
+            self::MENU_SPREAD                           =>  '推广中心',
+            self::MENU_SPREAD_ARTICLE                   =>  '文章管理',
+            RouteConfig::ROUTE_SPREAD_ARTICLE_LIST      =>  '文章列表',
+            RouteConfig::ROUTE_SPREAD_ARTICLE_CREATE    =>  '创建文章',
         ];
     }
 }

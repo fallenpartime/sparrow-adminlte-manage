@@ -22,6 +22,7 @@ class AdminConfig
             RouteConfig::ROUTE_INDEX            => ['title'=>'首页', 'url'=>route(RouteConfig::ROUTE_INDEX)],
             RouteConfig::ROUTE_AGENCY_LIST       => ['title'=>'机构列表', 'url'=>route(RouteConfig::ROUTE_AGENCY_LIST)],
             RouteConfig::ROUTE_OWNER_LIST       => ['title'=>'管理员列表', 'url'=>route(RouteConfig::ROUTE_OWNER_LIST)],
+            RouteConfig::ROUTE_SPREAD_ARTICLE_LIST      => ['title'=>'文章列表', 'url'=>route(RouteConfig::ROUTE_SPREAD_ARTICLE_LIST)],
         ];
     }
 

@@ -65,4 +65,11 @@ class RouteConfig
     const ROUTE_COURSE_PRICE_LIST = 'admin.cultivate.price';
     const ROUTE_COURSE_PRICE_CREATE = 'admin.cultivate.price.create';
     const ROUTE_COURSE_PRICE_ACTIVE = 'admin.cultivate.price.active';
+    // 推广中心.文章
+    const ROUTE_SPREAD_ARTICLE_LIST = 'admin.spread.article';
+    const ROUTE_SPREAD_ARTICLE_CREATE = 'admin.spread.article.create';
+    const ROUTE_SPREAD_ARTICLE_EDIT = 'admin.spread.article.edit';
+    const ROUTE_SPREAD_ARTICLE_REMOVE = 'admin.spread.article.remove';
+    const ROUTE_SPREAD_ARTICLE_SHOW = 'admin.spread.article.show';
+    const ROUTE_SPREAD_ARTICLE_PUBLISH = 'admin.spread.article.publish';
 }
