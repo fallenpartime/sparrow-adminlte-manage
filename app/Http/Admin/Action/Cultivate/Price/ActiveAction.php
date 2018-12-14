@@ -40,6 +40,7 @@ class ActiveAction extends BaseAction
 
     protected function process()
     {
+        CultivateCoursePrice::where('type', 1)->where('course_no', $this->course->noW)->whereNotIn('id', [$this->record->id])->update(['active_status'=>0]);
         $this->record->active_status = 1;
         if ($this->record->save()) {
             $this->course->price_no = $this->record->no;
