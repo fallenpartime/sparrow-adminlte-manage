@@ -106,4 +106,5 @@ class AdminMenuConfig
             RouteConfig::ROUTE_SPREAD_ARTICLE_CREATE    =>  '创建文章',
         ];
     }
+
 }
