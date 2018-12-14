@@ -49,9 +49,6 @@ class ActiveAction extends BaseAction
             $this->getLogTool()->operateLog(71, $this->record->id, '激活开课报价');
             $this->successJson();
         }
-        $res = (new CoursePriceProcessor())->destroy($this->record->id);
-        if ($res) {
-        }
         $this->errorJson(500, '提交失败');
     }
 }
