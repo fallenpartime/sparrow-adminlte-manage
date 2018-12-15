@@ -143,4 +143,5 @@ class IndexAction extends BaseAction
         $list[$key]->operate_list = $operateList;
         return $list;
     }
+
 }
