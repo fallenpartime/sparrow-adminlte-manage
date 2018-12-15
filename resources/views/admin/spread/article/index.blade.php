@@ -20,7 +20,7 @@
                                     <label>标题</label>
                                     <input type="text" name="title" class="form-control" style="width: 100%;" value="{{ array_get($urlParams, 'title') }}">
                                 </div>
-                                <div class="form-group col-md-1">
+                                <div class="form-group col-md-2">
                                     <label>显示状态</label>
                                     <select name="is_show" class="form-control" style="width: 100%;">
                                         <option value="">全部</option>
@@ -91,6 +91,18 @@
                                         @if($value->operate_list['allow_operate_edit'])
                                             <a href="{{ $value->edit_url }}" style="display: block;">编辑</a>
                                         @endif
+                                        @if($value->operate_list['allow_operate_show'])
+                                            <a href="javascript:;" style="display: block;" onclick="changeShow({{ $value->id }})">显示</a>
+                                        @endif
+                                        @if($value->operate_list['allow_operate_hide'])
+                                            <a href="javascript:;" style="display: block;" onclick="changeShow({{ $value->id }})">隐藏</a>
+                                        @endif
+                                        @if($value->operate_list['allow_operate_publish'])
+                                            <a href="javascript:;" style="display: block;" onclick="changePublish({{ $value->id }})">发布</a>
+                                        @endif
+                                        @if($value->operate_list['allow_operate_unpublish'])
+                                            <a href="javascript:;" style="display: block;" onclick="changePublish({{ $value->id }})">撤销发布</a>
+                                        @endif
                                         @if($value->operate_list['allow_operate_remove'])
                                             <a href="javascript:;" style="display: block;" onclick="remove({{ $value->id }})">作废</a>
                                         @endif
@@ -118,6 +130,46 @@
                 if (confirm('确定作废文章？')) {
                     $.post(
                         '{{ $operateUrl['remove_url'] }}',
+                        {id: id},
+                        function (result) {
+                            result = JSON.parse(result)
+                            if (result.code == 200) {
+                                location.href = '{{ $redirectUrl }}';
+                            } else {
+                                alert(result.msg)
+                            }
+                        }
+                    )
+                }
+            }
+        </script>
+    @endif
+    @if($operateList['allow_change_show'])
+        <script>
+            function changeShow(id) {
+                if (confirm('确定变更状态？')) {
+                    $.post(
+                        '{{ $operateUrl['show_url'] }}',
+                        {id: id},
+                        function (result) {
+                            result = JSON.parse(result)
+                            if (result.code == 200) {
+                                location.href = '{{ $redirectUrl }}';
+                            } else {
+                                alert(result.msg)
+                            }
+                        }
+                    )
+                }
+            }
+        </script>
+    @endif
+    @if($operateList['allow_change_publish'])
+        <script>
+            function changePublish(id) {
+                if (confirm('确定变更状态？')) {
+                    $.post(
+                        '{{ $operateUrl['publish_url'] }}',
                         {id: id},
                         function (result) {
                             result = JSON.parse(result)

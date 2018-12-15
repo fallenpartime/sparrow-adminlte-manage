@@ -83,14 +83,26 @@ class IndexAction extends BaseAction
     {
         $operateList = [
             'allow_remove' => 0,
+            'allow_change_show' => 0,
+            'allow_change_publish' => 0,
         ];
         $operateUrl = [
             'remove_url' => '',
+            'show_url' => '',
+            'publish_url' => '',
         ];
         $authService = $this->getAuthService();
         if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_SPREAD_ARTICLE_REMOVE)) {
             $operateList['allow_remove'] = 1;
             $operateUrl['remove_url'] = route(RouteConfig::ROUTE_SPREAD_ARTICLE_REMOVE);
+        }
+        if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_SPREAD_ARTICLE_SHOW)) {
+            $operateList['allow_change_show'] = 1;
+            $operateUrl['show_url'] = route(RouteConfig::ROUTE_SPREAD_ARTICLE_SHOW);
+        }
+        if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_SPREAD_ARTICLE_PUBLISH)) {
+            $operateList['allow_change_publish'] = 1;
+            $operateUrl['publish_url'] = route(RouteConfig::ROUTE_SPREAD_ARTICLE_PUBLISH);
         }
         return [$operateList, $operateUrl];
     }
@@ -100,13 +112,33 @@ class IndexAction extends BaseAction
         $operateList = [
             'allow_operate_edit' => 0,
             'allow_operate_remove' => 0,
+            'allow_operate_show' => 0,
+            'allow_operate_hide' => 0,
+            'allow_operate_publish' => 0,
+            'allow_operate_unpublish' => 0,
         ];
+        $showStatus = $list[$key]->is_show;
+        $publishAt = $list[$key]->published_at;
         $authService = $this->getAuthService();
         if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_SPREAD_ARTICLE_EDIT)) {
             $operateList['allow_operate_edit'] = 1;
         }
         if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_SPREAD_ARTICLE_REMOVE)) {
             $operateList['allow_operate_remove'] = 1;
+        }
+        if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_SPREAD_ARTICLE_SHOW)) {
+            if ($showStatus) {
+                $operateList['allow_operate_hide'] = 1;
+            } else {
+                $operateList['allow_operate_show'] = 1;
+            }
+        }
+        if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_SPREAD_ARTICLE_PUBLISH)) {
+            if ($publishAt) {
+                $operateList['allow_operate_unpublish'] = 1;
+            } else if(!empty($showStatus)) {
+                $operateList['allow_operate_publish'] = 1;
+            }
         }
         $list[$key]->operate_list = $operateList;
         return $list;
