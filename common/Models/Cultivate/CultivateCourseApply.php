@@ -7,8 +7,11 @@
 namespace Common\Models\Cultivate;
 
 use Common\Models\BaseModel;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CultivateCourseApply extends BaseModel
 {
+    use SoftDeletes;
+
     protected $table = 'cultivate_course_applies';
 }

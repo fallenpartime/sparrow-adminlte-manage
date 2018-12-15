@@ -7,8 +7,11 @@
 namespace Common\Models\User;
 
 use Common\Models\BaseModel;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends BaseModel
 {
+    use SoftDeletes;
+
     protected $table = 'users';
 }
