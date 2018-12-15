@@ -104,6 +104,7 @@ class AdminMenuConfig
             self::MENU_SPREAD_ARTICLE                   =>  '文章管理',
             RouteConfig::ROUTE_SPREAD_ARTICLE_LIST      =>  '文章列表',
             RouteConfig::ROUTE_SPREAD_ARTICLE_CREATE    =>  '创建文章',
+            RouteConfig::ROUTE_SPREAD_ARTICLE_EDIT      =>  '编辑文章',
         ];
     }
 }

@@ -22,7 +22,11 @@
                         </div>
                         <div class="form-group">
                             <label>简介</label>
-                            <textarea class="form-control" name="description" rows="3" placeholder="请输简介"></textarea>
+                            <textarea class="form-control" name="description" rows="3" placeholder="请输入简介"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>内容</label>
+                            <textarea id="content" name="content" class="form-control" rows="3" placeholder="请输入内容"></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
