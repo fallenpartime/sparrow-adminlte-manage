@@ -113,7 +113,7 @@ class AdminMenuConfig
             self::MENU_USER_CENTER                      =>  '用户中心',
             self::MENU_USER                             =>  '用户管理',
             RouteConfig::ROUTE_USER_LIST                =>  '用户列表',
-            self::MENU_SPREAD_ARTICLE                   =>  '用户申请管理',
+            self::MENU_USER_APPLY                   =>  '用户申请管理',
             RouteConfig::ROUTE_USER_APPLY_LIST          =>  '用户申请列表',
             self::MENU_TRADE                            =>  '交易中心',
             self::MENU_TRADE_ORDER                      =>  '订单管理',
