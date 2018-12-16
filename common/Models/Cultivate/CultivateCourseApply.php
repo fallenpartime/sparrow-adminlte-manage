@@ -16,6 +16,17 @@ class CultivateCourseApply extends BaseModel
     use SoftDeletes;
 
     protected $table = 'cultivate_course_applies';
+    protected $appends = ['operate_list', 'status_list'];
+
+    public function getOperateListAttribute()
+    {
+        return array_get($this->attributes, 'operate_list', []);
+    }
+
+    public function getStatusListAttribute()
+    {
+        return array_get($this->attributes, 'status_list', []);
+    }
 
     public function user()
     {
