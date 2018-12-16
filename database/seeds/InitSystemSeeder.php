@@ -89,6 +89,29 @@ class InitSystemSeeder extends Seeder
                     ['name'=>'激活开班报价', 'type'=>3, 'action'=>RouteConfig::ROUTE_COURSE_PRICE_ACTIVE],
                 ]],
             ]],
+            ['name'=>'推广中心', 'type'=>1, 'action'=>AdminMenuConfig::MENU_SPREAD, 'list'=>[
+                ['name'=>'文章管理', 'type'=>2, 'action'=>AdminMenuConfig::MENU_SPREAD_ARTICLE, 'list'=>[
+                    ['name'=>'文章列表', 'type'=>3, 'action'=>RouteConfig::ROUTE_SPREAD_ARTICLE_LIST],
+                    ['name'=>'创建文章', 'type'=>3, 'action'=>RouteConfig::ROUTE_SPREAD_ARTICLE_CREATE],
+                    ['name'=>'编辑文章', 'type'=>3, 'action'=>RouteConfig::ROUTE_SPREAD_ARTICLE_EDIT],
+                    ['name'=>'作废文章', 'type'=>3, 'action'=>RouteConfig::ROUTE_SPREAD_ARTICLE_REMOVE],
+                    ['name'=>'文章显示状态修改', 'type'=>3, 'action'=>RouteConfig::ROUTE_SPREAD_ARTICLE_SHOW],
+                    ['name'=>'文章发布状态修改', 'type'=>3, 'action'=>RouteConfig::ROUTE_SPREAD_ARTICLE_PUBLISH],
+                ]],
+            ]],
+            ['name'=>'用户中心', 'type'=>1, 'action'=>AdminMenuConfig::MENU_USER_CENTER, 'list'=>[
+                ['name'=>'用户管理', 'type'=>2, 'action'=>AdminMenuConfig::MENU_USER, 'list'=>[
+                    ['name'=>'用户列表', 'type'=>3, 'action'=>RouteConfig::ROUTE_USER_LIST],
+                ]],
+                ['name'=>'用户申请管理', 'type'=>2, 'action'=>AdminMenuConfig::MENU_USER_APPLY, 'list'=>[
+                    ['name'=>'用户申请列表', 'type'=>3, 'action'=>RouteConfig::ROUTE_USER_APPLY_LIST],
+                ]],
+            ]],
+            ['name'=>'交易中心', 'type'=>1, 'action'=>AdminMenuConfig::MENU_TRADE, 'list'=>[
+                ['name'=>'订单管理', 'type'=>2, 'action'=>AdminMenuConfig::MENU_TRADE_ORDER, 'list'=>[
+                    ['name'=>'订单列表', 'type'=>3, 'action'=>RouteConfig::ROUTE_TRADE_ORDER_LIST],
+                ]],
+            ]],
         ];
         $actionProcessor = new AdminActionProcessor();
         foreach ($list as $top) {

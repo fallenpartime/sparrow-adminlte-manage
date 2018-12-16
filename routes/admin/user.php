@@ -1,7 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Fallen
- * Date: 2018/12/10
- * Time: 9:50
- */
+// 用户路由
+require __DIR__.'/user/user.php';
+// 用户申请路由
+require __DIR__.'/user/apply.php';

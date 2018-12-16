@@ -72,4 +72,10 @@ class RouteConfig
     const ROUTE_SPREAD_ARTICLE_REMOVE = 'admin.spread.article.remove';
     const ROUTE_SPREAD_ARTICLE_SHOW = 'admin.spread.article.show';
     const ROUTE_SPREAD_ARTICLE_PUBLISH = 'admin.spread.article.publish';
+    // 交易中心.订单管理
+    const ROUTE_TRADE_ORDER_LIST = 'admin.trade.order';
+    // 用户中心.用户管理
+    const ROUTE_USER_LIST = 'admin.user';
+    // 用户中心.用户申请管理
+    const ROUTE_USER_APPLY_LIST = 'admin.user.apply';
 }
