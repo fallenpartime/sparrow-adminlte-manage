@@ -86,6 +86,9 @@
                                         {{ $value->last_login_at }}
                                     </td>
                                     <td>
+                                        @if($value->operate_list['allow_operate_check_apply'])
+                                            <a href="javascript:;" style="display: block;" onclick="checkUserApply({{ $value->id }})">开班申请记录</a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
@@ -102,4 +105,11 @@
         initDaterangepicker('from_time', 'YYYY-MM-DD HH:mm:ss');
         initDaterangepicker('end_time', 'YYYY-MM-DD HH:mm:ss');
     </script>
+    @if($operateList['allow_apply'])
+        <script>
+            function checkUserApply(id) {
+                location.href='{{ $operateUrl['apply_url'] }}?user_id='+id;
+            }
+        </script>
+    @endif
 @endsection

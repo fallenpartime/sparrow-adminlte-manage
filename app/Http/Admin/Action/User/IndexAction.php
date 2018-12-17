@@ -81,32 +81,28 @@ class IndexAction extends BaseAction
     protected function allowOperate()
     {
         $operateList = [
-            'allow_remove' => 0,
+            'allow_apply' => 0,
         ];
         $operateUrl = [
-            'remove_url' => '',
+            'apply_url'     => '',
         ];
-//        $authService = $this->getAuthService();
-//        if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_TEACHER_REMOVE)) {
-//            $operateList['allow_remove'] = 1;
-//            $operateUrl['remove_url'] = route(RouteConfig::ROUTE_TEACHER_REMOVE);
-//        }
+        $authService = $this->getAuthService();
+        if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_USER_APPLY_LIST)) {
+            $operateList['allow_apply'] = 1;
+            $operateUrl['apply_url'] = route(RouteConfig::ROUTE_USER_APPLY_LIST);
+        }
         return [$operateList, $operateUrl];
     }
 
     protected function listAllowOperate($list, $key)
     {
         $operateList = [
-            'allow_operate_edit' => 0,
-            'allow_operate_remove' => 0
+            'allow_operate_check_apply' => 0,
         ];
-//        $authService = $this->getAuthService();
-//        if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_TEACHER_EDIT)) {
-//            $operateList['allow_operate_edit'] = 1;
-//        }
-//        if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_TEACHER_REMOVE)) {
-//            $operateList['allow_operate_remove'] = 1;
-//        }
+        $authService = $this->getAuthService();
+        if ($authService->isMaster || $authService->validateAction(RouteConfig::ROUTE_USER_APPLY_LIST)) {
+            $operateList['allow_operate_check_apply'] = 1;
+        }
         $list[$key]->operate_list = $operateList;
         return $list;
     }
