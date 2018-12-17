@@ -7,8 +7,16 @@
 namespace Common\Models\User;
 
 use Common\Models\BaseModel;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class UserApplyInfo extends BaseModel
 {
+    use SoftDeletes;
+
     protected $table = 'user_apply_infos';
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

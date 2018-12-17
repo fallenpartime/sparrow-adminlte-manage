@@ -65,4 +65,10 @@ class ViewConfig
     const SPREAD_ARTICLE_LIST = 'admin.spread.article.index';
     const SPREAD_ARTICLE_CREATE = 'admin.spread.article.create';
     const SPREAD_ARTICLE_EDIT = 'admin.spread.article.edit';
+    // 交易中心.订单管理
+    const TRADE_ORDER_LIST = 'admin.trade.order.index';
+    // 用户中心.用户管理
+    const USER_LIST = 'admin.user.user.index';
+    // 用户中心,用户申请
+    const USER_APPLY_LIST = 'admin.user.apply.index';
 }

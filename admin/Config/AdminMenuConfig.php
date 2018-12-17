@@ -27,6 +27,11 @@ class AdminMenuConfig
     const MENU_CULTIVATE_COURSE_PRICE = 'manage.course.price';
     const MENU_SPREAD = 'manage.spread';
     const MENU_SPREAD_ARTICLE = 'manage.spread.article';
+    const MENU_USER_CENTER = 'manage.user.center';
+    const MENU_USER = 'manage.user';
+    const MENU_USER_APPLY = 'manage.user.apply';
+    const MENU_TRADE = 'manage.trade';
+    const MENU_TRADE_ORDER = 'manage.trade.order';
 
     public static function getMenuName($menuTag)
     {
@@ -104,6 +109,15 @@ class AdminMenuConfig
             self::MENU_SPREAD_ARTICLE                   =>  '文章管理',
             RouteConfig::ROUTE_SPREAD_ARTICLE_LIST      =>  '文章列表',
             RouteConfig::ROUTE_SPREAD_ARTICLE_CREATE    =>  '创建文章',
+            RouteConfig::ROUTE_SPREAD_ARTICLE_EDIT      =>  '编辑文章',
+            self::MENU_USER_CENTER                      =>  '用户中心',
+            self::MENU_USER                             =>  '用户管理',
+            RouteConfig::ROUTE_USER_LIST                =>  '用户列表',
+            self::MENU_USER_APPLY                       =>  '用户申请管理',
+            RouteConfig::ROUTE_USER_APPLY_LIST          =>  '用户申请列表',
+            self::MENU_TRADE                            =>  '交易中心',
+            self::MENU_TRADE_ORDER                      =>  '订单管理',
+            RouteConfig::ROUTE_TRADE_ORDER_LIST         =>  '订单列表',
         ];
     }
 

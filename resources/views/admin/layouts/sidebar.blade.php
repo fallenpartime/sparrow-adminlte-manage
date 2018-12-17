@@ -152,6 +152,101 @@
                 </ul>
             </li>
             @endif
+            @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\AdminMenuConfig::MENU_SPREAD, $ts_list)))
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-windows"></i> <span>推广中心</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\AdminMenuConfig::MENU_SPREAD_ARTICLE, $ts_list)))
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-circle-o"></i> 文章管理
+                            <span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\RouteConfig::ROUTE_SPREAD_ARTICLE_LIST, $ts_list)))
+                            <li><a href="{{ route(\Admin\Config\RouteConfig::ROUTE_SPREAD_ARTICLE_LIST) }}"><i class="fa fa-circle-o"></i> 文章列表</a></li>
+                            @endif
+                            @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\RouteConfig::ROUTE_SPREAD_ARTICLE_CREATE, $ts_list)))
+                            <li><a href="{{ route(\Admin\Config\RouteConfig::ROUTE_SPREAD_ARTICLE_CREATE) }}"><i class="fa fa-circle-o"></i> 创建机构</a></li>
+                            @endif
+                        </ul>
+                    </li>
+                    @endif
+                </ul>
+            </li>
+            @endif
+            @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\AdminMenuConfig::MENU_USER_CENTER, $ts_list)))
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-anchor"></i> <span>用户中心</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\AdminMenuConfig::MENU_USER, $ts_list)))
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-circle-o"></i> 用户管理
+                            <span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\RouteConfig::ROUTE_USER_LIST, $ts_list)))
+                            <li><a href="{{ route(\Admin\Config\RouteConfig::ROUTE_USER_LIST) }}"><i class="fa fa-circle-o"></i> 用户列表</a></li>
+                            @endif
+                        </ul>
+                    </li>
+                    @endif
+                    @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\AdminMenuConfig::MENU_USER_APPLY, $ts_list)))
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-circle-o"></i> 用户申请管理
+                            <span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\RouteConfig::ROUTE_USER_APPLY_LIST, $ts_list)))
+                            <li><a href="{{ route(\Admin\Config\RouteConfig::ROUTE_USER_APPLY_LIST) }}"><i class="fa fa-circle-o"></i> 用户申请列表</a></li>
+                            @endif
+                        </ul>
+                    </li>
+                    @endif
+                </ul>
+            </li>
+            @endif
+            @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\AdminMenuConfig::MENU_TRADE, $ts_list)))
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-money"></i> <span>交易中心</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\AdminMenuConfig::MENU_TRADE_ORDER, $ts_list)))
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-circle-o"></i> 订单管理
+                            <span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\RouteConfig::ROUTE_TRADE_ORDER_LIST, $ts_list)))
+                            <li><a href="{{ route(\Admin\Config\RouteConfig::ROUTE_TRADE_ORDER_LIST) }}"><i class="fa fa-circle-o"></i> 订单列表</a></li>
+                            @endif
+                        </ul>
+                    </li>
+                    @endif
+                </ul>
+            </li>
+            @endif
             @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\AdminMenuConfig::MENU_MANAGE_CENTER, $ts_list)))
             <li class="treeview">
                 <a href="#">

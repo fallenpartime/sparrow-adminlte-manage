@@ -40,6 +40,7 @@ class ActiveAction extends BaseAction
 
     protected function process()
     {
+        CultivateCoursePrice::where('type', 1)->where('course_no', $this->course->noW)->whereNotIn('id', [$this->record->id])->update(['active_status'=>0]);
         $this->record->active_status = 1;
         if ($this->record->save()) {
             $this->course->price_no = $this->record->no;
@@ -48,9 +49,6 @@ class ActiveAction extends BaseAction
             $this->course->save();
             $this->getLogTool()->operateLog(71, $this->record->id, '激活开课报价');
             $this->successJson();
-        }
-        $res = (new CoursePriceProcessor())->destroy($this->record->id);
-        if ($res) {
         }
         $this->errorJson(500, '提交失败');
     }
