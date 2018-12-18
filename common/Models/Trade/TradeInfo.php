@@ -7,6 +7,8 @@
 namespace Common\Models\Trade;
 
 use Common\Models\BaseModel;
+use Common\Models\Cultivate\CultivateCourseApply;
+use Common\Models\Cultivate\CultivateCoursePrice;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class TradeInfo extends BaseModel
@@ -18,5 +20,15 @@ class TradeInfo extends BaseModel
     public function order()
     {
         return $this->belongsTo(TradeOrder::class, 'order_id');
+    }
+
+    public function apply()
+    {
+        return $this->belongsTo(CultivateCourseApply::class, 'apply_id');
+    }
+
+    public function price()
+    {
+        return $this->belongsTo(CultivateCoursePrice::class, 'price_id');
     }
 }
