@@ -24,7 +24,7 @@ class CultivateCourse extends Model
         return $this->belongsTo(CultivateMajorLevel::class, 'level_no', 'no');
     }
 
-    public function currentPrice()
+    public function price()
     {
         return $this->belongsTo(CultivateCoursePrice::class, 'price_no', 'no');
 //        return $this->hasOne(CultivateCoursePrice::class, 'no', 'price_no');

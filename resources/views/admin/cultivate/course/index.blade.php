@@ -97,9 +97,9 @@
                                         {{ $value->num }}
                                     </td>
                                     <td>
-                                        @if(isset($value->currentPrice))
-                                            定价:{{ $value->currentPrice->money }}<br>
-                                            实际:{{ $value->currentPrice->real_money }}
+                                        @if(isset($value->price))
+                                            定价:{{ $value->price->money }}<br>
+                                            实际:{{ $value->price->real_money }}
                                         @endif
                                     </td>
                                     <td>
