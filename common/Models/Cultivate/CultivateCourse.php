@@ -30,6 +30,7 @@ class CultivateCourse extends Model
 //        return $this->hasOne(CultivateCoursePrice::class, 'no', 'price_no');
     }
 
+
     public function prices()
     {
         return $this->hasMany(CultivateCoursePrice::class, 'course_no', 'no');
