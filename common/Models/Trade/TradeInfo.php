@@ -14,4 +14,9 @@ class TradeInfo extends BaseModel
     use SoftDeletes;
 
     protected $table = 'trade_infos';
+
+    public function order()
+    {
+        return $this->belongsTo(TradeOrder::class, 'order_id');
+    }
 }

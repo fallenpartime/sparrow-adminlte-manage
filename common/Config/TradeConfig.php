@@ -34,4 +34,17 @@ class TradeConfig
             self::PAY_UNION_TYPE    =>  ['name' => '银联'],
         ];
     }
+
+    /**
+     * 支付状态
+     * @return array
+     */
+    public static function getPayStatusType()
+    {
+        return [
+            1   =>  ['name' => '待支付'],
+            2   =>  ['name' => '已支付'],
+            3   =>  ['name' => '支付失败'],
+        ];
+    }
 }
