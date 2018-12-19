@@ -113,8 +113,8 @@
                                         {{ $value->order_no }}
                                     </td>
                                     <td>
-                                        ID:{{ $value->user_id }}
-                                        昵称:{{ $value->nick_name }}
+                                        ID:{{ $value->user_id }}<br>
+                                        昵称:{{ $value->nick_name }}<br>
                                         电话:{{ $value->phone }}
                                     </td>
                                     <td>
@@ -127,10 +127,10 @@
                                         {{ $value->status_list['pay_type'] }}
                                     </td>
                                     <td>
-                                        订单金额:{{ $value->order_money }}
-                                        应付金额:{{ $value->real_money }}
+                                        订单金额:{{ $value->order_money }}<br>
+                                        应付金额:{{ $value->real_money }}<br>
                                         @if(!empty($value->money_payed))
-                                        实付金额:{{ $value->money_payed }}
+                                        实付金额:{{ $value->money_payed }}<br>
                                         @endif
                                     </td>
                                     <td>

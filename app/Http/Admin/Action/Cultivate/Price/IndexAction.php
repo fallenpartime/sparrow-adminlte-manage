@@ -8,7 +8,7 @@ namespace App\Http\Admin\Action\Cultivate\Price;
 
 use Admin\Action\BaseAction;
 use Admin\Config\AdminMenuConfig;
-use Admin\Config\PriceConfig;
+use Common\Config\PriceConfig;
 use Admin\Config\RouteConfig;
 use Admin\Config\ViewConfig;
 use Admin\Services\Menu\AdminMenuService;

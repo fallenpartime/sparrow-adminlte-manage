@@ -58,7 +58,7 @@ class IndexAction extends BaseAction
     {
         foreach ($list as $key => $item) {
             $list = $this->initStatusList($list, $key);
-//            $list = $this->listAllowOperate($list, $key);
+            $list = $this->listAllowOperate($list, $key);
         }
         return $list;
     }

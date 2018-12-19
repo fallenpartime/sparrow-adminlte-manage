@@ -8,7 +8,7 @@ namespace App\Http\Admin\Action\Cultivate\Major\Course;
 
 use Admin\Action\BaseAction;
 use Admin\Config\AdminMenuConfig;
-use Admin\Config\MajorConfig;
+use Common\Config\MajorConfig;
 use Admin\Config\RouteConfig;
 use Admin\Config\ViewConfig;
 use Admin\Services\Menu\AdminMenuService;
