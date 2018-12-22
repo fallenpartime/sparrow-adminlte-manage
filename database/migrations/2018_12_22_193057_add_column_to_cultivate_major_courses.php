@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnToCultivateCourseApplies extends Migration
+class AddColumnToCultivateMajorCourses extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddColumnToCultivateCourseApplies extends Migration
      */
     public function up()
     {
-        Schema::table('cultivate_course_applies', function (Blueprint $table) {
-            $table->string('remark')->after('info_id')->default('')->commit('申请备注');
+        Schema::table('cultivate_major_courses', function (Blueprint $table) {
+            $table->text('content')->nullable(true)->after('description')->comment('详细描述');
         });
     }
 
@@ -25,8 +25,8 @@ class AddColumnToCultivateCourseApplies extends Migration
      */
     public function down()
     {
-        Schema::table('cultivate_course_applies', function (Blueprint $table) {
-            $table->dropColumn('remark');
+        Schema::table('cultivate_major_courses', function (Blueprint $table) {
+            $table->dropColumn('content');
         });
     }
 }

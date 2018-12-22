@@ -105,12 +105,14 @@
                             <tr>
                                 <th width="10%">编号</th>
                                 <th width="10%">类型</th>
-                                <th width="10%">等级</th>
+                                <th width="5%">等级</th>
                                 <th width="10%">专业</th>
+                                <th width="10%">报价标题</th>
+                                <th width="10%">优惠描述</th>
                                 <th width="10%">开班</th>
                                 <th width="10%">费用</th>
-                                <th width="10%">状态</th>
-                                <th width="15%">创建时间</th>
+                                <th width="5%">状态</th>
+                                <th width="10%">创建时间</th>
                                 <th width="10%">操作</th>
                             </tr>
                             </thead>
@@ -134,6 +136,12 @@
                                             No:{{ $value->course->major->no }}<br>
                                             {{ $value->course->major->name }}
                                         @endif
+                                    </td>
+                                    <td>
+                                        {{ $value->title }}
+                                    </td>
+                                    <td>
+                                        {{ $value->sale_desc }}
                                     </td>
                                     <td>
                                         @if(isset($value->course))

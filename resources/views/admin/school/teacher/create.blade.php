@@ -2,6 +2,8 @@
 @section('title', '创建教师-教师管理-培训中心')
 @section('other_resource')
     @include('admin.plugin.datepicker')
+    @include('admin.layouts.picture')
+    @include('admin.layouts.ue')
 @endsection
 @section('wrapper_content')
     <div class="box box-default">
@@ -15,10 +17,6 @@
                         <div class="form-group">
                             <label>教师名称 *</label>
                             <input type="text" name="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>教师编号 *</label>
-                            <input type="text" name="no" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label>电话 *</label>
@@ -43,11 +41,15 @@
                             <label>出生日期</label>
                             <input type="text" id="birthday" name="birthday" class="form-control" value="" style="width: 45%;">
                         </div>
-                    </div>
-                    <div class="col-md-6">
                         <div class="form-group">
                             <label>教师简介</label>
                             <textarea class="form-control" name="description" rows="3" placeholder="请输入教师简介"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>教师编号 *</label>
+                            <input type="text" name="no" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label>职称</label>
@@ -78,6 +80,20 @@
                                 </label>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label style="float: left;">头像</label>
+                            <div id="list-container" style="overflow: hidden; padding-top: 20px; width: 100px; float: left;">
+                                <div id="list-up">
+                                    <div id="utbtn-ipt"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>内容</label>
+                            <textarea id="content" name="content" rows="3" placeholder="请输入内容"></textarea>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -88,6 +104,19 @@
     </div>
     <script type="text/javascript">
         initSimpleDaterangepicker('birthday', 'YYYY-MM-DD');
+    </script>
+    <script>
+        var uploadhandle = new ImgUploader({
+            handler  : 'list-up',
+            target   : 'utbtn-ipt',
+            container: 'list-container',
+            url      : uploadUrl,
+            imgNum   : 1,
+            key      : 'list_pic'
+        })
+    </script>
+    <script>
+        initUEditor('content');
     </script>
     <script>
         function groupSave() {

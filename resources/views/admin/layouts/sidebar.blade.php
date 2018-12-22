@@ -173,7 +173,7 @@
                             <li><a href="{{ route(\Admin\Config\RouteConfig::ROUTE_SPREAD_ARTICLE_LIST) }}"><i class="fa fa-circle-o"></i> 文章列表</a></li>
                             @endif
                             @if(!empty($admin_info['is_manager'] || in_array(\Admin\Config\RouteConfig::ROUTE_SPREAD_ARTICLE_CREATE, $ts_list)))
-                            <li><a href="{{ route(\Admin\Config\RouteConfig::ROUTE_SPREAD_ARTICLE_CREATE) }}"><i class="fa fa-circle-o"></i> 创建机构</a></li>
+                            <li><a href="{{ route(\Admin\Config\RouteConfig::ROUTE_SPREAD_ARTICLE_CREATE) }}"><i class="fa fa-circle-o"></i> 创建文章</a></li>
                             @endif
                         </ul>
                     </li>

@@ -39,10 +39,11 @@
                                 <th width="10%">教师编号</th>
                                 <th width="10%">教师名称</th>
                                 <th width="10%">性别</th>
-                                <th width="15%">联系方式</th>
+                                <th width="10%">联系方式</th>
+                                <th width="10%">头像</th>
                                 <th width="10%">是否兼职</th>
                                 <th width="15%">创建时间</th>
-                                <th width="15%">操作</th>
+                                <th width="10%">操作</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -59,6 +60,11 @@
                                     </td>
                                     <td>
                                         {{ $value->phone }}
+                                    </td>
+                                    <td>
+                                        @if(!empty($value->face))
+                                            <img src="{{ $value->face }}" style="width: 60px; height: 60px;">
+                                        @endif
                                     </td>
                                     <td>
                                         {{ $value->duty == 1? '是': '否' }}

@@ -55,6 +55,7 @@ class CreateAction extends BaseAction
         $no = $httpTool->getBothSafeParam('no');
         $name = $httpTool->getBothSafeParam('name');
         $description = $httpTool->getBothSafeParam('description');
+        $content = $httpTool->getBothSafeParam('content');
         $picPreview = $this->request->get('list_pic_preview');
         if(empty($no)){
             $this->errorJson(500, '专业编号不能为空');
@@ -70,6 +71,7 @@ class CreateAction extends BaseAction
             'no'        =>  $no,
             'name'      =>  $name,
             'description'   =>  $description,
+            'content'   =>  $content,
             'show_status'   =>  1,
             'image'      =>  !empty($picPreview)?  $picPreview[0]: null,
         ];

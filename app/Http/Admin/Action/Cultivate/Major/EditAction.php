@@ -63,6 +63,7 @@ class EditAction extends BaseAction
         $no = $httpTool->getBothSafeParam('no');
         $name = $httpTool->getBothSafeParam('name');
         $description = $httpTool->getBothSafeParam('description');
+        $content = $httpTool->getBothSafeParam('content');
         $picPreview = $this->request->get('list_pic_preview');
         if(empty($no)){
             $this->errorJson(500, '专业编号不能为空');
@@ -78,6 +79,7 @@ class EditAction extends BaseAction
             'no'        =>  $no,
             'name'      =>  $name,
             'description'   =>  $description,
+            'content'   =>  $content,
             'image'      =>  !empty($picPreview)?  $picPreview[0]: null,
         ];
         $res = $this->update($data);

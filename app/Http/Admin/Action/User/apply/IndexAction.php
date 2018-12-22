@@ -27,7 +27,7 @@ class IndexAction extends BaseAction
         $list = [];
         $total = $model->count();
         if ($total > 0) {
-            $list = $this->pageModel($model, $page, $pageSize)->with(['user', 'course', 'applyInfo'])->select(['id', 'user_id', 'course_no', 'info_id', 'pay_status', 'created_at'])->get();
+            $list = $this->pageModel($model, $page, $pageSize)->with(['user', 'course', 'applyInfo'])->select(['id', 'user_id', 'course_no', 'info_id', 'remark', 'pay_status', 'created_at'])->get();
             $list = $this->processList($list);
         }
         list($url, $pageList) = CommonTool::pagination($total, $pageSize, $page, $url);

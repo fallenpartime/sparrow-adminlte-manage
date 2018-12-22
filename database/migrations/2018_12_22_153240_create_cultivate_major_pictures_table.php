@@ -15,9 +15,9 @@ class CreateCultivateMajorPicturesTable extends Migration
     {
         Schema::create('cultivate_major_pictures', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('major_id', 30)->nullable(false)->default(0)->comment('专业ID');
+            $table->integer('major_id')->nullable(false)->default(0)->comment('专业ID');
             $table->tinyInteger('type')->default(0)->comment('类型 1-列表图片');
-            $table->string('pic')->comment('图片地址');
+            $table->string('pic')->nullable(true)->comment('图片地址');
             $table->tinyInteger('del_status')->default(0)->comment('作废处理状态 0-未处理 1-已处理');
             $table->timestamps();
             $table->index('major_id');

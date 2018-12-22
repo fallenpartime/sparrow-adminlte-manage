@@ -32,6 +32,14 @@
                                 @endif
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label>标题 *</label>
+                            <input type="text" name="title" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>优惠描述</label>
+                            <input type="text" name="sale_desc" class="form-control">
+                        </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">

@@ -58,12 +58,14 @@ class CreateAction extends BaseAction
         $phone = $httpTool->getBothSafeParam('phone');
         $address = $httpTool->getBothSafeParam('address');
         $description = $httpTool->getBothSafeParam('description');
+        $content = $httpTool->getBothSafeParam('content');
         $sex = $httpTool->getBothSafeParam('sex', HttpConfig::PARAM_NUMBER_TYPE);
         $birthday = $httpTool->getBothSafeParam('birthday');
         $positional = $httpTool->getBothSafeParam('positional', HttpConfig::PARAM_NUMBER_TYPE);
         $diploma = $httpTool->getBothSafeParam('diploma', HttpConfig::PARAM_NUMBER_TYPE);
         $degree = $httpTool->getBothSafeParam('degree', HttpConfig::PARAM_NUMBER_TYPE);
         $duty = $httpTool->getBothSafeParam('duty', HttpConfig::PARAM_NUMBER_TYPE);
+        $picPreview = $this->request->get('list_pic_preview');
         if(empty($no)){
             $this->errorJson(500, '教师编号不能为空');
         }
@@ -83,12 +85,14 @@ class CreateAction extends BaseAction
             'phone'     =>  $phone,
             'address'   =>  $address,
             'description'   =>  $description,
+            'content'  =>  !empty($content)? $content: '',
             'sex'       =>  !empty($sex)? $sex: 0,
             'birthday'  =>  !empty($birthday)? $birthday: null,
             'positional'    =>  !empty($positional)? $positional: 0,
             'diploma'    =>  !empty($diploma)? $diploma: 0,
             'degree'    =>  !empty($degree)? $degree: 0,
             'duty'      =>  !empty($duty)? $duty: 0,
+            'face'      =>  !empty($picPreview)?  $picPreview[0]: null,
         ];
         $res = $this->save($data);
         if ($res) {

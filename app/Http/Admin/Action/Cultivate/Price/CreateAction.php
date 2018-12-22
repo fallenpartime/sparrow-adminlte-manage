@@ -66,11 +66,16 @@ class CreateAction extends BaseAction
         $identify = $httpTool->getBothSafeParam('identify');
         $discount = $httpTool->getBothSafeParam('discount');
         $money = $httpTool->getBothSafeParam('money');
+        $title = $httpTool->getBothSafeParam('title');
+        $saleDesc = $httpTool->getBothSafeParam('sale_desc');
         if (empty($discount)) {
             $discount = 10;
         }
         if(empty($type)){
             $this->errorJson(500, '报价类型不能为空');
+        }
+        if(empty($title)){
+            $this->errorJson(500, '报价标题不能为空');
         }
         if(empty($money)){
             $this->errorJson(500, '总计不能为空');
@@ -84,6 +89,8 @@ class CreateAction extends BaseAction
         }
         $data = [
             'type'          =>  $type,
+            'title'         =>  $title,
+            'sale_desc'     =>  $saleDesc,
             'course_no'     =>  $courseNo,
             'train'         =>  !empty($train)? $train: 0,
             'identify'      =>  !empty($identify)? $identify: 0,

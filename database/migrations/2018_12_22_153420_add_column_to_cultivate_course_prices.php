@@ -14,8 +14,8 @@ class AddColumnToCultivateCoursePrices extends Migration
     public function up()
     {
         Schema::table('cultivate_course_prices', function (Blueprint $table) {
-            $table->string('title', 100)->comment('报价标题');
-            $table->string('title')->comment('报价标题');
+            $table->string('title', 100)->after('type')->default('')->comment('报价标题');
+            $table->string('sale_desc')->after('title')->default('')->comment('优惠描述');
         });
     }
 
@@ -27,7 +27,8 @@ class AddColumnToCultivateCoursePrices extends Migration
     public function down()
     {
         Schema::table('cultivate_course_prices', function (Blueprint $table) {
-            //
+            $table->dropColumn('title');
+            $table->dropColumn('sale_desc');
         });
     }
 }

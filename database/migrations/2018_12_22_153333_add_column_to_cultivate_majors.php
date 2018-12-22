@@ -14,7 +14,7 @@ class AddColumnToCultivateMajors extends Migration
     public function up()
     {
         Schema::table('cultivate_majors', function (Blueprint $table) {
-            $table->text('content')->comment('专业详细介绍');
+            $table->text('content')->nullable(true)->after('description')->comment('专业详细介绍');
         });
     }
 

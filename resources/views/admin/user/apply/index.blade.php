@@ -60,11 +60,12 @@
                             <thead>
                             <tr>
                                 <th width="10%">ID</th>
-                                <th width="15%">用户</th>
+                                <th width="10%">用户</th>
                                 <th width="10%">头像</th>
                                 <th width="10%">开班信息</th>
                                 <th width="10%">支付状态</th>
-                                <th width="13%">创建时间</th>
+                                <th width="10%">备注</th>
+                                <th width="10%">创建时间</th>
                                 <th width="10%">操作</th>
                             </tr>
                             </thead>
@@ -93,6 +94,9 @@
                                     </td>
                                     <td>
                                         {{ $value->status_list['pay_status'] }}
+                                    </td>
+                                    <td>
+                                        {{ $value->remark }}
                                     </td>
                                     <td>
                                         {{ $value->created_at }}

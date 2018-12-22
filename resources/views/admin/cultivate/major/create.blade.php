@@ -2,6 +2,7 @@
 @section('title', '创建培训专业-培训专业管理-培训中心')
 @section('other_resource')
     @include('admin.layouts.picture')
+    @include('admin.layouts.ue')
 @endsection
 @section('wrapper_content')
     <div class="box box-default">
@@ -17,19 +18,15 @@
                             <input type="text" name="name" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>编号 *</label>
-                            <input type="text" name="no" class="form-control" required>
-                        </div>
-                        <div class="form-group">
                             <label>简介</label>
                             <textarea class="form-control" name="description" rows="3" placeholder="请输入简介"></textarea>
                         </div>
-                        <div class="form-group">
-                            <label>内容</label>
-                            <textarea id="content" name="content" class="form-control" rows="3" placeholder="请输入内容"></textarea>
-                        </div>
                     </div>
                     <div class="col-md-6">
+                        <div class="form-group">
+                            <label>编号 *</label>
+                            <input type="text" name="no" class="form-control" required>
+                        </div>
                         <div class="form-group">
                             <label style="float: left;">图标</label>
                             <div id="list-container" style="overflow: hidden; padding-top: 20px; width: 100px; float: left;">
@@ -37,6 +34,12 @@
                                     <div id="utbtn-ipt"></div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>内容</label>
+                            <textarea id="content" name="content" rows="3" placeholder="请输入内容"></textarea>
                         </div>
                     </div>
                 </div>
@@ -55,6 +58,9 @@
             imgNum   : 1,
             key      : 'list_pic'
         })
+    </script>
+    <script>
+        initUEditor('content');
     </script>
     <script>
         function groupSave() {

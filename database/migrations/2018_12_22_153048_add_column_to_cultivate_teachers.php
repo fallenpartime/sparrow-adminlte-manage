@@ -14,8 +14,8 @@ class AddColumnToCultivateTeachers extends Migration
     public function up()
     {
         Schema::table('cultivate_teachers', function (Blueprint $table) {
-            $table->string('face')->comment('教师头像');
-            $table->text('content')->comment('教师详细介绍');
+            $table->string('face')->nullable(true)->after('birthday')->comment('教师头像');
+            $table->text('content')->nullable(true)->after('face')->comment('教师详细介绍');
         });
     }
 
