@@ -1,6 +1,7 @@
 @extends('admin.layouts.main')
 @section('title', '创建开班-开班管理-培训中心')
 @section('other_resource')
+    @include('admin.layouts.ue')
 @endsection
 @section('wrapper_content')
     <div class="box box-default">
@@ -51,6 +52,12 @@
                             <textarea class="form-control" name="description" rows="4" placeholder="请输简介"></textarea>
                         </div>
                     </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>内容</label>
+                            <textarea id="content" name="content" rows="3" placeholder="请输入内容"></textarea>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="box-footer">
@@ -58,6 +65,9 @@
             </div>
         </form>
     </div>
+    <script>
+        initUEditor('content');
+    </script>
     <script>
         function groupSave() {
             if (confirm('确定提交？')) {

@@ -10,8 +10,7 @@ use Admin\Action\BaseAction;
 use Admin\Config\AdminMenuConfig;
 use Admin\Config\RouteConfig;
 use Admin\Config\ViewConfig;
-use Admin\Services\Cultivate\Course\Processor\CoursePriceProcessor;
-use Admin\Services\Cultivate\Major\CourseService;
+use Admin\Services\Cultivate\Course\Processor\CourseProcessor;
 use Admin\Services\Menu\AdminMenuService;
 use Common\Models\Cultivate\CultivateCourse;
 use Common\Models\Cultivate\CultivateMajor;
@@ -76,6 +75,7 @@ class EditAction extends BaseAction
         $majorNo = $httpTool->getBothSafeParam('major_no');
         $levelNo = $httpTool->getBothSafeParam('level_no');
         $description = $httpTool->getBothSafeParam('description');
+        $content = $httpTool->getBothSafeParam('content');
         $num = $httpTool->getBothSafeParam('num', HttpConfig::PARAM_NUMBER_TYPE);
         if(empty($no)){
             $this->errorJson(500, '开班编号不能为空');
@@ -110,6 +110,7 @@ class EditAction extends BaseAction
             'major_no'  =>  $majorNo,
             'level_no'  =>  $levelNo,
             'description'   =>  $description,
+            'content'   =>  $content,
             'num'       =>  $num,
         ];
         $res = $this->update($data);
@@ -121,7 +122,7 @@ class EditAction extends BaseAction
 
     protected function update($data)
     {
-        $processor = new CoursePriceProcessor();
+        $processor = new CourseProcessor();
 //        $data['no'] = CourseService::createCourseNo(array_get($data, 'year'), array_get($data, 'major_no'), array_get($data, 'level_no'), array_get($data, 'num'));
         list($status, $courseId) = $processor->update($this->record->id, $data);
         if (empty($status)) {

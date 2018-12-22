@@ -68,6 +68,7 @@ class CreateAction extends BaseAction
         $majorNo = $httpTool->getBothSafeParam('major_no');
         $levelNo = $httpTool->getBothSafeParam('level_no');
         $description = $httpTool->getBothSafeParam('description');
+        $content = $httpTool->getBothSafeParam('content');
         $num = $httpTool->getBothSafeParam('num', HttpConfig::PARAM_NUMBER_TYPE);
         if(empty($year)){
             $this->errorJson(500, '开班年份不能为空');
@@ -94,6 +95,7 @@ class CreateAction extends BaseAction
             'major_no'  =>  $majorNo,
             'level_no'  =>  $levelNo,
             'description'   =>  $description,
+            'content'   =>  $content,
             'num'       =>  $num,
         ];
         $res = $this->save($data);

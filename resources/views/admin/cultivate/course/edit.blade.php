@@ -1,6 +1,7 @@
 @extends('admin.layouts.main')
 @section('title', '编辑开班-开班管理-培训中心')
 @section('other_resource')
+    @include('admin.layouts.ue')
 @endsection
 @section('wrapper_content')
     <div class="box box-default">
@@ -15,10 +16,6 @@
                         <div class="form-group">
                             <label>名称 *</label>
                             <input type="text" name="name" class="form-control" value="{{ $record->name }}" required>
-                        </div>
-                        <div class="form-group">
-                            <label>编号 *</label>
-                            <input type="text" name="no" class="form-control" value="{{ $record->no }}" required>
                         </div>
                         <div class="form-group">
                             <label>年份 *</label>
@@ -41,6 +38,10 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
+                            <label>编号 *</label>
+                            <input type="text" name="no" class="form-control" value="{{ $record->no }}" required>
+                        </div>
+                        <div class="form-group">
                             <label>课程等级 *</label>
                             <select name="level_no" class="form-control" style="width: 100%;">
                                 <option value="">请选择</option>
@@ -56,6 +57,12 @@
                             <textarea class="form-control" name="description" rows="4" placeholder="请输简介">{{ $record->description }}</textarea>
                         </div>
                     </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>内容</label>
+                            <textarea id="content" name="content" rows="3" placeholder="请输入内容">{{ $record->content }}</textarea>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="box-footer">
@@ -63,6 +70,9 @@
             </div>
         </form>
     </div>
+    <script>
+        initUEditor('content');
+    </script>
     <script>
         function groupSave() {
             if (confirm('确定提交？')) {

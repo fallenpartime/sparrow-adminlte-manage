@@ -33,7 +33,7 @@ class CultivateCourse extends Model
 
     public function prices()
     {
-        return $this->hasMany(CultivateCoursePrice::class, 'course_no', 'no');
+        return $this->belongsToMany(CultivateCoursePrice::class, 'course_no', 'no');
     }
 
     public function teachers()
